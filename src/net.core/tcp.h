@@ -83,10 +83,8 @@ namespace net::core
 		// acceptor
 		std::optional<boost::asio::ip::tcp::acceptor> acceptor;
 
-		// 세션 uid 카운터
 		std::atomic<uint32_t> connection_id_counter { 10000 };
 
-		// 세션 관리 맵
 		common::ts_map<uint32_t, std::shared_ptr<connection>> connections;
 
 		// 디스패처가 읽는 부분

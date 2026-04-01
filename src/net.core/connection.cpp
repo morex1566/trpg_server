@@ -89,7 +89,7 @@ void net::core::connection::async_read_payload(std::shared_ptr<uint8_t> packet_o
 
             // 리퀘스트 등록
             requests.enqueue(net::packet::packet_request{ connection_id, header->type_id(), packet_owner });
-
+            
             async_read_header();
         }));
 }
