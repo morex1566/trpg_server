@@ -1,16 +1,12 @@
 #include "pch.h"
+#include "game_engine.h"
 #include "net.core/tcp.h"
 #include "net.logic/logic.h"
 #include "net.common/log.h"
 #include "net.common/time.h"
-#include "game_engine.h"
 
 #define IP "192.168.0.3"
 #define TCP_PORT 60000
-#define RUDP_PORT 50000
-#define SESSION_SIZE 100000
-#define SEND_BUFFER_SIZE 320LL * 1024 * 1024
-#define RECV_BUFFER_SIZE 320LL * 1024 * 1024
 
 int main()
 {

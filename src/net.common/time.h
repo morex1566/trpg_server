@@ -10,16 +10,18 @@ namespace net::common
     class time : public singleton<time>
     {
     public:
+
         enum class time_unit 
         {
             SECOND,
             MILLISECOND
         };
 
+    public:
+
         time();
         ~time() noexcept override;
 
-        // 마지막 tick() 호출 이후 경과 시간
         float delta_time(time_unit unit = time_unit::SECOND) const 
         {
             switch (unit) 
@@ -30,7 +32,6 @@ namespace net::common
             }
         }
 
-        // 현재 프레임의 시작 시각을 기록하고 델타 타임을 업데이트
         void tick();
 
     private:

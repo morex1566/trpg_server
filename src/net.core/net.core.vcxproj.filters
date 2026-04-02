@@ -21,9 +21,6 @@
     <ClInclude Include="connection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="rudp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="tcp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -33,9 +30,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="connection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="rudp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tcp.cpp">

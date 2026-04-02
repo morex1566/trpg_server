@@ -55,6 +55,15 @@ void net::core::connection::async_read_header()
 
             const auto* header = reinterpret_cast<const net::protocol::packet_header*>(header_read_buffer);
             uint16_t payload_size = header->payload_size();
+
+            // 악의적 패킷 크기로 인한 로그 Spam 방지 및 할당 고갈 방어
+            if (payload_size > 4096)
+            {
+                SPDLOG_WARN("payload size exceeded max limit ({}). Disconnecting session_id: {}", payload_size, connection_id);
+                if (on_disconnected) on_disconnected(connection_id);
+                stop();
+                return;
+            }
     
             // 패킷 공간 풀링
             auto packet_owner = net::common::ts_memory_pool::get_instance().rent(sizeof(net::protocol::packet_header) + payload_size);

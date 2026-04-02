@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClInclude Include="connection.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="rudp.h" />
     <ClInclude Include="tcp.h" />
   </ItemGroup>
   <ItemGroup>
@@ -149,7 +148,6 @@
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="rudp.cpp" />
     <ClCompile Include="tcp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
