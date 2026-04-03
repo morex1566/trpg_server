@@ -3,7 +3,7 @@
 #include "net.common/singleton.h"
 #include "net.common/ts_memory_pool.h"
 #include "net.core/connection.h"
-#include "net.packet/packet.h"
+#include "net.core/packet.h"
 #include <moodycamel/blockingconcurrentqueue.h>
 
 namespace net::core
@@ -30,7 +30,7 @@ namespace net::core
 		void close();
 
 		bool is_runnable() const { return is_running; }
-		moodycamel::BlockingConcurrentQueue<net::packet::packet_request>& get_requests() { return requests; }
+		moodycamel::BlockingConcurrentQueue<packet_request>& get_requests() { return requests; }
 
 		void async_accept();
 		void disconnect(uint32_t connection_id);
@@ -53,7 +53,7 @@ namespace net::core
 		std::optional<boost::asio::ip::tcp::acceptor> acceptor;
 		std::atomic<uint32_t> connection_id_counter { 10000 };
 		common::ts_map<uint32_t, std::shared_ptr<connection>> connections;
-		moodycamel::BlockingConcurrentQueue<net::packet::packet_request> requests;
+		moodycamel::BlockingConcurrentQueue<packet_request> requests;
 	};
 }
 

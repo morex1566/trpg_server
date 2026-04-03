@@ -1,5 +1,6 @@
-#include "pch.h"
+
 #include "time.h"
+#include "log.h"
 
 namespace net::common
 {
@@ -7,7 +8,7 @@ namespace net::common
     {
         last_tick = std::chrono::steady_clock::now();
 
-        SPDLOG_INFO("create {} instance.", typeid(net::common::time).name());
+        SPDLOG_INFO("create {} instance.", net::common::demangle(typeid(net::common::time).name()));
     }
 
     time::~time()

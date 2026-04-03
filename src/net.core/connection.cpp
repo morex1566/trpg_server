@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "connection.h"
 
 net::core::connection::connection
@@ -7,7 +7,7 @@ net::core::connection::connection
     boost::asio::ip::tcp::socket&& client_socket,
     uint32_t connection_id,
     std::function<void(uint32_t)> on_disconnected,
-    moodycamel::BlockingConcurrentQueue<net::packet::packet_request>& requests
+    moodycamel::BlockingConcurrentQueue<packet_request>& requests
 ) : context(context),
     strand(context.get_executor()),
     socket(std::move(client_socket)),
@@ -97,7 +97,7 @@ void net::core::connection::async_read_payload(std::shared_ptr<uint8_t> packet_o
             const auto* header = reinterpret_cast<const net::protocol::packet_header*>(packet_owner.get());
 
             // 리퀘스트 등록
-            requests.enqueue(net::packet::packet_request{ connection_id, header->type_id(), packet_owner });
+            requests.enqueue(packet_request{ connection_id, header->type_id(), packet_owner });
             
             async_read_header();
         }));

@@ -4,6 +4,30 @@
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include <iostream>
 #include <typeinfo>
+#include <string>
+
+#ifndef _WIN32
+#include <cxxabi.h>
+#include <memory>
+#include <cstdlib>
+#endif
+
+namespace net::common
+{
+    inline std::string demangle(const char* name)
+    {
+#ifdef _WIN32
+        return name;
+#else
+        int status = 0;
+        std::unique_ptr<char, void(*)(void*)> res {
+            abi::__cxa_demangle(name, nullptr, nullptr, &status),
+            std::free
+        };
+        return (status == 0) ? res.get() : name;
+#endif
+    }
+}
 
 #define CHECK_RETURN_VOID_ERROR(condition, ...) \
     do { \

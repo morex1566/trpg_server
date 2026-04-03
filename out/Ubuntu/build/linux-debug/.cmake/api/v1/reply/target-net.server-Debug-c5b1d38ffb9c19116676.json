@@ -1,0 +1,226 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "src/net.server/net.server"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_libraries",
+			"include_directories",
+			"target_include_directories",
+			"set_property"
+		],
+		"files" : 
+		[
+			"src/net.server/CMakeLists.txt",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 14,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 17,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 18,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 10
+	},
+	"compileDependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "net.core::@fb5f86c95c16e33e42a6"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "net.common::@f5b4570f5c5cb9dbdc7e"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "spdlog::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "flatbuffers::@6890427a1f51a3e7e1df"
+		}
+	],
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -std=gnu++20"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 4,
+					"path" : "/home/morex/.vs/us2d_server/include"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/morex/.vs/us2d_server/src"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/morex/.vs/us2d_server/src/net.server/.."
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/morex/.vs/us2d_server/src/net.common/.."
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					7
+				],
+				"standard" : "20"
+			},
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "net.common::@f5b4570f5c5cb9dbdc7e"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "net.core::@fb5f86c95c16e33e42a6"
+		}
+	],
+	"id" : "net.server::@5bdf2e6a4e4bbbd96305",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/home/morex/.vs/us2d_server/lib/debug/libnet.core.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/home/morex/.vs/us2d_server/lib/debug/libnet.common.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/home/morex/.vs/us2d_server/external/spdlog/debug/libspdlogd.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/home/morex/.vs/us2d_server/external/flatbuffers/debug/libflatbuffersd.a",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"linkLibraries" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "net.core::@fb5f86c95c16e33e42a6"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "net.common::@f5b4570f5c5cb9dbdc7e"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "spdlog::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "flatbuffers::@6890427a1f51a3e7e1df"
+		}
+	],
+	"name" : "net.server",
+	"nameOnDisk" : "net.server",
+	"paths" : 
+	{
+		"build" : "src/net.server",
+		"source" : "src/net.server"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/net.server/main.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

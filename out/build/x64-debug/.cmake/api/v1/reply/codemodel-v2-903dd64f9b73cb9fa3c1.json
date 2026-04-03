@@ -1,0 +1,159 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src/net.common",
+					"jsonFile" : "directory-src.net.common-Debug-71cfe71bd4e32cd37b99.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "src/net.common",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "src/net.core",
+					"jsonFile" : "directory-src.net.core-Debug-8ed1d855ff71a25e52fd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "src/net.core",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "src/net.server",
+					"jsonFile" : "directory-src.net.server-Debug-5ccfede09401832b2418.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "src/net.server",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "us2d_server"
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "net.common",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "net.core",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "net.server",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "net.common::@f5b4570f5c5cb9dbdc7e",
+					"jsonFile" : "target-net.common-Debug-56b325ed4dc588d8ca3c.json",
+					"name" : "net.common",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "net.core::@fb5f86c95c16e33e42a6",
+					"jsonFile" : "target-net.core-Debug-206373c663c7e5f9c9ab.json",
+					"name" : "net.core",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "net.server::@5bdf2e6a4e4bbbd96305",
+					"jsonFile" : "target-net.server-Debug-f77a985cca4595650c50.json",
+					"name" : "net.server",
+					"projectIndex" : 3
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Devs/us2d_server/out/build/x64-debug",
+		"source" : "D:/Devs/us2d_server"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

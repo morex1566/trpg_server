@@ -1,6 +1,7 @@
 #pragma once
 #include "net.common/unit.h"
 #include <cstdint>
+#include <cstddef>
 
 namespace net::common
 {

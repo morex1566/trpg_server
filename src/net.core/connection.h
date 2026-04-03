@@ -1,7 +1,8 @@
 #pragma once
-#include "net.packet/packet.h"
+#include "net.core/packet.h"
 #include "net.common/system_config.h"
 #include "net.common/ts_memory_pool.h"
+#include <boost/asio.hpp>
 #include <moodycamel/blockingconcurrentqueue.h>
 #include <functional>
 
@@ -17,7 +18,7 @@ namespace net::core
 			boost::asio::ip::tcp::socket&& client_socket,
 			uint32_t connection_id,
 			std::function<void(uint32_t)> on_disconnected,
-			moodycamel::BlockingConcurrentQueue<net::packet::packet_request>& requests
+			moodycamel::BlockingConcurrentQueue<packet_request>& requests
 		);
 
 		connection(const connection&) = delete;
@@ -71,7 +72,7 @@ namespace net::core
 
 		// 디스패처가 읽는 부분
 		// TODO : 시퀀스 -> priority queue로 구현?
-		moodycamel::BlockingConcurrentQueue<net::packet::packet_request>& requests;
+		moodycamel::BlockingConcurrentQueue<packet_request>& requests;
 	};
 }
 

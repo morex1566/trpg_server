@@ -1,0 +1,2980 @@
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/local/sbin/uname"
+      - "/usr/local/bin/uname"
+      - "/usr/sbin/uname"
+    found: "/usr/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      The system is: Linux - 6.6.87.2-microsoft-standard-WSL2 - x86_64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeNinjaFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Program used to build from build.ninja files."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ninja-build"
+      - "ninja"
+      - "samu"
+    candidate_directories:
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/local/sbin/ninja-build"
+      - "/usr/local/sbin/ninja"
+      - "/usr/local/sbin/samu"
+      - "/usr/local/bin/ninja-build"
+      - "/usr/local/bin/ninja"
+      - "/usr/local/bin/samu"
+      - "/usr/sbin/ninja-build"
+      - "/usr/sbin/ninja"
+      - "/usr/sbin/samu"
+      - "/usr/bin/ninja-build"
+    found: "/usr/bin/ninja"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompiler.cmake:115 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:67 (_cmake_find_compiler_path)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-12"
+    candidate_directories:
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/local/sbin/gcc-12"
+      - "/usr/local/bin/gcc-12"
+      - "/usr/sbin/gcc-12"
+    found: "/usr/bin/gcc-12"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "/usr/share/cmake-4.3/Modules/"
+    found: "/usr/share/cmake-4.3/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /usr/bin/gcc-12 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /mnt/d/Devs/us2d_server/out/build/linux-debug/CMakeFiles/4.3.0/CompilerIdC/a.out
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ar-12"
+      - "ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/ar-12"
+      - "/usr/local/sbin/ar-12"
+      - "/usr/local/bin/ar-12"
+      - "/usr/sbin/ar-12"
+      - "/sbin/ar-12"
+      - "/bin/ar-12"
+      - "/usr/games/ar-12"
+      - "/usr/local/games/ar-12"
+      - "/usr/lib/wsl/lib/ar-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/ar-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/ar-12"
+      - "/mnt/c/WINDOWS/system32/ar-12"
+      - "/mnt/c/WINDOWS/ar-12"
+      - "/mnt/c/WINDOWS/System32/Wbem/ar-12"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/ar-12"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/ar-12"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/ar-12"
+      - "/mnt/d/Tools/NPM/ar-12"
+      - "/mnt/c/ProgramData/chocolatey/bin/ar-12"
+      - "/mnt/d/Tools/PuTTY/ar-12"
+      - "/mnt/c/Program Files/dotnet/ar-12"
+      - "/mnt/d/Apps/CMake/bin/ar-12"
+      - "/mnt/d/Apps/Git/Git/cmd/ar-12"
+      - "/mnt/d/Tools/PowerShell/7/ar-12"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/ar-12"
+      - "/Docker/host/bin/ar-12"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/ar-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/ar-12"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/ar-12"
+      - "/mnt/c/Users/morex/.dotnet/tools/ar-12"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/ar-12"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/ar-12"
+    found: "/usr/bin/ar"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_RANLIB"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ranlib-12"
+      - "ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/ranlib-12"
+      - "/usr/local/sbin/ranlib-12"
+      - "/usr/local/bin/ranlib-12"
+      - "/usr/sbin/ranlib-12"
+      - "/sbin/ranlib-12"
+      - "/bin/ranlib-12"
+      - "/usr/games/ranlib-12"
+      - "/usr/local/games/ranlib-12"
+      - "/usr/lib/wsl/lib/ranlib-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/ranlib-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/ranlib-12"
+      - "/mnt/c/WINDOWS/system32/ranlib-12"
+      - "/mnt/c/WINDOWS/ranlib-12"
+      - "/mnt/c/WINDOWS/System32/Wbem/ranlib-12"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/ranlib-12"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/ranlib-12"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/ranlib-12"
+      - "/mnt/d/Tools/NPM/ranlib-12"
+      - "/mnt/c/ProgramData/chocolatey/bin/ranlib-12"
+      - "/mnt/d/Tools/PuTTY/ranlib-12"
+      - "/mnt/c/Program Files/dotnet/ranlib-12"
+      - "/mnt/d/Apps/CMake/bin/ranlib-12"
+      - "/mnt/d/Apps/Git/Git/cmd/ranlib-12"
+      - "/mnt/d/Tools/PowerShell/7/ranlib-12"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/ranlib-12"
+      - "/Docker/host/bin/ranlib-12"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/ranlib-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/ranlib-12"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/ranlib-12"
+      - "/mnt/c/Users/morex/.dotnet/tools/ranlib-12"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/ranlib-12"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/ranlib-12"
+    found: "/usr/bin/ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "strip-12"
+      - "strip"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/strip-12"
+      - "/usr/local/sbin/strip-12"
+      - "/usr/local/bin/strip-12"
+      - "/usr/sbin/strip-12"
+      - "/sbin/strip-12"
+      - "/bin/strip-12"
+      - "/usr/games/strip-12"
+      - "/usr/local/games/strip-12"
+      - "/usr/lib/wsl/lib/strip-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/strip-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/strip-12"
+      - "/mnt/c/WINDOWS/system32/strip-12"
+      - "/mnt/c/WINDOWS/strip-12"
+      - "/mnt/c/WINDOWS/System32/Wbem/strip-12"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/strip-12"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/strip-12"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/strip-12"
+      - "/mnt/d/Tools/NPM/strip-12"
+      - "/mnt/c/ProgramData/chocolatey/bin/strip-12"
+      - "/mnt/d/Tools/PuTTY/strip-12"
+      - "/mnt/c/Program Files/dotnet/strip-12"
+      - "/mnt/d/Apps/CMake/bin/strip-12"
+      - "/mnt/d/Apps/Git/Git/cmd/strip-12"
+      - "/mnt/d/Tools/PowerShell/7/strip-12"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/strip-12"
+      - "/Docker/host/bin/strip-12"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/strip-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/strip-12"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/strip-12"
+      - "/mnt/c/Users/morex/.dotnet/tools/strip-12"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/strip-12"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/strip-12"
+    found: "/usr/bin/strip"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld-12"
+      - "ld"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/ld-12"
+      - "/usr/local/sbin/ld-12"
+      - "/usr/local/bin/ld-12"
+      - "/usr/sbin/ld-12"
+      - "/sbin/ld-12"
+      - "/bin/ld-12"
+      - "/usr/games/ld-12"
+      - "/usr/local/games/ld-12"
+      - "/usr/lib/wsl/lib/ld-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/ld-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/ld-12"
+      - "/mnt/c/WINDOWS/system32/ld-12"
+      - "/mnt/c/WINDOWS/ld-12"
+      - "/mnt/c/WINDOWS/System32/Wbem/ld-12"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/ld-12"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/ld-12"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/ld-12"
+      - "/mnt/d/Tools/NPM/ld-12"
+      - "/mnt/c/ProgramData/chocolatey/bin/ld-12"
+      - "/mnt/d/Tools/PuTTY/ld-12"
+      - "/mnt/c/Program Files/dotnet/ld-12"
+      - "/mnt/d/Apps/CMake/bin/ld-12"
+      - "/mnt/d/Apps/Git/Git/cmd/ld-12"
+      - "/mnt/d/Tools/PowerShell/7/ld-12"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/ld-12"
+      - "/Docker/host/bin/ld-12"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/ld-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/ld-12"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/ld-12"
+      - "/mnt/c/Users/morex/.dotnet/tools/ld-12"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/ld-12"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/ld-12"
+    found: "/usr/bin/ld"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nm-12"
+      - "nm"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/nm-12"
+      - "/usr/local/sbin/nm-12"
+      - "/usr/local/bin/nm-12"
+      - "/usr/sbin/nm-12"
+      - "/sbin/nm-12"
+      - "/bin/nm-12"
+      - "/usr/games/nm-12"
+      - "/usr/local/games/nm-12"
+      - "/usr/lib/wsl/lib/nm-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/nm-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/nm-12"
+      - "/mnt/c/WINDOWS/system32/nm-12"
+      - "/mnt/c/WINDOWS/nm-12"
+      - "/mnt/c/WINDOWS/System32/Wbem/nm-12"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/nm-12"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/nm-12"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/nm-12"
+      - "/mnt/d/Tools/NPM/nm-12"
+      - "/mnt/c/ProgramData/chocolatey/bin/nm-12"
+      - "/mnt/d/Tools/PuTTY/nm-12"
+      - "/mnt/c/Program Files/dotnet/nm-12"
+      - "/mnt/d/Apps/CMake/bin/nm-12"
+      - "/mnt/d/Apps/Git/Git/cmd/nm-12"
+      - "/mnt/d/Tools/PowerShell/7/nm-12"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/nm-12"
+      - "/Docker/host/bin/nm-12"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/nm-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/nm-12"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/nm-12"
+      - "/mnt/c/Users/morex/.dotnet/tools/nm-12"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/nm-12"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/nm-12"
+    found: "/usr/bin/nm"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objdump-12"
+      - "objdump"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/objdump-12"
+      - "/usr/local/sbin/objdump-12"
+      - "/usr/local/bin/objdump-12"
+      - "/usr/sbin/objdump-12"
+      - "/sbin/objdump-12"
+      - "/bin/objdump-12"
+      - "/usr/games/objdump-12"
+      - "/usr/local/games/objdump-12"
+      - "/usr/lib/wsl/lib/objdump-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/objdump-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/objdump-12"
+      - "/mnt/c/WINDOWS/system32/objdump-12"
+      - "/mnt/c/WINDOWS/objdump-12"
+      - "/mnt/c/WINDOWS/System32/Wbem/objdump-12"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/objdump-12"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/objdump-12"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/objdump-12"
+      - "/mnt/d/Tools/NPM/objdump-12"
+      - "/mnt/c/ProgramData/chocolatey/bin/objdump-12"
+      - "/mnt/d/Tools/PuTTY/objdump-12"
+      - "/mnt/c/Program Files/dotnet/objdump-12"
+      - "/mnt/d/Apps/CMake/bin/objdump-12"
+      - "/mnt/d/Apps/Git/Git/cmd/objdump-12"
+      - "/mnt/d/Tools/PowerShell/7/objdump-12"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/objdump-12"
+      - "/Docker/host/bin/objdump-12"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/objdump-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/objdump-12"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/objdump-12"
+      - "/mnt/c/Users/morex/.dotnet/tools/objdump-12"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/objdump-12"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/objdump-12"
+    found: "/usr/bin/objdump"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objcopy-12"
+      - "objcopy"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/objcopy-12"
+      - "/usr/local/sbin/objcopy-12"
+      - "/usr/local/bin/objcopy-12"
+      - "/usr/sbin/objcopy-12"
+      - "/sbin/objcopy-12"
+      - "/bin/objcopy-12"
+      - "/usr/games/objcopy-12"
+      - "/usr/local/games/objcopy-12"
+      - "/usr/lib/wsl/lib/objcopy-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/objcopy-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/objcopy-12"
+      - "/mnt/c/WINDOWS/system32/objcopy-12"
+      - "/mnt/c/WINDOWS/objcopy-12"
+      - "/mnt/c/WINDOWS/System32/Wbem/objcopy-12"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/objcopy-12"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/objcopy-12"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/objcopy-12"
+      - "/mnt/d/Tools/NPM/objcopy-12"
+      - "/mnt/c/ProgramData/chocolatey/bin/objcopy-12"
+      - "/mnt/d/Tools/PuTTY/objcopy-12"
+      - "/mnt/c/Program Files/dotnet/objcopy-12"
+      - "/mnt/d/Apps/CMake/bin/objcopy-12"
+      - "/mnt/d/Apps/Git/Git/cmd/objcopy-12"
+      - "/mnt/d/Tools/PowerShell/7/objcopy-12"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/objcopy-12"
+      - "/Docker/host/bin/objcopy-12"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/objcopy-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/objcopy-12"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/objcopy-12"
+      - "/mnt/c/Users/morex/.dotnet/tools/objcopy-12"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/objcopy-12"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/objcopy-12"
+    found: "/usr/bin/objcopy"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "readelf-12"
+      - "readelf"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/readelf-12"
+      - "/usr/local/sbin/readelf-12"
+      - "/usr/local/bin/readelf-12"
+      - "/usr/sbin/readelf-12"
+      - "/sbin/readelf-12"
+      - "/bin/readelf-12"
+      - "/usr/games/readelf-12"
+      - "/usr/local/games/readelf-12"
+      - "/usr/lib/wsl/lib/readelf-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/readelf-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/readelf-12"
+      - "/mnt/c/WINDOWS/system32/readelf-12"
+      - "/mnt/c/WINDOWS/readelf-12"
+      - "/mnt/c/WINDOWS/System32/Wbem/readelf-12"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/readelf-12"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/readelf-12"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/readelf-12"
+      - "/mnt/d/Tools/NPM/readelf-12"
+      - "/mnt/c/ProgramData/chocolatey/bin/readelf-12"
+      - "/mnt/d/Tools/PuTTY/readelf-12"
+      - "/mnt/c/Program Files/dotnet/readelf-12"
+      - "/mnt/d/Apps/CMake/bin/readelf-12"
+      - "/mnt/d/Apps/Git/Git/cmd/readelf-12"
+      - "/mnt/d/Tools/PowerShell/7/readelf-12"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/readelf-12"
+      - "/Docker/host/bin/readelf-12"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/readelf-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/readelf-12"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/readelf-12"
+      - "/mnt/c/Users/morex/.dotnet/tools/readelf-12"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/readelf-12"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/readelf-12"
+    found: "/usr/bin/readelf"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "dlltool-12"
+      - "dlltool"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/dlltool-12"
+      - "/usr/local/sbin/dlltool-12"
+      - "/usr/local/bin/dlltool-12"
+      - "/usr/sbin/dlltool-12"
+      - "/sbin/dlltool-12"
+      - "/bin/dlltool-12"
+      - "/usr/games/dlltool-12"
+      - "/usr/local/games/dlltool-12"
+      - "/usr/lib/wsl/lib/dlltool-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/dlltool-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/dlltool-12"
+      - "/mnt/c/WINDOWS/system32/dlltool-12"
+      - "/mnt/c/WINDOWS/dlltool-12"
+      - "/mnt/c/WINDOWS/System32/Wbem/dlltool-12"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/dlltool-12"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/dlltool-12"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/dlltool-12"
+      - "/mnt/d/Tools/NPM/dlltool-12"
+      - "/mnt/c/ProgramData/chocolatey/bin/dlltool-12"
+      - "/mnt/d/Tools/PuTTY/dlltool-12"
+      - "/mnt/c/Program Files/dotnet/dlltool-12"
+      - "/mnt/d/Apps/CMake/bin/dlltool-12"
+      - "/mnt/d/Apps/Git/Git/cmd/dlltool-12"
+      - "/mnt/d/Tools/PowerShell/7/dlltool-12"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/dlltool-12"
+      - "/Docker/host/bin/dlltool-12"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/dlltool-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/dlltool-12"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/dlltool-12"
+      - "/mnt/c/Users/morex/.dotnet/tools/dlltool-12"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/dlltool-12"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/dlltool-12"
+      - "/usr/bin/dlltool"
+      - "/usr/local/sbin/dlltool"
+      - "/usr/local/bin/dlltool"
+      - "/usr/sbin/dlltool"
+      - "/sbin/dlltool"
+      - "/bin/dlltool"
+      - "/usr/games/dlltool"
+      - "/usr/local/games/dlltool"
+      - "/usr/lib/wsl/lib/dlltool"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/dlltool"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/dlltool"
+      - "/mnt/c/WINDOWS/system32/dlltool"
+      - "/mnt/c/WINDOWS/dlltool"
+      - "/mnt/c/WINDOWS/System32/Wbem/dlltool"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/dlltool"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/dlltool"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/dlltool"
+      - "/mnt/d/Tools/NPM/dlltool"
+      - "/mnt/c/ProgramData/chocolatey/bin/dlltool"
+      - "/mnt/d/Tools/PuTTY/dlltool"
+      - "/mnt/c/Program Files/dotnet/dlltool"
+      - "/mnt/d/Apps/CMake/bin/dlltool"
+      - "/mnt/d/Apps/Git/Git/cmd/dlltool"
+      - "/mnt/d/Tools/PowerShell/7/dlltool"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/dlltool"
+      - "/Docker/host/bin/dlltool"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/dlltool"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/dlltool"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/dlltool"
+      - "/mnt/c/Users/morex/.dotnet/tools/dlltool"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/dlltool"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/dlltool"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "addr2line-12"
+      - "addr2line"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/addr2line-12"
+      - "/usr/local/sbin/addr2line-12"
+      - "/usr/local/bin/addr2line-12"
+      - "/usr/sbin/addr2line-12"
+      - "/sbin/addr2line-12"
+      - "/bin/addr2line-12"
+      - "/usr/games/addr2line-12"
+      - "/usr/local/games/addr2line-12"
+      - "/usr/lib/wsl/lib/addr2line-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/addr2line-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/addr2line-12"
+      - "/mnt/c/WINDOWS/system32/addr2line-12"
+      - "/mnt/c/WINDOWS/addr2line-12"
+      - "/mnt/c/WINDOWS/System32/Wbem/addr2line-12"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/addr2line-12"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/addr2line-12"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/addr2line-12"
+      - "/mnt/d/Tools/NPM/addr2line-12"
+      - "/mnt/c/ProgramData/chocolatey/bin/addr2line-12"
+      - "/mnt/d/Tools/PuTTY/addr2line-12"
+      - "/mnt/c/Program Files/dotnet/addr2line-12"
+      - "/mnt/d/Apps/CMake/bin/addr2line-12"
+      - "/mnt/d/Apps/Git/Git/cmd/addr2line-12"
+      - "/mnt/d/Tools/PowerShell/7/addr2line-12"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/addr2line-12"
+      - "/Docker/host/bin/addr2line-12"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/addr2line-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/addr2line-12"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/addr2line-12"
+      - "/mnt/c/Users/morex/.dotnet/tools/addr2line-12"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/addr2line-12"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/addr2line-12"
+    found: "/usr/bin/addr2line"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi-12"
+      - "tapi"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/tapi-12"
+      - "/usr/local/sbin/tapi-12"
+      - "/usr/local/bin/tapi-12"
+      - "/usr/sbin/tapi-12"
+      - "/sbin/tapi-12"
+      - "/bin/tapi-12"
+      - "/usr/games/tapi-12"
+      - "/usr/local/games/tapi-12"
+      - "/usr/lib/wsl/lib/tapi-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/tapi-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/tapi-12"
+      - "/mnt/c/WINDOWS/system32/tapi-12"
+      - "/mnt/c/WINDOWS/tapi-12"
+      - "/mnt/c/WINDOWS/System32/Wbem/tapi-12"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/tapi-12"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/tapi-12"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/tapi-12"
+      - "/mnt/d/Tools/NPM/tapi-12"
+      - "/mnt/c/ProgramData/chocolatey/bin/tapi-12"
+      - "/mnt/d/Tools/PuTTY/tapi-12"
+      - "/mnt/c/Program Files/dotnet/tapi-12"
+      - "/mnt/d/Apps/CMake/bin/tapi-12"
+      - "/mnt/d/Apps/Git/Git/cmd/tapi-12"
+      - "/mnt/d/Tools/PowerShell/7/tapi-12"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/tapi-12"
+      - "/Docker/host/bin/tapi-12"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/tapi-12"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/tapi-12"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/tapi-12"
+      - "/mnt/c/Users/morex/.dotnet/tools/tapi-12"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/tapi-12"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/tapi-12"
+      - "/usr/bin/tapi"
+      - "/usr/local/sbin/tapi"
+      - "/usr/local/bin/tapi"
+      - "/usr/sbin/tapi"
+      - "/sbin/tapi"
+      - "/bin/tapi"
+      - "/usr/games/tapi"
+      - "/usr/local/games/tapi"
+      - "/usr/lib/wsl/lib/tapi"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/tapi"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/tapi"
+      - "/mnt/c/WINDOWS/system32/tapi"
+      - "/mnt/c/WINDOWS/tapi"
+      - "/mnt/c/WINDOWS/System32/Wbem/tapi"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/tapi"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/tapi"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/tapi"
+      - "/mnt/d/Tools/NPM/tapi"
+      - "/mnt/c/ProgramData/chocolatey/bin/tapi"
+      - "/mnt/d/Tools/PuTTY/tapi"
+      - "/mnt/c/Program Files/dotnet/tapi"
+      - "/mnt/d/Apps/CMake/bin/tapi"
+      - "/mnt/d/Apps/Git/Git/cmd/tapi"
+      - "/mnt/d/Tools/PowerShell/7/tapi"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/tapi"
+      - "/Docker/host/bin/tapi"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/tapi"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/tapi"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/tapi"
+      - "/mnt/c/Users/morex/.dotnet/tools/tapi"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/tapi"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/tapi"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-12.3"
+      - "gcc-ar-12"
+      - "gcc-ar12"
+      - "gcc-ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ar-12.3"
+      - "/usr/local/sbin/gcc-ar-12.3"
+      - "/usr/local/bin/gcc-ar-12.3"
+      - "/usr/sbin/gcc-ar-12.3"
+      - "/sbin/gcc-ar-12.3"
+      - "/bin/gcc-ar-12.3"
+      - "/usr/games/gcc-ar-12.3"
+      - "/usr/local/games/gcc-ar-12.3"
+      - "/usr/lib/wsl/lib/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/gcc-ar-12.3"
+      - "/mnt/c/WINDOWS/system32/gcc-ar-12.3"
+      - "/mnt/c/WINDOWS/gcc-ar-12.3"
+      - "/mnt/c/WINDOWS/System32/Wbem/gcc-ar-12.3"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/gcc-ar-12.3"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/gcc-ar-12.3"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/gcc-ar-12.3"
+      - "/mnt/d/Tools/NPM/gcc-ar-12.3"
+      - "/mnt/c/ProgramData/chocolatey/bin/gcc-ar-12.3"
+      - "/mnt/d/Tools/PuTTY/gcc-ar-12.3"
+      - "/mnt/c/Program Files/dotnet/gcc-ar-12.3"
+      - "/mnt/d/Apps/CMake/bin/gcc-ar-12.3"
+      - "/mnt/d/Apps/Git/Git/cmd/gcc-ar-12.3"
+      - "/mnt/d/Tools/PowerShell/7/gcc-ar-12.3"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/gcc-ar-12.3"
+      - "/Docker/host/bin/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/.dotnet/tools/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/gcc-ar-12.3"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/gcc-ar-12.3"
+    found: "/usr/bin/gcc-ar-12"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-12.3"
+      - "gcc-ranlib-12"
+      - "gcc-ranlib12"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ranlib-12.3"
+      - "/usr/local/sbin/gcc-ranlib-12.3"
+      - "/usr/local/bin/gcc-ranlib-12.3"
+      - "/usr/sbin/gcc-ranlib-12.3"
+      - "/sbin/gcc-ranlib-12.3"
+      - "/bin/gcc-ranlib-12.3"
+      - "/usr/games/gcc-ranlib-12.3"
+      - "/usr/local/games/gcc-ranlib-12.3"
+      - "/usr/lib/wsl/lib/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/gcc-ranlib-12.3"
+      - "/mnt/c/WINDOWS/system32/gcc-ranlib-12.3"
+      - "/mnt/c/WINDOWS/gcc-ranlib-12.3"
+      - "/mnt/c/WINDOWS/System32/Wbem/gcc-ranlib-12.3"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/gcc-ranlib-12.3"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/gcc-ranlib-12.3"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/gcc-ranlib-12.3"
+      - "/mnt/d/Tools/NPM/gcc-ranlib-12.3"
+      - "/mnt/c/ProgramData/chocolatey/bin/gcc-ranlib-12.3"
+      - "/mnt/d/Tools/PuTTY/gcc-ranlib-12.3"
+      - "/mnt/c/Program Files/dotnet/gcc-ranlib-12.3"
+      - "/mnt/d/Apps/CMake/bin/gcc-ranlib-12.3"
+      - "/mnt/d/Apps/Git/Git/cmd/gcc-ranlib-12.3"
+      - "/mnt/d/Tools/PowerShell/7/gcc-ranlib-12.3"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/gcc-ranlib-12.3"
+      - "/Docker/host/bin/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/.dotnet/tools/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/gcc-ranlib-12.3"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/gcc-ranlib-12.3"
+    found: "/usr/bin/gcc-ranlib-12"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompiler.cmake:115 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:71 (_cmake_find_compiler_path)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "g++-12"
+    candidate_directories:
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/usr/bin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/local/sbin/g++-12"
+      - "/usr/local/bin/g++-12"
+      - "/usr/sbin/g++-12"
+    found: "/usr/bin/g++-12"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "/usr/share/cmake-4.3/Modules/"
+    found: "/usr/share/cmake-4.3/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /usr/bin/g++-12 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /mnt/d/Devs/us2d_server/out/build/linux-debug/CMakeFiles/4.3.0/CompilerIdCXX/a.out
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-12.3"
+      - "gcc-ar-12"
+      - "gcc-ar12"
+      - "gcc-ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ar-12.3"
+      - "/usr/local/sbin/gcc-ar-12.3"
+      - "/usr/local/bin/gcc-ar-12.3"
+      - "/usr/sbin/gcc-ar-12.3"
+      - "/sbin/gcc-ar-12.3"
+      - "/bin/gcc-ar-12.3"
+      - "/usr/games/gcc-ar-12.3"
+      - "/usr/local/games/gcc-ar-12.3"
+      - "/usr/lib/wsl/lib/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/gcc-ar-12.3"
+      - "/mnt/c/WINDOWS/system32/gcc-ar-12.3"
+      - "/mnt/c/WINDOWS/gcc-ar-12.3"
+      - "/mnt/c/WINDOWS/System32/Wbem/gcc-ar-12.3"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/gcc-ar-12.3"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/gcc-ar-12.3"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/gcc-ar-12.3"
+      - "/mnt/d/Tools/NPM/gcc-ar-12.3"
+      - "/mnt/c/ProgramData/chocolatey/bin/gcc-ar-12.3"
+      - "/mnt/d/Tools/PuTTY/gcc-ar-12.3"
+      - "/mnt/c/Program Files/dotnet/gcc-ar-12.3"
+      - "/mnt/d/Apps/CMake/bin/gcc-ar-12.3"
+      - "/mnt/d/Apps/Git/Git/cmd/gcc-ar-12.3"
+      - "/mnt/d/Tools/PowerShell/7/gcc-ar-12.3"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/gcc-ar-12.3"
+      - "/Docker/host/bin/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/.dotnet/tools/gcc-ar-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/gcc-ar-12.3"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/gcc-ar-12.3"
+    found: "/usr/bin/gcc-ar-12"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-12.3"
+      - "gcc-ranlib-12"
+      - "gcc-ranlib12"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/bin/"
+      - "/usr/games/"
+      - "/usr/local/games/"
+      - "/usr/lib/wsl/lib/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "/mnt/c/WINDOWS/system32/"
+      - "/mnt/c/WINDOWS/"
+      - "/mnt/c/WINDOWS/System32/Wbem/"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+      - "/mnt/d/Tools/NPM/"
+      - "/mnt/c/ProgramData/chocolatey/bin/"
+      - "/mnt/d/Tools/PuTTY/"
+      - "/mnt/c/Program Files/dotnet/"
+      - "/mnt/d/Apps/CMake/bin/"
+      - "/mnt/d/Apps/Git/Git/cmd/"
+      - "/mnt/d/Tools/PowerShell/7/"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "/Docker/host/bin/"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/"
+      - "/mnt/c/Users/morex/.dotnet/tools/"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ranlib-12.3"
+      - "/usr/local/sbin/gcc-ranlib-12.3"
+      - "/usr/local/bin/gcc-ranlib-12.3"
+      - "/usr/sbin/gcc-ranlib-12.3"
+      - "/sbin/gcc-ranlib-12.3"
+      - "/bin/gcc-ranlib-12.3"
+      - "/usr/games/gcc-ranlib-12.3"
+      - "/usr/local/games/gcc-ranlib-12.3"
+      - "/usr/lib/wsl/lib/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/gcc-ranlib-12.3"
+      - "/mnt/c/WINDOWS/system32/gcc-ranlib-12.3"
+      - "/mnt/c/WINDOWS/gcc-ranlib-12.3"
+      - "/mnt/c/WINDOWS/System32/Wbem/gcc-ranlib-12.3"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/gcc-ranlib-12.3"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/gcc-ranlib-12.3"
+      - "/mnt/d/Tools/P2P/Bandi/Bandizip/gcc-ranlib-12.3"
+      - "/mnt/d/Tools/NPM/gcc-ranlib-12.3"
+      - "/mnt/c/ProgramData/chocolatey/bin/gcc-ranlib-12.3"
+      - "/mnt/d/Tools/PuTTY/gcc-ranlib-12.3"
+      - "/mnt/c/Program Files/dotnet/gcc-ranlib-12.3"
+      - "/mnt/d/Apps/CMake/bin/gcc-ranlib-12.3"
+      - "/mnt/d/Apps/Git/Git/cmd/gcc-ranlib-12.3"
+      - "/mnt/d/Tools/PowerShell/7/gcc-ranlib-12.3"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/gcc-ranlib-12.3"
+      - "/Docker/host/bin/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/AppData/Roaming/npm/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/.dotnet/tools/gcc-ranlib-12.3"
+      - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin/gcc-ranlib-12.3"
+      - "/mnt/d/Apps/Antigravity/Antigravity/bin/gcc-ranlib-12.3"
+    found: "/usr/bin/gcc-ranlib-12"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310/Scripts"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Python/Python310"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/d/Tools/P2P/Bandi/Bandizip/"
+        - "/mnt/d/Tools/NPM/"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/d/Tools/PuTTY/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/d/Apps/CMake/bin"
+        - "/mnt/d/Apps/Git/Git/cmd"
+        - "/mnt/d/Tools/PowerShell/7/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/Docker/host/bin"
+        - "/mnt/c/Users/morex/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/Users/morex/AppData/Roaming/npm"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+        - "/mnt/c/Users/morex/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/d/Apps/Antigravity/Antigravity/bin"
+        - "/mnt/c/Users/morex/.dotnet/tools"
+      CMAKE_INSTALL_PREFIX: "/mnt/d/Devs/us2d_server/out/install/linux-debug"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/usr/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/mnt/d/Devs/us2d_server/out/build/linux-debug/CMakeFiles/CMakeScratch/TryCompile-FPacvO"
+      binary: "/mnt/d/Devs/us2d_server/out/build/linux-debug/CMakeFiles/CMakeScratch/TryCompile-FPacvO"
+    cmakeVariables:
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MSVC_DEBUG_INFORMATION_FORMAT: "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/d/Devs/us2d_server/out/build/linux-debug/CMakeFiles/CMakeScratch/TryCompile-FPacvO'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_52665
+        [1/2] /usr/bin/gcc-12   -v -o CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-4.3/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/gcc-12
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-1ubuntu1~22.04.3' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52665.dir/'
+         /usr/lib/gcc/x86_64-linux-gnu/12/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-4.3/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_52665.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cco6wJ7B.s
+        GNU C17 (Ubuntu 12.3.0-1ubuntu1~22.04.3) version 12.3.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/x86_64-linux-gnu/12/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        GNU C17 (Ubuntu 12.3.0-1ubuntu1~22.04.3) version 12.3.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: 65d1edd4fb1e0f618a87b24c70895372
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52665.dir/'
+         as -v --64 -o CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o /tmp/cco6wJ7B.s
+        GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.'
+        [2/2] : && /usr/bin/gcc-12  -v -Wl,-v CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o -o cmTC_52665   && :
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/gcc-12
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-1ubuntu1~22.04.3' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_52665' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_52665.'
+         /usr/lib/gcc/x86_64-linux-gnu/12/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccfufWHy.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_52665 /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/12/../../.. -v CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o
+        collect2 version 12.3.0
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccfufWHy.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_52665 /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/12/../../.. -v CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o
+        GNU ld (GNU Binutils for Ubuntu) 2.38
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_52665' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_52665.'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/usr/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/lib/gcc/x86_64-linux-gnu/12/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/12/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/12/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/lib/gcc/x86_64-linux-gnu/12/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/usr/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/mnt/d/Devs/us2d_server/out/build/linux-debug/CMakeFiles/CMakeScratch/TryCompile-FPacvO']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/ninja -v cmTC_52665]
+        ignore line: [[1/2] /usr/bin/gcc-12   -v -o CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-4.3/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/gcc-12]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-1ubuntu1~22.04.3' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52665.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/12/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-4.3/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_52665.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cco6wJ7B.s]
+        ignore line: [GNU C17 (Ubuntu 12.3.0-1ubuntu1~22.04.3) version 12.3.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 12.3.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/12/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C17 (Ubuntu 12.3.0-1ubuntu1~22.04.3) version 12.3.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 12.3.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: 65d1edd4fb1e0f618a87b24c70895372]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52665.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o /tmp/cco6wJ7B.s]
+        ignore line: [GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.']
+        ignore line: [[2/2] : && /usr/bin/gcc-12  -v -Wl -v CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o -o cmTC_52665   && :]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/gcc-12]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-1ubuntu1~22.04.3' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_52665' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_52665.']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/12/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccfufWHy.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_52665 /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/12/../../.. -v CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccfufWHy.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_52665] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/12] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/12]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/12/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../..]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [collect2 version 12.3.0]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccfufWHy.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_52665 /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/12/../../.. -v CMakeFiles/cmTC_52665.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o]
+        linker tool for 'C': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/12] ==> [/usr/lib/gcc/x86_64-linux-gnu/12]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../..] ==> [/usr/lib]
+        implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/12;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/usr/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Running the C compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld (GNU Binutils for Ubuntu) 2.38
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/usr/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/mnt/d/Devs/us2d_server/out/build/linux-debug/CMakeFiles/CMakeScratch/TryCompile-9QyrPj"
+      binary: "/mnt/d/Devs/us2d_server/out/build/linux-debug/CMakeFiles/CMakeScratch/TryCompile-9QyrPj"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MSVC_DEBUG_INFORMATION_FORMAT: "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/mnt/d/Devs/us2d_server/out/build/linux-debug/CMakeFiles/CMakeScratch/TryCompile-9QyrPj'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_2fad9
+        [1/2] /usr/bin/g++-12   -std=gnu++20   -v -o CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-4.3/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/g++-12
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-1ubuntu1~22.04.3' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3) 
+        COLLECT_GCC_OPTIONS='-std=gnu++20' '-v' '-o' 'CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_2fad9.dir/'
+         /usr/lib/gcc/x86_64-linux-gnu/12/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-4.3/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_2fad9.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -std=gnu++20 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccb6X9UK.s
+        GNU C++20 (Ubuntu 12.3.0-1ubuntu1~22.04.3) version 12.3.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/12"
+        ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/include/c++/12
+         /usr/include/x86_64-linux-gnu/c++/12
+         /usr/include/c++/12/backward
+         /usr/lib/gcc/x86_64-linux-gnu/12/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        GNU C++20 (Ubuntu 12.3.0-1ubuntu1~22.04.3) version 12.3.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: c10ddf8ebdf2c305adc34ed4a12c969e
+        COLLECT_GCC_OPTIONS='-std=gnu++20' '-v' '-o' 'CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_2fad9.dir/'
+         as -v --64 -o CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccb6X9UK.s
+        GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-std=gnu++20' '-v' '-o' 'CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.'
+        [2/2] : && /usr/bin/g++-12  -v -Wl,-v CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_2fad9   && :
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/g++-12
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-1ubuntu1~22.04.3' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2fad9' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_2fad9.'
+         /usr/lib/gcc/x86_64-linux-gnu/12/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMplsBl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_2fad9 /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/12/../../.. -v CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o
+        collect2 version 12.3.0
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMplsBl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_2fad9 /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/12/../../.. -v CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o
+        GNU ld (GNU Binutils for Ubuntu) 2.38
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2fad9' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_2fad9.'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/usr/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/include/c++/12]
+          add: [/usr/include/x86_64-linux-gnu/c++/12]
+          add: [/usr/include/c++/12/backward]
+          add: [/usr/lib/gcc/x86_64-linux-gnu/12/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/include/c++/12] ==> [/usr/include/c++/12]
+        collapse include dir [/usr/include/x86_64-linux-gnu/c++/12] ==> [/usr/include/x86_64-linux-gnu/c++/12]
+        collapse include dir [/usr/include/c++/12/backward] ==> [/usr/include/c++/12/backward]
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/12/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/12/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/include/c++/12;/usr/include/x86_64-linux-gnu/c++/12;/usr/include/c++/12/backward;/usr/lib/gcc/x86_64-linux-gnu/12/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/usr/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/mnt/d/Devs/us2d_server/out/build/linux-debug/CMakeFiles/CMakeScratch/TryCompile-9QyrPj']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/ninja -v cmTC_2fad9]
+        ignore line: [[1/2] /usr/bin/g++-12   -std=gnu++20   -v -o CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-4.3/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/g++-12]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-1ubuntu1~22.04.3' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-std=gnu++20' '-v' '-o' 'CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_2fad9.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/12/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-4.3/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_2fad9.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -std=gnu++20 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccb6X9UK.s]
+        ignore line: [GNU C++20 (Ubuntu 12.3.0-1ubuntu1~22.04.3) version 12.3.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 12.3.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/12"]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/include/c++/12]
+        ignore line: [ /usr/include/x86_64-linux-gnu/c++/12]
+        ignore line: [ /usr/include/c++/12/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/12/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C++20 (Ubuntu 12.3.0-1ubuntu1~22.04.3) version 12.3.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 12.3.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: c10ddf8ebdf2c305adc34ed4a12c969e]
+        ignore line: [COLLECT_GCC_OPTIONS='-std=gnu++20' '-v' '-o' 'CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_2fad9.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccb6X9UK.s]
+        ignore line: [GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-std=gnu++20' '-v' '-o' 'CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [[2/2] : && /usr/bin/g++-12  -v -Wl -v CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_2fad9   && :]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/g++-12]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-1ubuntu1~22.04.3' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-12-YswQCa/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2fad9' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_2fad9.']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/12/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMplsBl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_2fad9 /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/12/../../.. -v CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccMplsBl.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_2fad9] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/12] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/12]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/12/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../..]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [collect2 version 12.3.0]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMplsBl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_2fad9 /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/12/../../.. -v CMakeFiles/cmTC_2fad9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o]
+        linker tool for 'CXX': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/12] ==> [/usr/lib/gcc/x86_64-linux-gnu/12]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../..] ==> [/usr/lib]
+        implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/12;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.3/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "/usr/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/usr/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Running the CXX compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld (GNU Binutils for Ubuntu) 2.38
+...

@@ -1,5 +1,6 @@
 #pragma once
 #include <stdint.h>
+#include <cstddef>
 
 #define GB 1024LL * 1024 * 1024
 #define MB 1024 * 1024

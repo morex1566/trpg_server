@@ -53,3 +53,24 @@ lib/
 common_skill.md
 logic_skill.md
 review_skill.md
+
+# --- Linux Specific ---
+core                # Core dump 파일
+*.gcov              # 코드 커버리지 결과
+*.gcda
+*.gcno
+
+# --- CMake Support ---
+CMakeCache.txt      # CMake 설정 캐시
+CMakeFiles/         # CMake 중간 빌드 디렉토리
+CMakeScripts/
+cmake_install.cmake
+install_manifest.txt
+Makefile            # 생성된 Makefile
+
+# --- Editor & OS ---
+.directory          # KDE 디렉토리 설정
+.DS_Store           # macOS 혼용 시 발생
+*~                  # 임시 백업 파일
+.vscode/            # VS Code 설정 (팀별로 공유 여부 결정)
+.clang-format       # (선택) 포맷팅 규칙은 유지하는 것이 좋으나 개인 설정은 무시

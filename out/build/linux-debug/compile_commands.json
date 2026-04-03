@@ -1,0 +1,68 @@
+[
+{
+  "directory": "/mnt/d/Devs/us2d_server/out/build/linux-debug",
+  "command": "/usr/bin/g++-12 -I/mnt/d/Devs/us2d_server/include -I/mnt/d/Devs/us2d_server/src -I/mnt/d/Devs/us2d_server/src/net.common/.. -g -std=gnu++20 -o src/net.common/CMakeFiles/net.common.dir/log.cpp.o -c /mnt/d/Devs/us2d_server/src/net.common/log.cpp",
+  "file": "/mnt/d/Devs/us2d_server/src/net.common/log.cpp",
+  "output": "/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.common/CMakeFiles/net.common.dir/log.cpp.o"
+},
+{
+  "directory": "/mnt/d/Devs/us2d_server/out/build/linux-debug",
+  "command": "/usr/bin/g++-12 -I/mnt/d/Devs/us2d_server/include -I/mnt/d/Devs/us2d_server/src -I/mnt/d/Devs/us2d_server/src/net.common/.. -g -std=gnu++20 -o src/net.common/CMakeFiles/net.common.dir/singleton.cpp.o -c /mnt/d/Devs/us2d_server/src/net.common/singleton.cpp",
+  "file": "/mnt/d/Devs/us2d_server/src/net.common/singleton.cpp",
+  "output": "/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.common/CMakeFiles/net.common.dir/singleton.cpp.o"
+},
+{
+  "directory": "/mnt/d/Devs/us2d_server/out/build/linux-debug",
+  "command": "/usr/bin/g++-12 -I/mnt/d/Devs/us2d_server/include -I/mnt/d/Devs/us2d_server/src -I/mnt/d/Devs/us2d_server/src/net.common/.. -g -std=gnu++20 -o src/net.common/CMakeFiles/net.common.dir/system_config.cpp.o -c /mnt/d/Devs/us2d_server/src/net.common/system_config.cpp",
+  "file": "/mnt/d/Devs/us2d_server/src/net.common/system_config.cpp",
+  "output": "/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.common/CMakeFiles/net.common.dir/system_config.cpp.o"
+},
+{
+  "directory": "/mnt/d/Devs/us2d_server/out/build/linux-debug",
+  "command": "/usr/bin/g++-12 -I/mnt/d/Devs/us2d_server/include -I/mnt/d/Devs/us2d_server/src -I/mnt/d/Devs/us2d_server/src/net.common/.. -g -std=gnu++20 -o src/net.common/CMakeFiles/net.common.dir/time.cpp.o -c /mnt/d/Devs/us2d_server/src/net.common/time.cpp",
+  "file": "/mnt/d/Devs/us2d_server/src/net.common/time.cpp",
+  "output": "/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.common/CMakeFiles/net.common.dir/time.cpp.o"
+},
+{
+  "directory": "/mnt/d/Devs/us2d_server/out/build/linux-debug",
+  "command": "/usr/bin/g++-12 -I/mnt/d/Devs/us2d_server/include -I/mnt/d/Devs/us2d_server/src -I/mnt/d/Devs/us2d_server/src/net.common/.. -g -std=gnu++20 -o src/net.common/CMakeFiles/net.common.dir/ts_map.cpp.o -c /mnt/d/Devs/us2d_server/src/net.common/ts_map.cpp",
+  "file": "/mnt/d/Devs/us2d_server/src/net.common/ts_map.cpp",
+  "output": "/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.common/CMakeFiles/net.common.dir/ts_map.cpp.o"
+},
+{
+  "directory": "/mnt/d/Devs/us2d_server/out/build/linux-debug",
+  "command": "/usr/bin/g++-12 -I/mnt/d/Devs/us2d_server/include -I/mnt/d/Devs/us2d_server/src -I/mnt/d/Devs/us2d_server/src/net.common/.. -g -std=gnu++20 -o src/net.common/CMakeFiles/net.common.dir/ts_memory_pool.cpp.o -c /mnt/d/Devs/us2d_server/src/net.common/ts_memory_pool.cpp",
+  "file": "/mnt/d/Devs/us2d_server/src/net.common/ts_memory_pool.cpp",
+  "output": "/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.common/CMakeFiles/net.common.dir/ts_memory_pool.cpp.o"
+},
+{
+  "directory": "/mnt/d/Devs/us2d_server/out/build/linux-debug",
+  "command": "/usr/bin/g++-12 -I/mnt/d/Devs/us2d_server/include -I/mnt/d/Devs/us2d_server/src -I/mnt/d/Devs/us2d_server/src/net.core/.. -I/mnt/d/Devs/us2d_server/src/net.common/.. -g -std=gnu++20 -o src/net.core/CMakeFiles/net.core.dir/connection.cpp.o -c /mnt/d/Devs/us2d_server/src/net.core/connection.cpp",
+  "file": "/mnt/d/Devs/us2d_server/src/net.core/connection.cpp",
+  "output": "/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.core/CMakeFiles/net.core.dir/connection.cpp.o"
+},
+{
+  "directory": "/mnt/d/Devs/us2d_server/out/build/linux-debug",
+  "command": "/usr/bin/g++-12 -I/mnt/d/Devs/us2d_server/include -I/mnt/d/Devs/us2d_server/src -I/mnt/d/Devs/us2d_server/src/net.core/.. -I/mnt/d/Devs/us2d_server/src/net.common/.. -g -std=gnu++20 -o src/net.core/CMakeFiles/net.core.dir/logic.cpp.o -c /mnt/d/Devs/us2d_server/src/net.core/logic.cpp",
+  "file": "/mnt/d/Devs/us2d_server/src/net.core/logic.cpp",
+  "output": "/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.core/CMakeFiles/net.core.dir/logic.cpp.o"
+},
+{
+  "directory": "/mnt/d/Devs/us2d_server/out/build/linux-debug",
+  "command": "/usr/bin/g++-12 -I/mnt/d/Devs/us2d_server/include -I/mnt/d/Devs/us2d_server/src -I/mnt/d/Devs/us2d_server/src/net.core/.. -I/mnt/d/Devs/us2d_server/src/net.common/.. -g -std=gnu++20 -o src/net.core/CMakeFiles/net.core.dir/packet.cpp.o -c /mnt/d/Devs/us2d_server/src/net.core/packet.cpp",
+  "file": "/mnt/d/Devs/us2d_server/src/net.core/packet.cpp",
+  "output": "/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.core/CMakeFiles/net.core.dir/packet.cpp.o"
+},
+{
+  "directory": "/mnt/d/Devs/us2d_server/out/build/linux-debug",
+  "command": "/usr/bin/g++-12 -I/mnt/d/Devs/us2d_server/include -I/mnt/d/Devs/us2d_server/src -I/mnt/d/Devs/us2d_server/src/net.core/.. -I/mnt/d/Devs/us2d_server/src/net.common/.. -g -std=gnu++20 -o src/net.core/CMakeFiles/net.core.dir/tcp.cpp.o -c /mnt/d/Devs/us2d_server/src/net.core/tcp.cpp",
+  "file": "/mnt/d/Devs/us2d_server/src/net.core/tcp.cpp",
+  "output": "/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.core/CMakeFiles/net.core.dir/tcp.cpp.o"
+},
+{
+  "directory": "/mnt/d/Devs/us2d_server/out/build/linux-debug",
+  "command": "/usr/bin/g++-12 -I/mnt/d/Devs/us2d_server/include -I/mnt/d/Devs/us2d_server/src -I/mnt/d/Devs/us2d_server/src/net.server/.. -I/mnt/d/Devs/us2d_server/src/net.common/.. -g -std=gnu++20 -o src/net.server/CMakeFiles/net.server.dir/main.cpp.o -c /mnt/d/Devs/us2d_server/src/net.server/main.cpp",
+  "file": "/mnt/d/Devs/us2d_server/src/net.server/main.cpp",
+  "output": "/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.server/CMakeFiles/net.server.dir/main.cpp.o"
+}
+]

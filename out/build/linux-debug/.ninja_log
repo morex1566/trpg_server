@@ -1,0 +1,27 @@
+# ninja log v5
+39	127	1775192771277690000	src/net.common/CMakeFiles/net.common.dir/singleton.cpp.o	2bf1c0b1744956d9
+43	1240	1775192772394898100	src/net.common/CMakeFiles/net.common.dir/ts_map.cpp.o	5e68b8e318eb26c0
+63	10166	1775192781313752600	src/net.core/CMakeFiles/net.core.dir/packet.cpp.o	f8612c47e1b3167
+37	10643	1775192781795044200	src/net.common/CMakeFiles/net.common.dir/log.cpp.o	abdf7ab2bebfe657
+42	10710	1775192781857350200	src/net.common/CMakeFiles/net.common.dir/time.cpp.o	3e8d936d6dfe485f
+120	1073	1775192934230224000	src/net.common/CMakeFiles/net.common.dir/system_config.cpp.o	c5c37d65ad32dca
+1080	12469	1775192945603320300	src/net.common/CMakeFiles/net.common.dir/ts_memory_pool.cpp.o	29efe2b7d8f6fd8
+12548	24114	1775192957269766900	/mnt/d/Devs/us2d_server/lib/debug/libnet.common.a	d87775d11332dd5e
+1022	18016	1775193093178695100	src/net.core/CMakeFiles/net.core.dir/connection.cpp.o	2170c98b67a47458
+1743	10804	1775193140991532500	src/net.core/CMakeFiles/net.core.dir/logic.cpp.o	f10a246f98229d55
+10809	19223	1775193149409513500	src/net.core/CMakeFiles/net.core.dir/packet.cpp.o	f8612c47e1b3167
+1814	18758	1775193221922099500	src/net.core/CMakeFiles/net.core.dir/tcp.cpp.o	f5d29c9582c724b
+18766	34984	1775193238158437800	/mnt/d/Devs/us2d_server/lib/debug/libnet.core.a	1797b19efa0821c5
+34986	50790	1775193253952107500	src/net.server/CMakeFiles/net.server.dir/main.cpp.o	b97afde5982f7e1b
+50797	60974	1775193264147164800	src/net.server/net.server	ada5cba01a6bc642
+1713	13423	1775193847591570400	src/net.core/CMakeFiles/net.core.dir/packet.cpp.o	f8612c47e1b3167
+1706	14049	1775193848215847000	src/net.common/CMakeFiles/net.common.dir/time.cpp.o	3e8d936d6dfe485f
+1704	14092	1775193848260072100	src/net.common/CMakeFiles/net.common.dir/log.cpp.o	abdf7ab2bebfe657
+1711	14483	1775193848649809100	src/net.core/CMakeFiles/net.core.dir/logic.cpp.o	f10a246f98229d55
+1707	16535	1775193850700167900	src/net.common/CMakeFiles/net.common.dir/ts_memory_pool.cpp.o	29efe2b7d8f6fd8
+1716	20227	1775193854374983100	src/net.server/CMakeFiles/net.server.dir/main.cpp.o	b97afde5982f7e1b
+1709	21854	1775193856015978900	src/net.core/CMakeFiles/net.core.dir/connection.cpp.o	2170c98b67a47458
+1715	21967	1775193856122807100	src/net.core/CMakeFiles/net.core.dir/tcp.cpp.o	f5d29c9582c724b
+16540	28659	1775193862835995700	/mnt/d/Devs/us2d_server/lib/debug/libnet.common.a	d87775d11332dd5e
+28660	44354	1775193878519167900	/mnt/d/Devs/us2d_server/lib/debug/libnet.core.a	1797b19efa0821c5
+44356	54605	1775193888777825400	src/net.server/net.server	ada5cba01a6bc642

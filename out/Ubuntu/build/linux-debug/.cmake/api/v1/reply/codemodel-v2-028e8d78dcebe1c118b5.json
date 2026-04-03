@@ -1,0 +1,186 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "flatbuffers::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-flatbuffers-Debug-474a387159e0002f5a09.json",
+					"name" : "flatbuffers",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "spdlog::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-spdlog-Debug-fce76a9f5cb46f0af239.json",
+					"name" : "spdlog",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1
+					],
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-Debug-fd6451d79dc282e2f566.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src/net.common",
+					"jsonFile" : "directory-src.net.common-Debug-1092e8c910bddc4ac34f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "src/net.common",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "src/net.core",
+					"jsonFile" : "directory-src.net.core-Debug-fdd7880bf28c07896649.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "src/net.core",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "src/net.server",
+					"jsonFile" : "directory-src.net.server-Debug-66cb202e9cac20646315.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "src/net.server",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1
+					],
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "us2d_server"
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "net.common",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "net.core",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "net.server",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "net.common::@f5b4570f5c5cb9dbdc7e",
+					"jsonFile" : "target-net.common-Debug-34d7597c0d38960d7f3e.json",
+					"name" : "net.common",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "net.core::@fb5f86c95c16e33e42a6",
+					"jsonFile" : "target-net.core-Debug-6d68cd82cd50fab7c7d4.json",
+					"name" : "net.core",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "net.server::@5bdf2e6a4e4bbbd96305",
+					"jsonFile" : "target-net.server-Debug-c5b1d38ffb9c19116676.json",
+					"name" : "net.server",
+					"projectIndex" : 3
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/morex/.vs/us2d_server/out/build/linux-debug",
+		"source" : "/home/morex/.vs/us2d_server"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 10
+	}
+}

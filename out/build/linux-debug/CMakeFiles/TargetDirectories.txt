@@ -1,0 +1,11 @@
+/mnt/d/Devs/us2d_server/out/build/linux-debug/CMakeFiles/edit_cache.dir
+/mnt/d/Devs/us2d_server/out/build/linux-debug/CMakeFiles/rebuild_cache.dir
+/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.common/CMakeFiles/net.common.dir
+/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.common/CMakeFiles/edit_cache.dir
+/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.common/CMakeFiles/rebuild_cache.dir
+/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.core/CMakeFiles/net.core.dir
+/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.core/CMakeFiles/edit_cache.dir
+/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.core/CMakeFiles/rebuild_cache.dir
+/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.server/CMakeFiles/net.server.dir
+/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.server/CMakeFiles/edit_cache.dir
+/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.server/CMakeFiles/rebuild_cache.dir

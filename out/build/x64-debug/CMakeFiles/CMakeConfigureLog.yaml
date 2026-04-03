@@ -1,0 +1,3281 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      The system is: Windows - 10.0.26200 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35225 for x64
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      CMakeCCompilerId.c
+      Microsoft (R) Incremental Linker Version 14.44.35225.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      /out:CMakeCCompilerId.exe 
+      CMakeCCompilerId.obj 
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
+      
+      The C compiler identification is MSVC, found in:
+        D:/Devs/us2d_server/out/build/x64-debug/CMakeFiles/3.31.6-msvc6/CompilerIdC/CMakeCCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:1288 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:250 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Detecting C compiler /showIncludes prefix:
+        main.c
+        Note: including file: D:\\Devs\\us2d_server\\out\\build\\x64-debug\\CMakeFiles\\ShowIncludes\\foo.h
+        
+      Found prefix "Note: including file: "
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35225 for x64
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      CMakeCXXCompilerId.cpp
+      Microsoft (R) Incremental Linker Version 14.44.35225.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      /out:CMakeCXXCompilerId.exe 
+      CMakeCXXCompilerId.obj 
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+      
+      The CXX compiler identification is MSVC, found in:
+        D:/Devs/us2d_server/out/build/x64-debug/CMakeFiles/3.31.6-msvc6/CompilerIdCXX/CMakeCXXCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:1288 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:250 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Detecting CXX compiler /showIncludes prefix:
+        main.c
+        Note: including file: D:\\Devs\\us2d_server\\out\\build\\x64-debug\\CMakeFiles\\ShowIncludes\\foo.h
+        
+      Found prefix "Note: including file: "
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "D:/Devs/us2d_server/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-1fth14"
+      binary: "D:/Devs/us2d_server/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-1fth14"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MSVC_DEBUG_INFORMATION_FORMAT: "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Devs/us2d_server/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-1fth14'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_ba3e8
+        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_ba3e8.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_ba3e8.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1944 --intdir=CMakeFiles\\cmTC_ba3e8.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_ba3e8.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_ba3e8.exe /implib:cmTC_ba3e8.lib /pdb:cmTC_ba3e8.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': C:/PROGRA~1/MICROS~1/2022/COMMUN~1/VC/Tools/MSVC/1444~1.352/bin/Hostx64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Running the C compiler's linker: "C:/PROGRA~1/MICROS~1/2022/COMMUN~1/VC/Tools/MSVC/1444~1.352/bin/Hostx64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.44.35225.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "D:/Devs/us2d_server/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-frkdg2"
+      binary: "D:/Devs/us2d_server/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-frkdg2"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MSVC_DEBUG_INFORMATION_FORMAT: "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Devs/us2d_server/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-frkdg2'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_c9eb3
+        [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /EHsc  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_c9eb3.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_c9eb3.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1944 --intdir=CMakeFiles\\cmTC_c9eb3.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_c9eb3.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_c9eb3.exe /implib:cmTC_c9eb3.lib /pdb:cmTC_c9eb3.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/PROGRA~1/MICROS~1/2022/COMMUN~1/VC/Tools/MSVC/1444~1.352/bin/Hostx64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/PROGRA~1/MICROS~1/2022/COMMUN~1/VC/Tools/MSVC/1444~1.352/bin/Hostx64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.44.35225.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      The system is: Windows - 10.0.26200 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompiler.cmake:115 (find_program)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:67 (_cmake_find_compiler_path)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cl.exe"
+    candidate_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "D:/Tools/P2P/Bandi/Bandizip/"
+      - "D:/Tools/NPM/"
+      - "C:/ProgramData/chocolatey/bin/"
+      - "D:/Tools/PuTTY/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Apps/CMake/bin/"
+      - "D:/Apps/Git/Git/cmd/"
+      - "D:/Tools/PowerShell/7/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/morex/AppData/Roaming/npm/"
+      - "C:/Users/morex/.dotnet/tools/"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/cl.exe.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/cl.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/cl.exe.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/cl.exe"
+      - "C:/Windows/System32/cl.exe.com"
+      - "C:/Windows/System32/cl.exe"
+      - "C:/Windows/cl.exe.com"
+      - "C:/Windows/cl.exe"
+      - "C:/Windows/System32/wbem/cl.exe.com"
+      - "C:/Windows/System32/wbem/cl.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/cl.exe.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/cl.exe"
+      - "C:/Windows/System32/OpenSSH/cl.exe.com"
+      - "C:/Windows/System32/OpenSSH/cl.exe"
+      - "D:/Tools/P2P/Bandi/Bandizip/cl.exe.com"
+      - "D:/Tools/P2P/Bandi/Bandizip/cl.exe"
+      - "D:/Tools/NPM/cl.exe.com"
+      - "D:/Tools/NPM/cl.exe"
+      - "C:/ProgramData/chocolatey/bin/cl.exe.com"
+      - "C:/ProgramData/chocolatey/bin/cl.exe"
+      - "D:/Tools/PuTTY/cl.exe.com"
+      - "D:/Tools/PuTTY/cl.exe"
+      - "C:/Program Files/dotnet/cl.exe.com"
+      - "C:/Program Files/dotnet/cl.exe"
+      - "D:/Apps/CMake/bin/cl.exe.com"
+      - "D:/Apps/CMake/bin/cl.exe"
+      - "D:/Apps/Git/Git/cmd/cl.exe.com"
+      - "D:/Apps/Git/Git/cmd/cl.exe"
+      - "D:/Tools/PowerShell/7/cl.exe.com"
+      - "D:/Tools/PowerShell/7/cl.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/cl.exe.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/cl.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/cl.exe.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/cl.exe"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/cl.exe.com"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/cl.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/cl.exe.com"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/cl.exe"
+      - "C:/Users/morex/AppData/Roaming/npm/cl.exe.com"
+      - "C:/Users/morex/AppData/Roaming/npm/cl.exe"
+      - "C:/Users/morex/.dotnet/tools/cl.exe.com"
+      - "C:/Users/morex/.dotnet/tools/cl.exe"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/cl.exe.com"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/cl.exe"
+      - "D:/Apps/Antigravity/Antigravity/bin/cl.exe.com"
+      - "D:/Apps/Antigravity/Antigravity/bin/cl.exe"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: cl.exe 
+      Build flags: /DWIN32;/D_WINDOWS
+      Id flags:  
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: cl.exe 
+      Build flags: /DWIN32;/D_WINDOWS
+      Id flags: -c 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: cl.exe 
+      Build flags: /DWIN32;/D_WINDOWS
+      Id flags: -Aa 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: cl.exe 
+      Build flags: /DWIN32;/D_WINDOWS
+      Id flags: -D__CLASSIC_C__ 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: cl.exe 
+      Build flags: /DWIN32;/D_WINDOWS
+      Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: cl.exe 
+      Build flags: /DWIN32;/D_WINDOWS
+      Id flags: -c;-I__does_not_exist__ 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: cl.exe 
+      Build flags: 
+      Id flags: -c 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: cl.exe 
+      Build flags: 
+      Id flags: -Aa 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: cl.exe 
+      Build flags: 
+      Id flags: -D__CLASSIC_C__ 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: cl.exe 
+      Build flags: 
+      Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: cl.exe 
+      Build flags: 
+      Id flags: -c;-I__does_not_exist__ 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:86 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:86 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "strip"
+    candidate_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "D:/Tools/P2P/Bandi/Bandizip/"
+      - "D:/Tools/NPM/"
+      - "C:/ProgramData/chocolatey/bin/"
+      - "D:/Tools/PuTTY/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Apps/CMake/bin/"
+      - "D:/Apps/Git/Git/cmd/"
+      - "D:/Tools/PowerShell/7/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/morex/AppData/Roaming/npm/"
+      - "C:/Users/morex/.dotnet/tools/"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/strip.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/strip.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/strip"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/strip.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/strip.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/strip"
+      - "C:/Windows/System32/strip.com"
+      - "C:/Windows/System32/strip.exe"
+      - "C:/Windows/System32/strip"
+      - "C:/Windows/strip.com"
+      - "C:/Windows/strip.exe"
+      - "C:/Windows/strip"
+      - "C:/Windows/System32/wbem/strip.com"
+      - "C:/Windows/System32/wbem/strip.exe"
+      - "C:/Windows/System32/wbem/strip"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/strip.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/strip.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/strip"
+      - "C:/Windows/System32/OpenSSH/strip.com"
+      - "C:/Windows/System32/OpenSSH/strip.exe"
+      - "C:/Windows/System32/OpenSSH/strip"
+      - "D:/Tools/P2P/Bandi/Bandizip/strip.com"
+      - "D:/Tools/P2P/Bandi/Bandizip/strip.exe"
+      - "D:/Tools/P2P/Bandi/Bandizip/strip"
+      - "D:/Tools/NPM/strip.com"
+      - "D:/Tools/NPM/strip.exe"
+      - "D:/Tools/NPM/strip"
+      - "C:/ProgramData/chocolatey/bin/strip.com"
+      - "C:/ProgramData/chocolatey/bin/strip.exe"
+      - "C:/ProgramData/chocolatey/bin/strip"
+      - "D:/Tools/PuTTY/strip.com"
+      - "D:/Tools/PuTTY/strip.exe"
+      - "D:/Tools/PuTTY/strip"
+      - "C:/Program Files/dotnet/strip.com"
+      - "C:/Program Files/dotnet/strip.exe"
+      - "C:/Program Files/dotnet/strip"
+      - "D:/Apps/CMake/bin/strip.com"
+      - "D:/Apps/CMake/bin/strip.exe"
+      - "D:/Apps/CMake/bin/strip"
+      - "D:/Apps/Git/Git/cmd/strip.com"
+      - "D:/Apps/Git/Git/cmd/strip.exe"
+      - "D:/Apps/Git/Git/cmd/strip"
+      - "D:/Tools/PowerShell/7/strip.com"
+      - "D:/Tools/PowerShell/7/strip.exe"
+      - "D:/Tools/PowerShell/7/strip"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/strip.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/strip.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/strip"
+      - "C:/Program Files/Docker/Docker/resources/bin/strip.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/strip.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/strip"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/strip.com"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/strip.exe"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/strip"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/strip.com"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/strip.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/strip"
+      - "C:/Users/morex/AppData/Roaming/npm/strip.com"
+      - "C:/Users/morex/AppData/Roaming/npm/strip.exe"
+      - "C:/Users/morex/AppData/Roaming/npm/strip"
+      - "C:/Users/morex/.dotnet/tools/strip.com"
+      - "C:/Users/morex/.dotnet/tools/strip.exe"
+      - "C:/Users/morex/.dotnet/tools/strip"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/strip.com"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/strip.exe"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/strip"
+      - "D:/Apps/Antigravity/Antigravity/bin/strip.com"
+      - "D:/Apps/Antigravity/Antigravity/bin/strip.exe"
+      - "D:/Apps/Antigravity/Antigravity/bin/strip"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nm"
+    candidate_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "D:/Tools/P2P/Bandi/Bandizip/"
+      - "D:/Tools/NPM/"
+      - "C:/ProgramData/chocolatey/bin/"
+      - "D:/Tools/PuTTY/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Apps/CMake/bin/"
+      - "D:/Apps/Git/Git/cmd/"
+      - "D:/Tools/PowerShell/7/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/morex/AppData/Roaming/npm/"
+      - "C:/Users/morex/.dotnet/tools/"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/nm.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/nm.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/nm"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/nm.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/nm.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/nm"
+      - "C:/Windows/System32/nm.com"
+      - "C:/Windows/System32/nm.exe"
+      - "C:/Windows/System32/nm"
+      - "C:/Windows/nm.com"
+      - "C:/Windows/nm.exe"
+      - "C:/Windows/nm"
+      - "C:/Windows/System32/wbem/nm.com"
+      - "C:/Windows/System32/wbem/nm.exe"
+      - "C:/Windows/System32/wbem/nm"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/nm.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/nm.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/nm"
+      - "C:/Windows/System32/OpenSSH/nm.com"
+      - "C:/Windows/System32/OpenSSH/nm.exe"
+      - "C:/Windows/System32/OpenSSH/nm"
+      - "D:/Tools/P2P/Bandi/Bandizip/nm.com"
+      - "D:/Tools/P2P/Bandi/Bandizip/nm.exe"
+      - "D:/Tools/P2P/Bandi/Bandizip/nm"
+      - "D:/Tools/NPM/nm.com"
+      - "D:/Tools/NPM/nm.exe"
+      - "D:/Tools/NPM/nm"
+      - "C:/ProgramData/chocolatey/bin/nm.com"
+      - "C:/ProgramData/chocolatey/bin/nm.exe"
+      - "C:/ProgramData/chocolatey/bin/nm"
+      - "D:/Tools/PuTTY/nm.com"
+      - "D:/Tools/PuTTY/nm.exe"
+      - "D:/Tools/PuTTY/nm"
+      - "C:/Program Files/dotnet/nm.com"
+      - "C:/Program Files/dotnet/nm.exe"
+      - "C:/Program Files/dotnet/nm"
+      - "D:/Apps/CMake/bin/nm.com"
+      - "D:/Apps/CMake/bin/nm.exe"
+      - "D:/Apps/CMake/bin/nm"
+      - "D:/Apps/Git/Git/cmd/nm.com"
+      - "D:/Apps/Git/Git/cmd/nm.exe"
+      - "D:/Apps/Git/Git/cmd/nm"
+      - "D:/Tools/PowerShell/7/nm.com"
+      - "D:/Tools/PowerShell/7/nm.exe"
+      - "D:/Tools/PowerShell/7/nm"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/nm.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/nm.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/nm"
+      - "C:/Program Files/Docker/Docker/resources/bin/nm.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/nm.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/nm"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/nm.com"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/nm.exe"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/nm"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/nm.com"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/nm.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/nm"
+      - "C:/Users/morex/AppData/Roaming/npm/nm.com"
+      - "C:/Users/morex/AppData/Roaming/npm/nm.exe"
+      - "C:/Users/morex/AppData/Roaming/npm/nm"
+      - "C:/Users/morex/.dotnet/tools/nm.com"
+      - "C:/Users/morex/.dotnet/tools/nm.exe"
+      - "C:/Users/morex/.dotnet/tools/nm"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/nm.com"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/nm.exe"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/nm"
+      - "D:/Apps/Antigravity/Antigravity/bin/nm.com"
+      - "D:/Apps/Antigravity/Antigravity/bin/nm.exe"
+      - "D:/Apps/Antigravity/Antigravity/bin/nm"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objdump"
+    candidate_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "D:/Tools/P2P/Bandi/Bandizip/"
+      - "D:/Tools/NPM/"
+      - "C:/ProgramData/chocolatey/bin/"
+      - "D:/Tools/PuTTY/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Apps/CMake/bin/"
+      - "D:/Apps/Git/Git/cmd/"
+      - "D:/Tools/PowerShell/7/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/morex/AppData/Roaming/npm/"
+      - "C:/Users/morex/.dotnet/tools/"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/objdump.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/objdump.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/objdump"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/objdump.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/objdump.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/objdump"
+      - "C:/Windows/System32/objdump.com"
+      - "C:/Windows/System32/objdump.exe"
+      - "C:/Windows/System32/objdump"
+      - "C:/Windows/objdump.com"
+      - "C:/Windows/objdump.exe"
+      - "C:/Windows/objdump"
+      - "C:/Windows/System32/wbem/objdump.com"
+      - "C:/Windows/System32/wbem/objdump.exe"
+      - "C:/Windows/System32/wbem/objdump"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/objdump.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/objdump.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/objdump"
+      - "C:/Windows/System32/OpenSSH/objdump.com"
+      - "C:/Windows/System32/OpenSSH/objdump.exe"
+      - "C:/Windows/System32/OpenSSH/objdump"
+      - "D:/Tools/P2P/Bandi/Bandizip/objdump.com"
+      - "D:/Tools/P2P/Bandi/Bandizip/objdump.exe"
+      - "D:/Tools/P2P/Bandi/Bandizip/objdump"
+      - "D:/Tools/NPM/objdump.com"
+      - "D:/Tools/NPM/objdump.exe"
+      - "D:/Tools/NPM/objdump"
+      - "C:/ProgramData/chocolatey/bin/objdump.com"
+      - "C:/ProgramData/chocolatey/bin/objdump.exe"
+      - "C:/ProgramData/chocolatey/bin/objdump"
+      - "D:/Tools/PuTTY/objdump.com"
+      - "D:/Tools/PuTTY/objdump.exe"
+      - "D:/Tools/PuTTY/objdump"
+      - "C:/Program Files/dotnet/objdump.com"
+      - "C:/Program Files/dotnet/objdump.exe"
+      - "C:/Program Files/dotnet/objdump"
+      - "D:/Apps/CMake/bin/objdump.com"
+      - "D:/Apps/CMake/bin/objdump.exe"
+      - "D:/Apps/CMake/bin/objdump"
+      - "D:/Apps/Git/Git/cmd/objdump.com"
+      - "D:/Apps/Git/Git/cmd/objdump.exe"
+      - "D:/Apps/Git/Git/cmd/objdump"
+      - "D:/Tools/PowerShell/7/objdump.com"
+      - "D:/Tools/PowerShell/7/objdump.exe"
+      - "D:/Tools/PowerShell/7/objdump"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/objdump.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/objdump.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/objdump"
+      - "C:/Program Files/Docker/Docker/resources/bin/objdump.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/objdump.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/objdump"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/objdump.com"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/objdump.exe"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/objdump"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/objdump.com"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/objdump.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/objdump"
+      - "C:/Users/morex/AppData/Roaming/npm/objdump.com"
+      - "C:/Users/morex/AppData/Roaming/npm/objdump.exe"
+      - "C:/Users/morex/AppData/Roaming/npm/objdump"
+      - "C:/Users/morex/.dotnet/tools/objdump.com"
+      - "C:/Users/morex/.dotnet/tools/objdump.exe"
+      - "C:/Users/morex/.dotnet/tools/objdump"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/objdump.com"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/objdump.exe"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/objdump"
+      - "D:/Apps/Antigravity/Antigravity/bin/objdump.com"
+      - "D:/Apps/Antigravity/Antigravity/bin/objdump.exe"
+      - "D:/Apps/Antigravity/Antigravity/bin/objdump"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objcopy"
+    candidate_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "D:/Tools/P2P/Bandi/Bandizip/"
+      - "D:/Tools/NPM/"
+      - "C:/ProgramData/chocolatey/bin/"
+      - "D:/Tools/PuTTY/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Apps/CMake/bin/"
+      - "D:/Apps/Git/Git/cmd/"
+      - "D:/Tools/PowerShell/7/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/morex/AppData/Roaming/npm/"
+      - "C:/Users/morex/.dotnet/tools/"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/objcopy.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/objcopy.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/objcopy"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/objcopy.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/objcopy.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/objcopy"
+      - "C:/Windows/System32/objcopy.com"
+      - "C:/Windows/System32/objcopy.exe"
+      - "C:/Windows/System32/objcopy"
+      - "C:/Windows/objcopy.com"
+      - "C:/Windows/objcopy.exe"
+      - "C:/Windows/objcopy"
+      - "C:/Windows/System32/wbem/objcopy.com"
+      - "C:/Windows/System32/wbem/objcopy.exe"
+      - "C:/Windows/System32/wbem/objcopy"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/objcopy.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/objcopy.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/objcopy"
+      - "C:/Windows/System32/OpenSSH/objcopy.com"
+      - "C:/Windows/System32/OpenSSH/objcopy.exe"
+      - "C:/Windows/System32/OpenSSH/objcopy"
+      - "D:/Tools/P2P/Bandi/Bandizip/objcopy.com"
+      - "D:/Tools/P2P/Bandi/Bandizip/objcopy.exe"
+      - "D:/Tools/P2P/Bandi/Bandizip/objcopy"
+      - "D:/Tools/NPM/objcopy.com"
+      - "D:/Tools/NPM/objcopy.exe"
+      - "D:/Tools/NPM/objcopy"
+      - "C:/ProgramData/chocolatey/bin/objcopy.com"
+      - "C:/ProgramData/chocolatey/bin/objcopy.exe"
+      - "C:/ProgramData/chocolatey/bin/objcopy"
+      - "D:/Tools/PuTTY/objcopy.com"
+      - "D:/Tools/PuTTY/objcopy.exe"
+      - "D:/Tools/PuTTY/objcopy"
+      - "C:/Program Files/dotnet/objcopy.com"
+      - "C:/Program Files/dotnet/objcopy.exe"
+      - "C:/Program Files/dotnet/objcopy"
+      - "D:/Apps/CMake/bin/objcopy.com"
+      - "D:/Apps/CMake/bin/objcopy.exe"
+      - "D:/Apps/CMake/bin/objcopy"
+      - "D:/Apps/Git/Git/cmd/objcopy.com"
+      - "D:/Apps/Git/Git/cmd/objcopy.exe"
+      - "D:/Apps/Git/Git/cmd/objcopy"
+      - "D:/Tools/PowerShell/7/objcopy.com"
+      - "D:/Tools/PowerShell/7/objcopy.exe"
+      - "D:/Tools/PowerShell/7/objcopy"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/objcopy.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/objcopy.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/objcopy"
+      - "C:/Program Files/Docker/Docker/resources/bin/objcopy.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/objcopy.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/objcopy"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/objcopy.com"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/objcopy.exe"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/objcopy"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/objcopy.com"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/objcopy.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/objcopy"
+      - "C:/Users/morex/AppData/Roaming/npm/objcopy.com"
+      - "C:/Users/morex/AppData/Roaming/npm/objcopy.exe"
+      - "C:/Users/morex/AppData/Roaming/npm/objcopy"
+      - "C:/Users/morex/.dotnet/tools/objcopy.com"
+      - "C:/Users/morex/.dotnet/tools/objcopy.exe"
+      - "C:/Users/morex/.dotnet/tools/objcopy"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/objcopy.com"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/objcopy.exe"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/objcopy"
+      - "D:/Apps/Antigravity/Antigravity/bin/objcopy.com"
+      - "D:/Apps/Antigravity/Antigravity/bin/objcopy.exe"
+      - "D:/Apps/Antigravity/Antigravity/bin/objcopy"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "readelf"
+    candidate_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "D:/Tools/P2P/Bandi/Bandizip/"
+      - "D:/Tools/NPM/"
+      - "C:/ProgramData/chocolatey/bin/"
+      - "D:/Tools/PuTTY/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Apps/CMake/bin/"
+      - "D:/Apps/Git/Git/cmd/"
+      - "D:/Tools/PowerShell/7/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/morex/AppData/Roaming/npm/"
+      - "C:/Users/morex/.dotnet/tools/"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/readelf.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/readelf.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/readelf"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/readelf.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/readelf.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/readelf"
+      - "C:/Windows/System32/readelf.com"
+      - "C:/Windows/System32/readelf.exe"
+      - "C:/Windows/System32/readelf"
+      - "C:/Windows/readelf.com"
+      - "C:/Windows/readelf.exe"
+      - "C:/Windows/readelf"
+      - "C:/Windows/System32/wbem/readelf.com"
+      - "C:/Windows/System32/wbem/readelf.exe"
+      - "C:/Windows/System32/wbem/readelf"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/readelf.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/readelf.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/readelf"
+      - "C:/Windows/System32/OpenSSH/readelf.com"
+      - "C:/Windows/System32/OpenSSH/readelf.exe"
+      - "C:/Windows/System32/OpenSSH/readelf"
+      - "D:/Tools/P2P/Bandi/Bandizip/readelf.com"
+      - "D:/Tools/P2P/Bandi/Bandizip/readelf.exe"
+      - "D:/Tools/P2P/Bandi/Bandizip/readelf"
+      - "D:/Tools/NPM/readelf.com"
+      - "D:/Tools/NPM/readelf.exe"
+      - "D:/Tools/NPM/readelf"
+      - "C:/ProgramData/chocolatey/bin/readelf.com"
+      - "C:/ProgramData/chocolatey/bin/readelf.exe"
+      - "C:/ProgramData/chocolatey/bin/readelf"
+      - "D:/Tools/PuTTY/readelf.com"
+      - "D:/Tools/PuTTY/readelf.exe"
+      - "D:/Tools/PuTTY/readelf"
+      - "C:/Program Files/dotnet/readelf.com"
+      - "C:/Program Files/dotnet/readelf.exe"
+      - "C:/Program Files/dotnet/readelf"
+      - "D:/Apps/CMake/bin/readelf.com"
+      - "D:/Apps/CMake/bin/readelf.exe"
+      - "D:/Apps/CMake/bin/readelf"
+      - "D:/Apps/Git/Git/cmd/readelf.com"
+      - "D:/Apps/Git/Git/cmd/readelf.exe"
+      - "D:/Apps/Git/Git/cmd/readelf"
+      - "D:/Tools/PowerShell/7/readelf.com"
+      - "D:/Tools/PowerShell/7/readelf.exe"
+      - "D:/Tools/PowerShell/7/readelf"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/readelf.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/readelf.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/readelf"
+      - "C:/Program Files/Docker/Docker/resources/bin/readelf.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/readelf.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/readelf"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/readelf.com"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/readelf.exe"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/readelf"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/readelf.com"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/readelf.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/readelf"
+      - "C:/Users/morex/AppData/Roaming/npm/readelf.com"
+      - "C:/Users/morex/AppData/Roaming/npm/readelf.exe"
+      - "C:/Users/morex/AppData/Roaming/npm/readelf"
+      - "C:/Users/morex/.dotnet/tools/readelf.com"
+      - "C:/Users/morex/.dotnet/tools/readelf.exe"
+      - "C:/Users/morex/.dotnet/tools/readelf"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/readelf.com"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/readelf.exe"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/readelf"
+      - "D:/Apps/Antigravity/Antigravity/bin/readelf.com"
+      - "D:/Apps/Antigravity/Antigravity/bin/readelf.exe"
+      - "D:/Apps/Antigravity/Antigravity/bin/readelf"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "dlltool"
+    candidate_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "D:/Tools/P2P/Bandi/Bandizip/"
+      - "D:/Tools/NPM/"
+      - "C:/ProgramData/chocolatey/bin/"
+      - "D:/Tools/PuTTY/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Apps/CMake/bin/"
+      - "D:/Apps/Git/Git/cmd/"
+      - "D:/Tools/PowerShell/7/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/morex/AppData/Roaming/npm/"
+      - "C:/Users/morex/.dotnet/tools/"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/dlltool.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/dlltool.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/dlltool"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/dlltool.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/dlltool.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/dlltool"
+      - "C:/Windows/System32/dlltool.com"
+      - "C:/Windows/System32/dlltool.exe"
+      - "C:/Windows/System32/dlltool"
+      - "C:/Windows/dlltool.com"
+      - "C:/Windows/dlltool.exe"
+      - "C:/Windows/dlltool"
+      - "C:/Windows/System32/wbem/dlltool.com"
+      - "C:/Windows/System32/wbem/dlltool.exe"
+      - "C:/Windows/System32/wbem/dlltool"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/dlltool.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/dlltool.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/dlltool"
+      - "C:/Windows/System32/OpenSSH/dlltool.com"
+      - "C:/Windows/System32/OpenSSH/dlltool.exe"
+      - "C:/Windows/System32/OpenSSH/dlltool"
+      - "D:/Tools/P2P/Bandi/Bandizip/dlltool.com"
+      - "D:/Tools/P2P/Bandi/Bandizip/dlltool.exe"
+      - "D:/Tools/P2P/Bandi/Bandizip/dlltool"
+      - "D:/Tools/NPM/dlltool.com"
+      - "D:/Tools/NPM/dlltool.exe"
+      - "D:/Tools/NPM/dlltool"
+      - "C:/ProgramData/chocolatey/bin/dlltool.com"
+      - "C:/ProgramData/chocolatey/bin/dlltool.exe"
+      - "C:/ProgramData/chocolatey/bin/dlltool"
+      - "D:/Tools/PuTTY/dlltool.com"
+      - "D:/Tools/PuTTY/dlltool.exe"
+      - "D:/Tools/PuTTY/dlltool"
+      - "C:/Program Files/dotnet/dlltool.com"
+      - "C:/Program Files/dotnet/dlltool.exe"
+      - "C:/Program Files/dotnet/dlltool"
+      - "D:/Apps/CMake/bin/dlltool.com"
+      - "D:/Apps/CMake/bin/dlltool.exe"
+      - "D:/Apps/CMake/bin/dlltool"
+      - "D:/Apps/Git/Git/cmd/dlltool.com"
+      - "D:/Apps/Git/Git/cmd/dlltool.exe"
+      - "D:/Apps/Git/Git/cmd/dlltool"
+      - "D:/Tools/PowerShell/7/dlltool.com"
+      - "D:/Tools/PowerShell/7/dlltool.exe"
+      - "D:/Tools/PowerShell/7/dlltool"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/dlltool.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/dlltool.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/dlltool"
+      - "C:/Program Files/Docker/Docker/resources/bin/dlltool.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/dlltool.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/dlltool"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/dlltool.com"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/dlltool.exe"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/dlltool"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/dlltool.com"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/dlltool.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/dlltool"
+      - "C:/Users/morex/AppData/Roaming/npm/dlltool.com"
+      - "C:/Users/morex/AppData/Roaming/npm/dlltool.exe"
+      - "C:/Users/morex/AppData/Roaming/npm/dlltool"
+      - "C:/Users/morex/.dotnet/tools/dlltool.com"
+      - "C:/Users/morex/.dotnet/tools/dlltool.exe"
+      - "C:/Users/morex/.dotnet/tools/dlltool"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/dlltool.com"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/dlltool.exe"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/dlltool"
+      - "D:/Apps/Antigravity/Antigravity/bin/dlltool.com"
+      - "D:/Apps/Antigravity/Antigravity/bin/dlltool.exe"
+      - "D:/Apps/Antigravity/Antigravity/bin/dlltool"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "addr2line"
+    candidate_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "D:/Tools/P2P/Bandi/Bandizip/"
+      - "D:/Tools/NPM/"
+      - "C:/ProgramData/chocolatey/bin/"
+      - "D:/Tools/PuTTY/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Apps/CMake/bin/"
+      - "D:/Apps/Git/Git/cmd/"
+      - "D:/Tools/PowerShell/7/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/morex/AppData/Roaming/npm/"
+      - "C:/Users/morex/.dotnet/tools/"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/addr2line.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/addr2line.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/addr2line"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/addr2line.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/addr2line.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/addr2line"
+      - "C:/Windows/System32/addr2line.com"
+      - "C:/Windows/System32/addr2line.exe"
+      - "C:/Windows/System32/addr2line"
+      - "C:/Windows/addr2line.com"
+      - "C:/Windows/addr2line.exe"
+      - "C:/Windows/addr2line"
+      - "C:/Windows/System32/wbem/addr2line.com"
+      - "C:/Windows/System32/wbem/addr2line.exe"
+      - "C:/Windows/System32/wbem/addr2line"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/addr2line.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/addr2line.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/addr2line"
+      - "C:/Windows/System32/OpenSSH/addr2line.com"
+      - "C:/Windows/System32/OpenSSH/addr2line.exe"
+      - "C:/Windows/System32/OpenSSH/addr2line"
+      - "D:/Tools/P2P/Bandi/Bandizip/addr2line.com"
+      - "D:/Tools/P2P/Bandi/Bandizip/addr2line.exe"
+      - "D:/Tools/P2P/Bandi/Bandizip/addr2line"
+      - "D:/Tools/NPM/addr2line.com"
+      - "D:/Tools/NPM/addr2line.exe"
+      - "D:/Tools/NPM/addr2line"
+      - "C:/ProgramData/chocolatey/bin/addr2line.com"
+      - "C:/ProgramData/chocolatey/bin/addr2line.exe"
+      - "C:/ProgramData/chocolatey/bin/addr2line"
+      - "D:/Tools/PuTTY/addr2line.com"
+      - "D:/Tools/PuTTY/addr2line.exe"
+      - "D:/Tools/PuTTY/addr2line"
+      - "C:/Program Files/dotnet/addr2line.com"
+      - "C:/Program Files/dotnet/addr2line.exe"
+      - "C:/Program Files/dotnet/addr2line"
+      - "D:/Apps/CMake/bin/addr2line.com"
+      - "D:/Apps/CMake/bin/addr2line.exe"
+      - "D:/Apps/CMake/bin/addr2line"
+      - "D:/Apps/Git/Git/cmd/addr2line.com"
+      - "D:/Apps/Git/Git/cmd/addr2line.exe"
+      - "D:/Apps/Git/Git/cmd/addr2line"
+      - "D:/Tools/PowerShell/7/addr2line.com"
+      - "D:/Tools/PowerShell/7/addr2line.exe"
+      - "D:/Tools/PowerShell/7/addr2line"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/addr2line.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/addr2line.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/addr2line"
+      - "C:/Program Files/Docker/Docker/resources/bin/addr2line.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/addr2line.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/addr2line"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/addr2line.com"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/addr2line.exe"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/addr2line"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/addr2line.com"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/addr2line.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/addr2line"
+      - "C:/Users/morex/AppData/Roaming/npm/addr2line.com"
+      - "C:/Users/morex/AppData/Roaming/npm/addr2line.exe"
+      - "C:/Users/morex/AppData/Roaming/npm/addr2line"
+      - "C:/Users/morex/.dotnet/tools/addr2line.com"
+      - "C:/Users/morex/.dotnet/tools/addr2line.exe"
+      - "C:/Users/morex/.dotnet/tools/addr2line"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/addr2line.com"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/addr2line.exe"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/addr2line"
+      - "D:/Apps/Antigravity/Antigravity/bin/addr2line.com"
+      - "D:/Apps/Antigravity/Antigravity/bin/addr2line.exe"
+      - "D:/Apps/Antigravity/Antigravity/bin/addr2line"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "D:/Tools/P2P/Bandi/Bandizip/"
+      - "D:/Tools/NPM/"
+      - "C:/ProgramData/chocolatey/bin/"
+      - "D:/Tools/PuTTY/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Apps/CMake/bin/"
+      - "D:/Apps/Git/Git/cmd/"
+      - "D:/Tools/PowerShell/7/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/morex/AppData/Roaming/npm/"
+      - "C:/Users/morex/.dotnet/tools/"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/tapi.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/tapi.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/tapi"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/tapi.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/tapi.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/tapi"
+      - "C:/Windows/System32/tapi.com"
+      - "C:/Windows/System32/tapi.exe"
+      - "C:/Windows/System32/tapi"
+      - "C:/Windows/tapi.com"
+      - "C:/Windows/tapi.exe"
+      - "C:/Windows/tapi"
+      - "C:/Windows/System32/wbem/tapi.com"
+      - "C:/Windows/System32/wbem/tapi.exe"
+      - "C:/Windows/System32/wbem/tapi"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi"
+      - "C:/Windows/System32/OpenSSH/tapi.com"
+      - "C:/Windows/System32/OpenSSH/tapi.exe"
+      - "C:/Windows/System32/OpenSSH/tapi"
+      - "D:/Tools/P2P/Bandi/Bandizip/tapi.com"
+      - "D:/Tools/P2P/Bandi/Bandizip/tapi.exe"
+      - "D:/Tools/P2P/Bandi/Bandizip/tapi"
+      - "D:/Tools/NPM/tapi.com"
+      - "D:/Tools/NPM/tapi.exe"
+      - "D:/Tools/NPM/tapi"
+      - "C:/ProgramData/chocolatey/bin/tapi.com"
+      - "C:/ProgramData/chocolatey/bin/tapi.exe"
+      - "C:/ProgramData/chocolatey/bin/tapi"
+      - "D:/Tools/PuTTY/tapi.com"
+      - "D:/Tools/PuTTY/tapi.exe"
+      - "D:/Tools/PuTTY/tapi"
+      - "C:/Program Files/dotnet/tapi.com"
+      - "C:/Program Files/dotnet/tapi.exe"
+      - "C:/Program Files/dotnet/tapi"
+      - "D:/Apps/CMake/bin/tapi.com"
+      - "D:/Apps/CMake/bin/tapi.exe"
+      - "D:/Apps/CMake/bin/tapi"
+      - "D:/Apps/Git/Git/cmd/tapi.com"
+      - "D:/Apps/Git/Git/cmd/tapi.exe"
+      - "D:/Apps/Git/Git/cmd/tapi"
+      - "D:/Tools/PowerShell/7/tapi.com"
+      - "D:/Tools/PowerShell/7/tapi.exe"
+      - "D:/Tools/PowerShell/7/tapi"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/tapi.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/tapi.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/tapi"
+      - "C:/Program Files/Docker/Docker/resources/bin/tapi.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/tapi.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/tapi"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/tapi.com"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/tapi.exe"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/tapi"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/tapi.com"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/tapi.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/tapi"
+      - "C:/Users/morex/AppData/Roaming/npm/tapi.com"
+      - "C:/Users/morex/AppData/Roaming/npm/tapi.exe"
+      - "C:/Users/morex/AppData/Roaming/npm/tapi"
+      - "C:/Users/morex/.dotnet/tools/tapi.com"
+      - "C:/Users/morex/.dotnet/tools/tapi.exe"
+      - "C:/Users/morex/.dotnet/tools/tapi"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/tapi.com"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/tapi.exe"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/tapi"
+      - "D:/Apps/Antigravity/Antigravity/bin/tapi.com"
+      - "D:/Apps/Antigravity/Antigravity/bin/tapi.exe"
+      - "D:/Apps/Antigravity/Antigravity/bin/tapi"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompiler.cmake:115 (find_program)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:71 (_cmake_find_compiler_path)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cl.exe"
+    candidate_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "D:/Tools/P2P/Bandi/Bandizip/"
+      - "D:/Tools/NPM/"
+      - "C:/ProgramData/chocolatey/bin/"
+      - "D:/Tools/PuTTY/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Apps/CMake/bin/"
+      - "D:/Apps/Git/Git/cmd/"
+      - "D:/Tools/PowerShell/7/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/morex/AppData/Roaming/npm/"
+      - "C:/Users/morex/.dotnet/tools/"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/Antigravity/Antigravity/bin/"
+    searched_directories:
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/cl.exe.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/Scripts/cl.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/cl.exe.com"
+      - "C:/Users/morex/AppData/Local/Programs/Python/Python310/cl.exe"
+      - "C:/Windows/System32/cl.exe.com"
+      - "C:/Windows/System32/cl.exe"
+      - "C:/Windows/cl.exe.com"
+      - "C:/Windows/cl.exe"
+      - "C:/Windows/System32/wbem/cl.exe.com"
+      - "C:/Windows/System32/wbem/cl.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/cl.exe.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/cl.exe"
+      - "C:/Windows/System32/OpenSSH/cl.exe.com"
+      - "C:/Windows/System32/OpenSSH/cl.exe"
+      - "D:/Tools/P2P/Bandi/Bandizip/cl.exe.com"
+      - "D:/Tools/P2P/Bandi/Bandizip/cl.exe"
+      - "D:/Tools/NPM/cl.exe.com"
+      - "D:/Tools/NPM/cl.exe"
+      - "C:/ProgramData/chocolatey/bin/cl.exe.com"
+      - "C:/ProgramData/chocolatey/bin/cl.exe"
+      - "D:/Tools/PuTTY/cl.exe.com"
+      - "D:/Tools/PuTTY/cl.exe"
+      - "C:/Program Files/dotnet/cl.exe.com"
+      - "C:/Program Files/dotnet/cl.exe"
+      - "D:/Apps/CMake/bin/cl.exe.com"
+      - "D:/Apps/CMake/bin/cl.exe"
+      - "D:/Apps/Git/Git/cmd/cl.exe.com"
+      - "D:/Apps/Git/Git/cmd/cl.exe"
+      - "D:/Tools/PowerShell/7/cl.exe.com"
+      - "D:/Tools/PowerShell/7/cl.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/cl.exe.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/cl.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/cl.exe.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/cl.exe"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/cl.exe.com"
+      - "C:/Users/morex/AppData/Local/Microsoft/WindowsApps/cl.exe"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/cl.exe.com"
+      - "C:/Users/morex/AppData/Local/Programs/Microsoft VS Code/bin/cl.exe"
+      - "C:/Users/morex/AppData/Roaming/npm/cl.exe.com"
+      - "C:/Users/morex/AppData/Roaming/npm/cl.exe"
+      - "C:/Users/morex/.dotnet/tools/cl.exe.com"
+      - "C:/Users/morex/.dotnet/tools/cl.exe"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/cl.exe.com"
+      - "C:/Users/morex/AppData/Local/GitHubDesktop/bin/cl.exe"
+      - "D:/Apps/Antigravity/Antigravity/bin/cl.exe.com"
+      - "D:/Apps/Antigravity/Antigravity/bin/cl.exe"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: cl.exe 
+      Build flags: /DWIN32;/D_WINDOWS;/EHsc
+      Id flags:  
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: cl.exe 
+      Build flags: /DWIN32;/D_WINDOWS;/EHsc
+      Id flags: -c 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: cl.exe 
+      Build flags: /DWIN32;/D_WINDOWS;/EHsc
+      Id flags: --c++ 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: cl.exe 
+      Build flags: /DWIN32;/D_WINDOWS;/EHsc
+      Id flags: --ec++ 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: cl.exe 
+      Build flags: /DWIN32;/D_WINDOWS;/EHsc
+      Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: cl.exe 
+      Build flags: /DWIN32;/D_WINDOWS;/EHsc
+      Id flags: -c;-I__does_not_exist__ 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: cl.exe 
+      Build flags: 
+      Id flags: -c 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: cl.exe 
+      Build flags: 
+      Id flags: --c++ 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: cl.exe 
+      Build flags: 
+      Id flags: --ec++ 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: cl.exe 
+      Build flags: 
+      Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/"
+    found: "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310\\Scripts"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Python\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "D:\\Tools\\P2P\\Bandi\\Bandizip\\"
+        - "D:\\Tools\\NPM\\"
+        - "C:\\ProgramData\\chocolatey\\bin"
+        - "D:\\Tools\\PuTTY\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\Apps\\CMake\\bin"
+        - "D:\\Apps\\Git\\Git\\cmd"
+        - "D:\\Tools\\PowerShell\\7\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Users\\morex\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\morex\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\morex\\AppData\\Roaming\\npm"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+        - "C:\\Users\\morex\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\Antigravity\\Antigravity\\bin"
+        - "C:\\Users\\morex\\.dotnet\\tools"
+      CMAKE_INSTALL_PREFIX: "D:/Devs/us2d_server/out/install/x64-debug"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: cl.exe 
+      Build flags: 
+      Id flags: -c;-I__does_not_exist__ 
+      
+      The output was:
+      no such file or directory
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:86 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:86 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "D:/Apps/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+...

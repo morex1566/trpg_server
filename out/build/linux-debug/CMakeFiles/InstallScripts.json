@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"/mnt/d/Devs/us2d_server/out/build/linux-debug/cmake_install.cmake",
+		"/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.common/cmake_install.cmake",
+		"/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.core/cmake_install.cmake",
+		"/mnt/d/Devs/us2d_server/out/build/linux-debug/src/net.server/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

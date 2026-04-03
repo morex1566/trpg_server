@@ -60,7 +60,7 @@ namespace net::common
 
         // system_config RAM 제한에 따른 동적 할당 가능 여부 체크
         bool can_allocate_dynamic();
-
+            
     private:
 
         boost::lockfree::stack<block64*, boost::lockfree::fixed_sized<false>> pool_64b

@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "tcp.h"
 #include "net.common/log.h"
 
@@ -7,7 +7,7 @@ net::core::tcp::tcp()
 		socket(context),
 		work_guard(boost::asio::make_work_guard(context))
 {
-	SPDLOG_INFO("create {} instance.", typeid(net::core::tcp).name());
+	SPDLOG_INFO("create {} instance.", net::common::demangle(typeid(net::core::tcp).name()));
 }
 
 net::core::tcp::~tcp()
@@ -88,7 +88,7 @@ void net::core::tcp::async_accept()
 			CHECK_RETURN_VOID(!is_running);
 
 			// 세션 추가
-			const uint32_t new_session_id = connection_id_counter.fetch_add(1, std::memory_order::memory_order_release);
+			const uint32_t new_session_id = connection_id_counter.fetch_add(1, std::memory_order_release);
 			auto new_session = std::make_shared<connection>
 			(
 				context,

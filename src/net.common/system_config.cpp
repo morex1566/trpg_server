@@ -1,51 +1,60 @@
-#include "pch.h"
 #include "system_config.h"
 
-#include <windows.h>
-#include <pdh.h>
+#include <sys/sysinfo.h>
+#include <fstream>
+#include <string>
 #include <thread>
 #include <chrono>
-
-#pragma comment(lib, "pdh.lib")
 
 namespace net::common
 {
     uint64_t system_config::available_ram_bytes()
     {
-        MEMORYSTATUSEX status;
-        status.dwLength = sizeof(status);
-        GlobalMemoryStatusEx(&status);
-        return static_cast<uint64_t>(status.ullAvailPhys);
+        struct sysinfo memInfo;
+        if (sysinfo(&memInfo) != 0) return 0;
+        return static_cast<uint64_t>(memInfo.freeram) * memInfo.mem_unit;
     }
 
     double system_config::available_ram_percent()
     {
-        MEMORYSTATUSEX status;
-        status.dwLength = sizeof(status);
-        GlobalMemoryStatusEx(&status);
-        // 전체 대비 사용 가능한 비율
-        return 100.0 * static_cast<double>(status.ullAvailPhys) / static_cast<double>(status.ullTotalPhys);
+        struct sysinfo memInfo;
+        if (sysinfo(&memInfo) != 0) return 0.0;
+        double total = static_cast<double>(memInfo.totalram) * memInfo.mem_unit;
+        double free = static_cast<double>(memInfo.freeram) * memInfo.mem_unit;
+        return total > 0.0 ? (100.0 * free / total) : 0.0;
     }
 
     double system_config::cpu_usage_percent()
     {
-        // PDH 쿼리로 전체 CPU 사용률 샘플링 (100ms 간격)
-        PDH_HQUERY query;
-        PDH_HCOUNTER counter;
+        auto get_cpu_times = []() -> std::pair<uint64_t, uint64_t> 
+        {
+            std::ifstream proc_stat("/proc/stat");
+            std::string line;
+            std::getline(proc_stat, line);
 
-        PdhOpenQuery(nullptr, 0, &query);
-        PdhAddEnglishCounter(query, L"\\Processor(_Total)\\% Processor Time", 0, &counter);
-        PdhCollectQueryData(query);
+            if (line.compare(0, 3, "cpu") == 0) {
+                unsigned long long user = 0, nice = 0, system = 0, idle = 0, iowait = 0, irq = 0, softirq = 0, steal = 0, guest = 0, guest_nice = 0;
+                if (sscanf(line.c_str(), "cpu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu",
+                    &user, &nice, &system, &idle, &iowait, &irq, &softirq, &steal, &guest, &guest_nice) >= 4) {
 
+                    uint64_t idle_time = idle + iowait;
+                    uint64_t non_idle_time = user + nice + system + irq + softirq + steal;
+                    return { idle_time, idle_time + non_idle_time };
+                }
+            }
+
+            return { 0, 0 };
+        };
+
+        auto [idle1, total1] = get_cpu_times();
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        auto [idle2, total2] = get_cpu_times();
 
-        PdhCollectQueryData(query);
+        uint64_t total_diff = total2 - total1;
+        uint64_t idle_diff = idle2 - idle1;
 
-        PDH_FMT_COUNTERVALUE value;
-        PdhGetFormattedCounterValue(counter, PDH_FMT_DOUBLE, nullptr, &value);
-        PdhCloseQuery(query);
-
-        return value.doubleValue;
+        if (total_diff == 0) return 0.0;
+        return 100.0 * static_cast<double>(total_diff - idle_diff) / static_cast<double>(total_diff);
     }
 
 }

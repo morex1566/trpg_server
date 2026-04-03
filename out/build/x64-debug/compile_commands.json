@@ -1,0 +1,68 @@
+[
+{
+  "directory": "D:/Devs/us2d_server/out/build/x64-debug",
+  "command": "C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -ID:\\Devs\\us2d_server\\include -ID:\\Devs\\us2d_server\\src -ID:\\Devs\\us2d_server\\src\\net.common\\.. /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -ZI /Fosrc\\net.common\\CMakeFiles\\net.common.dir\\log.cpp.obj /Fdsrc\\net.common\\CMakeFiles\\net.common.dir\\net.common.pdb /FS -c D:\\Devs\\us2d_server\\src\\net.common\\log.cpp",
+  "file": "D:\\Devs\\us2d_server\\src\\net.common\\log.cpp",
+  "output": "src\\net.common\\CMakeFiles\\net.common.dir\\log.cpp.obj"
+},
+{
+  "directory": "D:/Devs/us2d_server/out/build/x64-debug",
+  "command": "C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -ID:\\Devs\\us2d_server\\include -ID:\\Devs\\us2d_server\\src -ID:\\Devs\\us2d_server\\src\\net.common\\.. /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -ZI /Fosrc\\net.common\\CMakeFiles\\net.common.dir\\singleton.cpp.obj /Fdsrc\\net.common\\CMakeFiles\\net.common.dir\\net.common.pdb /FS -c D:\\Devs\\us2d_server\\src\\net.common\\singleton.cpp",
+  "file": "D:\\Devs\\us2d_server\\src\\net.common\\singleton.cpp",
+  "output": "src\\net.common\\CMakeFiles\\net.common.dir\\singleton.cpp.obj"
+},
+{
+  "directory": "D:/Devs/us2d_server/out/build/x64-debug",
+  "command": "C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -ID:\\Devs\\us2d_server\\include -ID:\\Devs\\us2d_server\\src -ID:\\Devs\\us2d_server\\src\\net.common\\.. /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -ZI /Fosrc\\net.common\\CMakeFiles\\net.common.dir\\system_config.cpp.obj /Fdsrc\\net.common\\CMakeFiles\\net.common.dir\\net.common.pdb /FS -c D:\\Devs\\us2d_server\\src\\net.common\\system_config.cpp",
+  "file": "D:\\Devs\\us2d_server\\src\\net.common\\system_config.cpp",
+  "output": "src\\net.common\\CMakeFiles\\net.common.dir\\system_config.cpp.obj"
+},
+{
+  "directory": "D:/Devs/us2d_server/out/build/x64-debug",
+  "command": "C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -ID:\\Devs\\us2d_server\\include -ID:\\Devs\\us2d_server\\src -ID:\\Devs\\us2d_server\\src\\net.common\\.. /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -ZI /Fosrc\\net.common\\CMakeFiles\\net.common.dir\\time.cpp.obj /Fdsrc\\net.common\\CMakeFiles\\net.common.dir\\net.common.pdb /FS -c D:\\Devs\\us2d_server\\src\\net.common\\time.cpp",
+  "file": "D:\\Devs\\us2d_server\\src\\net.common\\time.cpp",
+  "output": "src\\net.common\\CMakeFiles\\net.common.dir\\time.cpp.obj"
+},
+{
+  "directory": "D:/Devs/us2d_server/out/build/x64-debug",
+  "command": "C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -ID:\\Devs\\us2d_server\\include -ID:\\Devs\\us2d_server\\src -ID:\\Devs\\us2d_server\\src\\net.common\\.. /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -ZI /Fosrc\\net.common\\CMakeFiles\\net.common.dir\\ts_map.cpp.obj /Fdsrc\\net.common\\CMakeFiles\\net.common.dir\\net.common.pdb /FS -c D:\\Devs\\us2d_server\\src\\net.common\\ts_map.cpp",
+  "file": "D:\\Devs\\us2d_server\\src\\net.common\\ts_map.cpp",
+  "output": "src\\net.common\\CMakeFiles\\net.common.dir\\ts_map.cpp.obj"
+},
+{
+  "directory": "D:/Devs/us2d_server/out/build/x64-debug",
+  "command": "C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -ID:\\Devs\\us2d_server\\include -ID:\\Devs\\us2d_server\\src -ID:\\Devs\\us2d_server\\src\\net.common\\.. /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -ZI /Fosrc\\net.common\\CMakeFiles\\net.common.dir\\ts_memory_pool.cpp.obj /Fdsrc\\net.common\\CMakeFiles\\net.common.dir\\net.common.pdb /FS -c D:\\Devs\\us2d_server\\src\\net.common\\ts_memory_pool.cpp",
+  "file": "D:\\Devs\\us2d_server\\src\\net.common\\ts_memory_pool.cpp",
+  "output": "src\\net.common\\CMakeFiles\\net.common.dir\\ts_memory_pool.cpp.obj"
+},
+{
+  "directory": "D:/Devs/us2d_server/out/build/x64-debug",
+  "command": "C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -ID:\\Devs\\us2d_server\\include -ID:\\Devs\\us2d_server\\src -ID:\\Devs\\us2d_server\\src\\net.core\\.. -ID:\\Devs\\us2d_server\\src\\net.common\\.. /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -ZI /Fosrc\\net.core\\CMakeFiles\\net.core.dir\\connection.cpp.obj /Fdsrc\\net.core\\CMakeFiles\\net.core.dir\\net.core.pdb /FS -c D:\\Devs\\us2d_server\\src\\net.core\\connection.cpp",
+  "file": "D:\\Devs\\us2d_server\\src\\net.core\\connection.cpp",
+  "output": "src\\net.core\\CMakeFiles\\net.core.dir\\connection.cpp.obj"
+},
+{
+  "directory": "D:/Devs/us2d_server/out/build/x64-debug",
+  "command": "C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -ID:\\Devs\\us2d_server\\include -ID:\\Devs\\us2d_server\\src -ID:\\Devs\\us2d_server\\src\\net.core\\.. -ID:\\Devs\\us2d_server\\src\\net.common\\.. /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -ZI /Fosrc\\net.core\\CMakeFiles\\net.core.dir\\logic.cpp.obj /Fdsrc\\net.core\\CMakeFiles\\net.core.dir\\net.core.pdb /FS -c D:\\Devs\\us2d_server\\src\\net.core\\logic.cpp",
+  "file": "D:\\Devs\\us2d_server\\src\\net.core\\logic.cpp",
+  "output": "src\\net.core\\CMakeFiles\\net.core.dir\\logic.cpp.obj"
+},
+{
+  "directory": "D:/Devs/us2d_server/out/build/x64-debug",
+  "command": "C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -ID:\\Devs\\us2d_server\\include -ID:\\Devs\\us2d_server\\src -ID:\\Devs\\us2d_server\\src\\net.core\\.. -ID:\\Devs\\us2d_server\\src\\net.common\\.. /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -ZI /Fosrc\\net.core\\CMakeFiles\\net.core.dir\\packet.cpp.obj /Fdsrc\\net.core\\CMakeFiles\\net.core.dir\\net.core.pdb /FS -c D:\\Devs\\us2d_server\\src\\net.core\\packet.cpp",
+  "file": "D:\\Devs\\us2d_server\\src\\net.core\\packet.cpp",
+  "output": "src\\net.core\\CMakeFiles\\net.core.dir\\packet.cpp.obj"
+},
+{
+  "directory": "D:/Devs/us2d_server/out/build/x64-debug",
+  "command": "C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -ID:\\Devs\\us2d_server\\include -ID:\\Devs\\us2d_server\\src -ID:\\Devs\\us2d_server\\src\\net.core\\.. -ID:\\Devs\\us2d_server\\src\\net.common\\.. /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -ZI /Fosrc\\net.core\\CMakeFiles\\net.core.dir\\tcp.cpp.obj /Fdsrc\\net.core\\CMakeFiles\\net.core.dir\\net.core.pdb /FS -c D:\\Devs\\us2d_server\\src\\net.core\\tcp.cpp",
+  "file": "D:\\Devs\\us2d_server\\src\\net.core\\tcp.cpp",
+  "output": "src\\net.core\\CMakeFiles\\net.core.dir\\tcp.cpp.obj"
+},
+{
+  "directory": "D:/Devs/us2d_server/out/build/x64-debug",
+  "command": "C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -ID:\\Devs\\us2d_server\\include -ID:\\Devs\\us2d_server\\src -ID:\\Devs\\us2d_server\\src\\net.server\\.. -ID:\\Devs\\us2d_server\\src\\net.core\\.. -ID:\\Devs\\us2d_server\\src\\net.common\\.. /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -ZI /Fosrc\\net.server\\CMakeFiles\\net.server.dir\\main.cpp.obj /Fdsrc\\net.server\\CMakeFiles\\net.server.dir\\ /FS -c D:\\Devs\\us2d_server\\src\\net.server\\main.cpp",
+  "file": "D:\\Devs\\us2d_server\\src\\net.server\\main.cpp",
+  "output": "src\\net.server\\CMakeFiles\\net.server.dir\\main.cpp.obj"
+}
+]

@@ -1,0 +1,11 @@
+D:/Devs/us2d_server/out/build/x64-debug/CMakeFiles/edit_cache.dir
+D:/Devs/us2d_server/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
+D:/Devs/us2d_server/out/build/x64-debug/src/net.common/CMakeFiles/net.common.dir
+D:/Devs/us2d_server/out/build/x64-debug/src/net.common/CMakeFiles/edit_cache.dir
+D:/Devs/us2d_server/out/build/x64-debug/src/net.common/CMakeFiles/rebuild_cache.dir
+D:/Devs/us2d_server/out/build/x64-debug/src/net.core/CMakeFiles/net.core.dir
+D:/Devs/us2d_server/out/build/x64-debug/src/net.core/CMakeFiles/edit_cache.dir
+D:/Devs/us2d_server/out/build/x64-debug/src/net.core/CMakeFiles/rebuild_cache.dir
+D:/Devs/us2d_server/out/build/x64-debug/src/net.server/CMakeFiles/net.server.dir
+D:/Devs/us2d_server/out/build/x64-debug/src/net.server/CMakeFiles/edit_cache.dir
+D:/Devs/us2d_server/out/build/x64-debug/src/net.server/CMakeFiles/rebuild_cache.dir
