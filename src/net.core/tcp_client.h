@@ -48,7 +48,9 @@ namespace net::core
 		// asio 디스패치 받을 스레드 종료
 		void stop_workers();
 
-		void post_connect();
+		void post_resolve();
+
+		void post_connect(boost::asio::ip::tcp::resolver::results_type results);
 
 	private:
 

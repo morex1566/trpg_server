@@ -2,6 +2,7 @@
 
 net::core::tcp_client::tcp_client() :
 global_singleton(),
+resolver(context),
 socket(context)
 {
 	SPDLOG_INFO("create {} instance.", net::common::demangle(typeid(net::core::tcp_client).name()));
@@ -14,7 +15,8 @@ net::core::tcp_client::~tcp_client()
 
 void net::core::tcp_client::init(const std::string& host, boost::asio::ip::port_type port)
 {
-	endpoint = boost::asio::ip::tcp::endpoint(boost::asio::ip::make_address(host), port);
+	this->host = host;
+	this->port = port;
 }
 
 void net::core::tcp_client::async_connect()
@@ -32,15 +34,34 @@ void net::core::tcp_client::async_connect()
 	work_guard.emplace(boost::asio::make_work_guard(context));
 	start_workers();
 
-	post_connect();
+	post_resolve();
 }
 
-void net::core::tcp_client::post_connect()
+void net::core::tcp_client::post_resolve()
 {
 	if (current_state.load() != state::connecting) return;
 
-	socket.async_connect(endpoint,
-	[this](boost::system::error_code error)
+	resolver.async_resolve(host, std::to_string(port),
+	[this](boost::system::error_code error, boost::asio::ip::tcp::resolver::results_type results)
+	{
+		// Resolve 에러?
+		if (error)
+		{
+			SPDLOG_WARN("resolve error : {}.", error.message());
+			close();
+			return;
+		}
+
+		post_connect(std::move(results));
+	});
+}
+
+void net::core::tcp_client::post_connect(boost::asio::ip::tcp::resolver::results_type results)
+{
+	if (current_state.load() != state::connecting) return;
+
+	boost::asio::async_connect(socket, results,
+	[this](boost::system::error_code error, const boost::asio::ip::tcp::endpoint&)
 	{
 		// Socket 에러?
 		if (error)
@@ -102,6 +123,8 @@ void net::core::tcp_client::close()
 {
 	// 이미 disconnected
 	if (current_state.exchange(state::disconnected) == state::disconnected) return;
+
+	resolver.cancel();
 
 	// 내 소켓 닫기
 	if (socket.is_open())
