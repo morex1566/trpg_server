@@ -11,12 +11,22 @@ socket(context)
 net::core::tcp_client::~tcp_client()
 {
 	close();
+
+	// asio 디스패칭 종료
+	context.stop();
+	work_guard.reset();
+	delete_workers();
 }
 
 void net::core::tcp_client::init(const std::string& host, boost::asio::ip::port_type port)
 {
 	this->host = host;
 	this->port = port;
+
+	// asio 디스패칭 시작
+	context.restart();
+	work_guard.emplace(boost::asio::make_work_guard(context));
+	create_workers();
 }
 
 void net::core::tcp_client::async_connect()
@@ -28,11 +38,6 @@ void net::core::tcp_client::async_connect()
 	
 	// 클라에 연결할 소켓
 	socket = boost::asio::ip::tcp::socket(context);
-
-	// asio 디스패칭 시작
-	context.restart();
-	work_guard.emplace(boost::asio::make_work_guard(context));
-	start_workers();
 
 	post_resolve();
 }
@@ -48,7 +53,7 @@ void net::core::tcp_client::post_resolve()
 		if (error)
 		{
 			SPDLOG_WARN("resolve error : {}.", error.message());
-			close();
+			current_state.store(state::disconnected);
 			return;
 		}
 
@@ -67,7 +72,9 @@ void net::core::tcp_client::post_connect(boost::asio::ip::tcp::resolver::results
 		if (error)
 		{
 			SPDLOG_WARN("socket error : {}.", error.message());
-			close();
+			boost::system::error_code ignored;
+			socket.close(ignored);
+			current_state.store(state::disconnected);
 			return;
 		}
 
@@ -83,7 +90,7 @@ void net::core::tcp_client::post_connect(boost::asio::ip::tcp::resolver::results
 	});
 }
 
-void net::core::tcp_client::start_workers()
+void net::core::tcp_client::create_workers()
 {
 	context_workers.clear();
 
@@ -99,7 +106,7 @@ void net::core::tcp_client::start_workers()
 	}
 }
 
-void net::core::tcp_client::stop_workers()
+void net::core::tcp_client::delete_workers()
 {
 	const auto current_thread_id = std::this_thread::get_id();
 
@@ -124,6 +131,7 @@ void net::core::tcp_client::close()
 	// 이미 disconnected
 	if (current_state.exchange(state::disconnected) == state::disconnected) return;
 
+	// 리졸버 초기화
 	resolver.cancel();
 
 	// 내 소켓 닫기
@@ -132,6 +140,7 @@ void net::core::tcp_client::close()
 		boost::system::error_code error;
 		socket.close(error);
 	}
+	socket.release();
 
 	// 클라들 연결 종료
 	for (auto iterator = connections.begin(); iterator != connections.end(); ++iterator)
@@ -142,11 +151,4 @@ void net::core::tcp_client::close()
 		}
 	}
 	connections.clear();
-
-	// asio 디스패칭 종료
-	context.stop();
-	work_guard.reset();
-	stop_workers();
-
-	current_state.store(state::disconnected);
 }

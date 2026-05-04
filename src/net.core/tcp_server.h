@@ -44,10 +44,10 @@ namespace net::core
 	private:
 
 		// asio 디스패치 받을 스레드 시작
-		void start_workers();
+		void create_workers();
 
 		// asio 디스패치 받을 스레드 종료
-		void stop_workers();
+		void delete_workers();
 
 		void post_accept();
 

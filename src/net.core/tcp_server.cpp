@@ -14,11 +14,21 @@ accept_token_bucket
 net::core::tcp_server::~tcp_server()
 {
 	close();
+
+	// asio 디스패처 종료
+	context.stop();
+	work_guard.reset();
+	delete_workers();
 }
 
 void net::core::tcp_server::init(boost::asio::ip::port_type port)
 {
 	endpoint = boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), port);
+
+	// asio 디스패처 시작
+	context.restart();
+	work_guard.emplace(boost::asio::make_work_guard(context));
+	create_workers();
 }
 
 void net::core::tcp_server::async_accept()
@@ -28,17 +38,13 @@ void net::core::tcp_server::async_accept()
 	// 이미 tcp server 켜져 있었음
 	if (!current_state.compare_exchange_strong(expected, state::running)) return;
 
-	// asio 디스패처 시작
-	context.restart();
-	work_guard.emplace(boost::asio::make_work_guard(context));
-	acceptor.emplace(context, endpoint);
-	start_workers();
-
 	// accept 열기
+	acceptor.emplace(context, endpoint);
+
 	post_accept();
 }
 
-void net::core::tcp_server::start_workers()
+void net::core::tcp_server::create_workers()
 {
 	context_workers.clear();
 
@@ -54,7 +60,7 @@ void net::core::tcp_server::start_workers()
 	}
 }
 
-void net::core::tcp_server::stop_workers()
+void net::core::tcp_server::delete_workers()
 {
 	const auto current_thread_id = std::this_thread::get_id();
 
@@ -135,8 +141,8 @@ void net::core::tcp_server::post_accept()
 
 void net::core::tcp_server::close()
 {
-	state expected = state::running;
-	if (!current_state.compare_exchange_strong(expected, state::stopped)) return;
+	// 이미 stopped
+	if (current_state.exchange(state::stopped) == state::stopped) return;
 
 	// 대기 중인 accept를 취소한 뒤 acceptor를 닫아 신규 접속을 막는다.
 	if (acceptor.has_value() && acceptor->is_open())
@@ -146,6 +152,7 @@ void net::core::tcp_server::close()
 		error.clear();
 		acceptor->close(error);
 	}
+	acceptor.reset();
 
 	// 클라들 연결 종료
 	for (auto iterator = connections.begin(); iterator != connections.end(); ++iterator)
@@ -156,13 +163,6 @@ void net::core::tcp_server::close()
 		}
 	}
 	connections.clear();
-
-	// asio 디스패처 종료
-	context.stop();
-	work_guard.reset();
-	acceptor.reset();
-
-	stop_workers();
 }
 
 std::string net::core::tcp_server::get_remote_address(boost::asio::ip::tcp::socket& client_socket)
