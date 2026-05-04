@@ -20,10 +20,10 @@ namespace net::common
     {
         switch (unit)
         {
-        case time_unit_type::MILLISECOND:
+        case time_unit_type::millisecond:
             return std::chrono::duration<float, std::milli>(delta_time).count();
 
-        case time_unit_type::SECOND:
+        case time_unit_type::second:
         default:
             return std::chrono::duration<float>(delta_time).count();
         }
@@ -36,10 +36,10 @@ namespace net::common
 
         switch (unit)
         {
-        case time_unit_type::SECOND:
+        case time_unit_type::second:
             return static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::seconds>(duration).count());
 
-        case time_unit_type::MILLISECOND:
+        case time_unit_type::millisecond:
         default:
             return static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::milliseconds>(duration).count());
         }

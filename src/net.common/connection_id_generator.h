@@ -19,6 +19,9 @@ namespace net::common
 
 		static connection_id generate();
 
+	public:
+		static inline connection_id default_id = 0;
+
 	private:
 
 		static inline std::atomic<connection_id> last_connection_id = 0;

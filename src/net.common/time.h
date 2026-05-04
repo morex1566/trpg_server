@@ -11,8 +11,8 @@ namespace net::common
 
         enum class time_unit_type
         {
-            SECOND,
-            MILLISECOND
+            second,
+            millisecond
         };
 
     public:
@@ -23,12 +23,12 @@ namespace net::common
         /// <summary>
         /// current timestamp - last timestamp
         /// </summary>
-        float deltatime(time_unit_type unit = time_unit_type::SECOND) const;
+        float deltatime(time_unit_type unit = time_unit_type::second) const;
 
         /// <summary>
         /// start_timestamp 기준 현재 시간
         /// </summary>
-        uint64_t timestamp(time_unit_type unit = time_unit_type::MILLISECOND) const;
+        uint64_t timestamp(time_unit_type unit = time_unit_type::millisecond) const;
 
         /// <summary>
         /// last_timestamp를 최신화

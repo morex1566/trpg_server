@@ -1,4 +1,4 @@
-#include "net.core/tcp.h"
+#include "net.core/tcp_server.h"
 #include "net.common/log.h"
 #include "net.common/time.h"
 #include <chrono>
@@ -17,13 +17,13 @@ int main()
 		timer.update();
 	}
 
-	net::core::tcp& tcp = net::core::tcp::get_instance();
+	net::core::tcp_server& tcp_server = net::core::tcp_server::get_instance();
 	{
-		tcp.init(TCP_PORT);
-		tcp.async_accept();
+		tcp_server.init(TCP_PORT);
+		tcp_server.async_accept();
 	}
 
-	while (tcp.is_running())
+	while (tcp_server.get_state() == net::core::tcp_server::state::running)
 	{
 		timer.update();
 	}

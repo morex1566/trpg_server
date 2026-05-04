@@ -47,7 +47,7 @@ namespace net::common
 
     uint64_t guid_generator::current_millis()
     {
-        return net::common::time::get_instance().timestamp(net::common::time::time_unit_type::MILLISECOND);
+        return net::common::time::get_instance().timestamp(net::common::time::time_unit_type::millisecond);
     }
 
     uint64_t guid_generator::resolve_node_id()
