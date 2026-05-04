@@ -1,4 +1,4 @@
-﻿cmake_minimum_required (VERSION 3.20)
+cmake_minimum_required (VERSION 3.20)
 
 # Enable Hot Reload for MSVC compilers if supported.
 if (POLICY CMP0141)
@@ -6,30 +6,105 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
-project ("us2d_server")
+project ("trpg_server")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(TRPG_THIRD_PARTY_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
+set(TRPG_THIRD_PARTY_EXTERNAL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/so")
+set(TRPG_THIRD_PARTY_DEBUG_RPATH
+    "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/spdlog/debug"
+    "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/debug"
+    "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/flatbuffers/debug"
+)
+set(TRPG_THIRD_PARTY_RELEASE_RPATH
+    "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/spdlog/release"
+    "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/release"
+    "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/flatbuffers/release"
+)
+set(CMAKE_BUILD_RPATH
+    "$<$<CONFIG:Debug>:${TRPG_THIRD_PARTY_DEBUG_RPATH}>"
+    "$<$<NOT:$<CONFIG:Debug>>:${TRPG_THIRD_PARTY_RELEASE_RPATH}>"
+)
+if (NOT MSVC)
+  add_compile_options(-Wno-narrowing -Wno-float-conversion -Wno-overflow -fpermissive)
+endif()
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Release")
+  endif()
+
+  find_package(Threads REQUIRED)
+endif()
+
+include_directories(${TRPG_THIRD_PARTY_INCLUDE_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-# External Libraries: spdlog
-add_library(spdlog STATIC IMPORTED GLOBAL)
-set_target_properties(spdlog PROPERTIES
-    IMPORTED_LOCATION_DEBUG "${CMAKE_SOURCE_DIR}/external/spdlog/debug/libspdlogd.a"
-    IMPORTED_LOCATION_RELEASE "${CMAKE_SOURCE_DIR}/external/spdlog/release/libspdlog.a"
-)
+function(trpg_add_imported_shared_library target_name debug_path release_path)
+  foreach(library_path IN ITEMS "${debug_path}" "${release_path}")
+    if (NOT EXISTS "${library_path}")
+      message(FATAL_ERROR "Required third-party library is missing: ${library_path}")
+    endif()
+  endforeach()
 
-# External Libraries: flatbuffers
-add_library(flatbuffers STATIC IMPORTED GLOBAL)
-set_target_properties(flatbuffers PROPERTIES
-    IMPORTED_LOCATION_DEBUG "${CMAKE_SOURCE_DIR}/external/flatbuffers/debug/libflatbuffersd.a"
-    IMPORTED_LOCATION_RELEASE "${CMAKE_SOURCE_DIR}/external/flatbuffers/release/libflatbuffers.a"
-)
+  add_library(${target_name} SHARED IMPORTED GLOBAL)
+  set_target_properties(${target_name} PROPERTIES
+      IMPORTED_LOCATION_DEBUG "${debug_path}"
+      IMPORTED_LOCATION_RELEASE "${release_path}"
+      IMPORTED_LOCATION_RELWITHDEBINFO "${release_path}"
+      IMPORTED_LOCATION_MINSIZEREL "${release_path}"
+  )
+endfunction()
+
+function(trpg_add_imported_interface_library target_name)
+  add_library(${target_name} INTERFACE IMPORTED GLOBAL)
+endfunction()
+
+if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  trpg_add_imported_shared_library(
+      spdlog
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/spdlog/debug/libspdlog_debug.so"
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/spdlog/release/libspdlog.so"
+  )
+
+  trpg_add_imported_shared_library(
+      flatbuffers
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/flatbuffers/debug/libflatbuffers_debug.so"
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/flatbuffers/release/libflatbuffers.so"
+  )
+
+  trpg_add_imported_shared_library(
+      tbb
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/debug/libtbb_debug.so"
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/release/libtbb.so"
+  )
+
+  trpg_add_imported_shared_library(
+      tbbmalloc
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/debug/libtbbmalloc_debug.so"
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/release/libtbbmalloc.so"
+  )
+
+  trpg_add_imported_shared_library(
+      tbbmalloc_proxy
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/debug/libtbbmalloc_proxy_debug.so"
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/release/libtbbmalloc_proxy.so"
+  )
+else()
+  if (MSVC)
+    message(FATAL_ERROR "This project is configured for the Linux/WSL toolchain. Select the Linux Debug or Linux Release CMake preset in Visual Studio instead of x64 Debug.")
+  endif()
+
+  trpg_add_imported_interface_library(spdlog)
+  trpg_add_imported_interface_library(flatbuffers)
+  trpg_add_imported_interface_library(tbb)
+  trpg_add_imported_interface_library(tbbmalloc)
+  trpg_add_imported_interface_library(tbbmalloc_proxy)
+endif()
 
 # Include sub-projects.
 add_subdirectory ("src/net.common")

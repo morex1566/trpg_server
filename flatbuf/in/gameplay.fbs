@@ -1,0 +1,22 @@
+namespace net.protocol;
+
+enum chat_type : byte
+{
+    gameplay = 0,       // 일반 텍스트
+    system = 1          // 시스템 공지 (입퇴장 등)
+}
+
+
+// 채팅
+table chat_send_request
+{
+    type:chat_type;
+    message:string;             // 메시지 본문
+}
+table chat_send_response
+{
+    type:chat_type;
+    user_id:ulong;              // 보낸 사람 고유 ID
+    message:string;             // 메시지 본문
+    timestamp_ms:long;          // 전송 시간 (Server Unix timestamp in milliseconds)
+}

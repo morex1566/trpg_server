@@ -1,60 +1,41 @@
 #include "system_config.h"
 
+#ifdef _WIN32
+#include <windows.h>
+#else
 #include <sys/sysinfo.h>
-#include <fstream>
-#include <string>
-#include <thread>
-#include <chrono>
+#endif
 
 namespace net::common
 {
-    uint64_t system_config::available_ram_bytes()
+    double system_config::current_ram_percentage()
     {
-        struct sysinfo memInfo;
-        if (sysinfo(&memInfo) != 0) return 0;
-        return static_cast<uint64_t>(memInfo.freeram) * memInfo.mem_unit;
-    }
+#ifdef _WIN32
+        MEMORYSTATUSEX mem_info{};
+        mem_info.dwLength = sizeof(mem_info);
 
-    double system_config::available_ram_percent()
-    {
-        struct sysinfo memInfo;
-        if (sysinfo(&memInfo) != 0) return 0.0;
-        double total = static_cast<double>(memInfo.totalram) * memInfo.mem_unit;
-        double free = static_cast<double>(memInfo.freeram) * memInfo.mem_unit;
-        return total > 0.0 ? (100.0 * free / total) : 0.0;
-    }
-
-    double system_config::cpu_usage_percent()
-    {
-        auto get_cpu_times = []() -> std::pair<uint64_t, uint64_t> 
+        if (!GlobalMemoryStatusEx(&mem_info))
         {
-            std::ifstream proc_stat("/proc/stat");
-            std::string line;
-            std::getline(proc_stat, line);
+            return 0.0;
+        }
 
-            if (line.compare(0, 3, "cpu") == 0) {
-                unsigned long long user = 0, nice = 0, system = 0, idle = 0, iowait = 0, irq = 0, softirq = 0, steal = 0, guest = 0, guest_nice = 0;
-                if (sscanf(line.c_str(), "cpu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu",
-                    &user, &nice, &system, &idle, &iowait, &irq, &softirq, &steal, &guest, &guest_nice) >= 4) {
+        const double total = static_cast<double>(mem_info.ullTotalPhys);
+        const double available = static_cast<double>(mem_info.ullAvailPhys);
 
-                    uint64_t idle_time = idle + iowait;
-                    uint64_t non_idle_time = user + nice + system + irq + softirq + steal;
-                    return { idle_time, idle_time + non_idle_time };
-                }
-            }
+        return total > 0.0 ? (100.0 * (total - available) / total) : 0.0;
 
-            return { 0, 0 };
-        };
+#else
+        struct sysinfo mem_info {};
 
-        auto [idle1, total1] = get_cpu_times();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-        auto [idle2, total2] = get_cpu_times();
+        if (sysinfo(&mem_info) != 0)
+        {
+            return 0.0;
+        }
 
-        uint64_t total_diff = total2 - total1;
-        uint64_t idle_diff = idle2 - idle1;
+        const double total = static_cast<double>(mem_info.totalram) * static_cast<double>(mem_info.mem_unit);
+        const double available = static_cast<double>(mem_info.freeram + mem_info.bufferram) * static_cast<double>(mem_info.mem_unit);
 
-        if (total_diff == 0) return 0.0;
-        return 100.0 * static_cast<double>(total_diff - idle_diff) / static_cast<double>(total_diff);
+        return total > 0.0 ? (100.0 * (total - available) / total) : 0.0;
+#endif
     }
-
 }

@@ -1,0 +1,43 @@
+namespace net.protocol;
+
+enum result_code : byte
+{
+    success = 0,
+    fail = 1
+}
+
+
+
+// 서버 상태 요청
+table server_stats_request
+{
+    
+}
+table server_stats_response
+{
+    is_running:bool;
+}
+
+
+// 서버 시작 요청
+table server_start_request
+{
+    
+}
+table server_start_response
+{
+    result:result_code;
+    message:string;
+}
+
+
+// 서버 중단 요청
+table server_stop_request
+{
+    
+}
+table server_stop_response
+{
+    result:result_code;
+    message:string;
+}

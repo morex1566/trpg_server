@@ -1,14 +1,22 @@
 #pragma once
-#include "net.common/ts_map.h"
-#include "net.common/singleton.h"
-#include "net.common/ts_memory_pool.h"
+#include "net.common/global_singleton.h"
+#include "net.common/system_config.h"
+#include "net.common/token_bucket.h"
+#include "net.common/connection_id_generator.h"
+#include "net.common/log.h"
 #include "net.core/connection.h"
-#include "net.core/packet.h"
-#include <moodycamel/blockingconcurrentqueue.h>
+#include <atomic>
+#include <memory>
+#include <optional>
+#include <string>
+#include <thread>
+#include <vector>
+#include <tbb/concurrent_hash_map.h>
+
 
 namespace net::core
 {
-	class tcp : public net::common::singleton<tcp>
+	class tcp : public net::common::global_singleton<tcp>
 	{
 	public:
 
@@ -23,56 +31,87 @@ namespace net::core
 		tcp();
 		~tcp() noexcept override;
 
+		/// <summary>
+		/// 서버 모드로 초기화
+		/// </summary>
 		void init(boost::asio::ip::port_type port);
+
+		/// <summary>
+		/// 클라이언트 모드로 초기화
+		/// </summary>
 		void init(const std::string& host, boost::asio::ip::port_type port);
-		void start();
-		void stop();
+
+		/// <summary>
+		/// 서버 모드로 클라 접속 받기
+		/// </summary>
+		void async_accept();
+
+		/// <summary>
+		/// 클라이언트 모드로 서버에 연결
+		/// </summary>
+		void async_connect();
+
 		void close();
 
-		bool is_runnable() const { return is_running; }
-		moodycamel::BlockingConcurrentQueue<packet_request>& get_requests() { return requests; }
-
-		void async_accept();
-		void disconnect(uint32_t connection_id);
+		bool is_running() const { return b_running; }
 
 	private:
 
-		void on_operation_aborted();
-		void on_connection_aborted();
-		void on_accept_error();
+		void start_workers();
+
+		void stop_workers();
+
+		void post_accept();
+
+		std::string remote_address_or_unknown(boost::asio::ip::tcp::socket& client_socket);
 
 	private:
 
-		std::atomic<bool> is_running{ false };
+		/// <summary>
+		/// 서버가 클라이언트에게 열려있음?
+		/// </summary>
+		std::atomic<bool> b_running { false };
+
 		mode mode;
+
+		/// <summary>
+		/// OS 디스패치 처리
+		/// </summary>
 		boost::asio::io_context context;
+
+		/// <summary>
+		/// OS 디스패치 처리를 여러 스레드가 처리하기 위해
+		/// </summary>
 		std::vector<std::thread> context_workers;
-		boost::asio::executor_work_guard<boost::asio::io_context::executor_type> work_guard;
+
+		/// <summary>
+		/// io_context dispatch가 계속되도록
+		/// </summary>
+		std::optional<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>> work_guard;
+
+		/// <summary>
+		/// 이 tcp socket
+		/// </summary>
 		boost::asio::ip::tcp::socket socket;
+
+		/// <summary>
+		/// Rate Limit용
+		/// </summary>
+		net::common::token_bucket accept_token_bucket;
+
+		/// <summary>
+		/// 이 서버 주소
+		/// </summary>
 		boost::asio::ip::tcp::endpoint endpoint;
+
+		/// <summary>
+		/// accept용
+		/// </summary>
 		std::optional<boost::asio::ip::tcp::acceptor> acceptor;
-		std::atomic<uint32_t> connection_id_counter { 10000 };
-		common::ts_map<uint32_t, std::shared_ptr<connection>> connections;
-		moodycamel::BlockingConcurrentQueue<packet_request> requests;
+
+		/// <summary>
+		/// 연결된 클라이언트 목록
+		/// </summary>
+		tbb::concurrent_hash_map<net::common::connection_id, std::shared_ptr<connection>> connections;
 	};
 }
-
-// err			   : boost::system::error_code
-// on_aborted      : 서버 소켓 닫힘 등으로 인한 작업 취소 시 실행할 구문
-// on_conn_aborted : 클라이언트가 일방적으로 연결을 끊었을 때 실행할 구문 (주로 다음 accept 재등록)
-// on_error        : 기타 심각한 에러 발생 시 실행할 구문
-#define CHECK_ACCEPT_ERROR(err, on_aborted, on_conn_aborted, on_error) \
-    do { \
-        if (err) { \
-            if (err == boost::asio::error::operation_aborted) { \
-                on_aborted; \
-            } \
-            else if (err == boost::asio::error::connection_aborted) { \
-                on_conn_aborted; \
-            } \
-            else { \
-                on_error; \
-            } \
-            return; /* 핸들러 실행 종료 */ \
-        } \
-    } while (0)

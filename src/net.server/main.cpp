@@ -1,8 +1,8 @@
 #include "net.core/tcp.h"
-#include "net.core/logic.h"
 #include "net.common/log.h"
 #include "net.common/time.h"
-#define IP "192.168.0.3"
+#include <chrono>
+#include <thread>
 #define TCP_PORT 60000
 
 int main()
@@ -14,19 +14,18 @@ int main()
 
 	net::common::time& timer = net::common::time::get_instance();
 	{
-		timer.tick();
+		timer.update();
 	}
 
 	net::core::tcp& tcp = net::core::tcp::get_instance();
 	{
 		tcp.init(TCP_PORT);
+		tcp.async_accept();
 	}
 
-	tcp.start();
-
-	while (tcp.is_runnable())
+	while (tcp.is_running())
 	{
-		timer.tick();
+		timer.update();
 	}
 
 	return 0;

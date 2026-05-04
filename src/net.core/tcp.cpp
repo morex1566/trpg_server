@@ -1,18 +1,14 @@
-
 #include "tcp.h"
-#include "net.common/log.h"
 
-net::core::tcp::tcp()
-	:	singleton(),
-		socket(context),
-		work_guard(boost::asio::make_work_guard(context))
+net::core::tcp::tcp() :	global_singleton(),
+socket(context),
+accept_token_bucket(net::common::system_config::tcp_accept_token_bucket::capacity, net::common::system_config::tcp_accept_token_bucket::refill_interval_ms)
 {
 	SPDLOG_INFO("create {} instance.", net::common::demangle(typeid(net::core::tcp).name()));
 }
 
 net::core::tcp::~tcp()
 {
-	stop();
 	close();
 }
 
@@ -20,7 +16,6 @@ void net::core::tcp::init(boost::asio::ip::port_type port)
 {
 	mode = mode::SERVER;
 	endpoint = boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), port);
-	acceptor.emplace(context, endpoint);
 }
 
 void net::core::tcp::init(const std::string& host, boost::asio::ip::port_type port)
@@ -29,102 +24,162 @@ void net::core::tcp::init(const std::string& host, boost::asio::ip::port_type po
 	endpoint = boost::asio::ip::tcp::endpoint(boost::asio::ip::make_address(host), port);
 }
 
-void net::core::tcp::start()
+void net::core::tcp::async_accept()
 {
-	is_running = true;
+	bool was_running = b_running.exchange(true);
 
-	if (mode == mode::SERVER)
-	{
-		async_accept();
-		SPDLOG_INFO("start accept client.");
-	}
+	// 이미 tcp 켜져 있었음
+	if (was_running) return;
 
-	// iocp 시작
-	const int thread_count = std::thread::hardware_concurrency() - 1;
-	for (int i = 0; i < thread_count; i++)
+	// asio 디스패처 시작
+	context.restart();
+	work_guard.emplace(boost::asio::make_work_guard(context));
+	start_workers();
+
+	// accept 열기
+	acceptor.emplace(context, endpoint);
+
+	// accept 핸들러 asio 디스패처에 등록
+	post_accept();
+}
+
+void net::core::tcp::async_connect()
+{
+}
+
+void net::core::tcp::start_workers()
+{
+	context_workers.clear();
+
+	// 메인 스레드를 제외한 나머지 스레드를 asio 디스패치를 처리하기 위해 등록
+	const unsigned int hardware_thread_count = std::thread::hardware_concurrency();
+	const unsigned int thread_count = hardware_thread_count > 1 ? hardware_thread_count - 1 : 1;
+	for (unsigned int i = 0; i < thread_count; i++)
 	{
-		context_workers.emplace_back(
-			[this]()
-			{
-				context.run();
-			});
+		context_workers.emplace_back([this]()
+		{
+			context.run();
+		});
 	}
 }
 
-void net::core::tcp::stop()
+void net::core::tcp::stop_workers()
 {
-	is_running = false;
-
-	context.stop();
-
-	for (int i = 0; i < context_workers.size(); i++)
+	for (auto& worker : context_workers)
 	{
-		if (context_workers[i].joinable())
+		if (worker.joinable())
 		{
-			context_workers[i].join();
+			worker.join();
 		}
 	}
+
+	context_workers.clear();
+}
+
+void net::core::tcp::post_accept()
+{
+	if (!b_running) return;
+	if (!acceptor.has_value() || !acceptor->is_open()) return;
+
+	acceptor->async_accept(
+	[this](boost::system::error_code error, boost::asio::ip::tcp::socket client_socket)
+	{
+		// Socket 에러?
+		if (error)
+		{
+			SPDLOG_WARN("socket error : {}.", error.message());
+			if (b_running) post_accept();
+			return;
+		}
+
+		// TCP 멈춤?
+		if (!b_running)
+		{
+			SPDLOG_INFO("tcp accept stopped. drop connection : {}", remote_address_or_unknown(client_socket));
+			boost::system::error_code close_error;
+			client_socket.close(close_error);
+			return;
+		}
+
+		// Rate Limit 걸림?
+		if (!accept_token_bucket.consume())
+		{
+			SPDLOG_INFO("server is busy. drop connection : {}", remote_address_or_unknown(client_socket));
+			boost::system::error_code close_error;
+			client_socket.close(close_error);
+			post_accept();
+			return;
+		}
+
+		// 연결을 받을 수 있을 만큼 메모리 충분?
+		if (net::common::system_config::current_ram_percentage() > net::common::system_config::limit_ram_percentage)
+		{
+			SPDLOG_WARN("memory out. drop connection : {}", remote_address_or_unknown(client_socket));
+			boost::system::error_code close_error;
+			client_socket.close(close_error);
+			post_accept();
+			return;
+		}
+
+		// 클라 등록
+		auto new_connection_id = net::common::connection_id_generator::generate();
+		auto new_connection = std::make_shared<connection>(context, std::move(client_socket), new_connection_id);
+		tbb::concurrent_hash_map<net::common::connection_id, std::shared_ptr<connection>>::accessor accessor;
+		if (connections.insert(accessor, new_connection_id))
+		{
+			accessor->second = std::move(new_connection);
+		}
+
+		// 다음 연결 수락
+		post_accept();
+	});
 }
 
 void net::core::tcp::close()
 {
+	bool was_running = b_running.exchange(false);
+
+	// 내 소켓 닫기
 	if (socket.is_open())
 	{
-		socket.close();
+		boost::system::error_code error;
+		socket.close(error);
 	}
 
+	// 대기 중인 accept를 취소한 뒤 acceptor를 닫아 신규 접속을 막는다.
 	if (acceptor.has_value() && acceptor->is_open())
 	{
-		acceptor->close();
+		boost::system::error_code error;
+		acceptor->cancel(error);
+		error.clear();
+		acceptor->close(error);
 	}
-}
 
-void net::core::tcp::async_accept()
-{
-	acceptor->async_accept(
-		[this](boost::system::error_code error, boost::asio::ip::tcp::socket client_socket)
+	// 클라들 연결 종료
+	for (auto iterator = connections.begin(); iterator != connections.end(); ++iterator)
+	{
+		if (iterator->second)
 		{
-			CHECK_ACCEPT_ERROR(error, on_operation_aborted(), on_connection_aborted(), on_accept_error());
-			CHECK_RETURN_VOID(!is_running);
+			iterator->second->close();
+		}
+	}
+	connections.clear();
 
-			// 세션 추가
-			const uint32_t new_session_id = connection_id_counter.fetch_add(1, std::memory_order_release);
-			auto new_session = std::make_shared<connection>
-			(
-				context,
-				std::move(client_socket),
-				new_session_id,
-				[this](uint32_t id) { disconnect(id); },
-				requests
-			);
-			new_session->start();
-			connections.insert(new_session_id, new_session);
-
-			// 다음 연결 수락
-			async_accept();
-		});
+	// asio 디스패처 종료
+	context.stop();
+	work_guard.reset();
+	stop_workers();
 }
 
-void net::core::tcp::disconnect(uint32_t connection_id)
+std::string net::core::tcp::remote_address_or_unknown(boost::asio::ip::tcp::socket& client_socket)
 {
-	connections.erase(connection_id);
-}
+	boost::system::error_code error;
+	const auto remote_endpoint = client_socket.remote_endpoint(error);
 
-void net::core::tcp::on_operation_aborted()
-{
-	SPDLOG_WARN("connect aborted by server side.");
+	if (error)
+	{
+		return "unknown";
+	}
 
-	async_accept();
-}
-
-void net::core::tcp::on_connection_aborted()
-{
-	SPDLOG_WARN("connect aborted by client side.");
-
-	async_accept();
-}
-
-void net::core::tcp::on_accept_error()
-{
-	SPDLOG_ERROR("accept failed. severe error occured.");
+	return remote_endpoint.address().to_string();
 }

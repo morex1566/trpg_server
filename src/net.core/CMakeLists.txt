@@ -1,22 +1,38 @@
 cmake_minimum_required(VERSION 3.20)
 project(net.core)
 
-file(GLOB_RECURSE SOURCES "*.cpp" "*.c")
-file(GLOB_RECURSE HEADERS "*.h" "*.hpp")
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "*.cpp" "*.c")
+file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS "*.h" "*.hpp")
 
-source_group("Source Files" FILES ${SOURCES})
-source_group("Header Files" FILES ${HEADERS})
+set(GENERATED_SOURCES ${SOURCES})
+set(GENERATED_HEADERS ${HEADERS})
+list(FILTER GENERATED_SOURCES INCLUDE REGEX "\\.generated\\.(c|cc|cpp|cxx)$")
+list(FILTER GENERATED_HEADERS INCLUDE REGEX "\\.generated\\.(h|hh|hpp|hxx)$")
 
-add_library(net.core STATIC ${SOURCES} ${HEADERS})
+if (GENERATED_SOURCES)
+  list(REMOVE_ITEM SOURCES ${GENERATED_SOURCES})
+endif()
+
+if (GENERATED_HEADERS)
+  list(REMOVE_ITEM HEADERS ${GENERATED_HEADERS})
+endif()
+
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" PREFIX "Source Files" FILES ${SOURCES})
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" PREFIX "Header Files" FILES ${HEADERS})
+
+if (GENERATED_SOURCES OR GENERATED_HEADERS)
+  source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" PREFIX "Generated Files" FILES ${GENERATED_SOURCES} ${GENERATED_HEADERS})
+endif()
+
+add_library(net.core STATIC ${SOURCES} ${HEADERS} ${GENERATED_SOURCES} ${GENERATED_HEADERS})
 
 set_target_properties(net.core PROPERTIES 
     ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/lib/debug"
     ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/lib/release"
 )
 
-if (CMAKE_VERSION VERSION_GREATER 3.20)
-  set_property(TARGET net.core PROPERTY CXX_STANDARD 20)
-endif()
+target_link_libraries(net.core PUBLIC net.common)
 
-target_include_directories(net.core PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
-target_link_libraries(net.core PUBLIC net.common spdlog flatbuffers)
+if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  target_link_libraries(net.core PUBLIC Threads::Threads)
+endif()
