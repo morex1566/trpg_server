@@ -44,10 +44,14 @@
 
 # Project directories to ignore
 bin/
+**/bin/
+**/obj/
 intermediate/
 lib/
 .vs/
 out/
+runtime/lib/
+runtime/out/
 
 # Additional debug database files
 *.idb
