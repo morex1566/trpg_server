@@ -1,4 +1,4 @@
-﻿namespace net.core;
+﻿namespace Net.Core;
 
 public enum NetErrorType
 {
@@ -82,9 +82,9 @@ public readonly struct NetResult<T>
 public readonly struct NetError
 {
     public static readonly NetError None = new(NetErrorType.None, 0, string.Empty);
-    public NetErrorType Type { get; }
-    public int NativeCode { get; }
-    public string Message { get; }
+    public NetErrorType Type { get; } = NetErrorType.None;
+    public int NativeCode { get; } = 0;
+    public string Message { get; } = "";
 
     public bool HasError => Type != NetErrorType.None;
 
@@ -92,6 +92,12 @@ public readonly struct NetError
     {
         Type = type;
         NativeCode = nativeCode;
+        Message = message;
+    }
+
+    public NetError(NetErrorType type, string message)
+    {
+        Type = type;
         Message = message;
     }
 

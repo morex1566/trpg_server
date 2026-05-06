@@ -1,6 +1,6 @@
-#include "tcp_server.h"
+#include "tcp.h"
 
-net::core::tcp_server::tcp_server() :
+net::core::tcp::tcp() :
 global_singleton(),
 accept_token_bucket
 (
@@ -8,20 +8,20 @@ accept_token_bucket
 	net::common::system_config::tcp_accept_token_bucket::refill_interval_ms
 )
 {
-	SPDLOG_INFO("create {} instance.", net::common::demangle(typeid(net::core::tcp_server).name()));
+	SPDLOG_INFO("create {} instance.", net::common::demangle(typeid(net::core::tcp).name()));
 }
 
-net::core::tcp_server::~tcp_server()
+net::core::tcp::~tcp()
 {
 	close();
 
 	// asio 디스패처 종료
-	context.stop();
 	work_guard.reset();
 	delete_workers();
+	context.stop();
 }
 
-void net::core::tcp_server::init(boost::asio::ip::port_type port)
+void net::core::tcp::init(boost::asio::ip::port_type port)
 {
 	endpoint = boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), port);
 
@@ -31,11 +31,10 @@ void net::core::tcp_server::init(boost::asio::ip::port_type port)
 	create_workers();
 }
 
-void net::core::tcp_server::async_accept()
+void net::core::tcp::async_accept()
 {
+	// 이미 tcp 켜져 있었음
 	state expected = state::stopped;
-
-	// 이미 tcp server 켜져 있었음
 	if (!current_state.compare_exchange_strong(expected, state::running)) return;
 
 	// accept 열기
@@ -44,7 +43,7 @@ void net::core::tcp_server::async_accept()
 	post_accept();
 }
 
-void net::core::tcp_server::create_workers()
+void net::core::tcp::create_workers()
 {
 	context_workers.clear();
 
@@ -60,7 +59,7 @@ void net::core::tcp_server::create_workers()
 	}
 }
 
-void net::core::tcp_server::delete_workers()
+void net::core::tcp::delete_workers()
 {
 	const auto current_thread_id = std::this_thread::get_id();
 
@@ -68,6 +67,7 @@ void net::core::tcp_server::delete_workers()
 	{
 		if (!worker.joinable()) continue;
 
+		// 함수 콜이 자기 자신이면 join하지 않고 detach
 		if (worker.get_id() == current_thread_id)
 		{
 			worker.detach();
@@ -80,7 +80,7 @@ void net::core::tcp_server::delete_workers()
 	context_workers.clear();
 }
 
-void net::core::tcp_server::post_accept()
+void net::core::tcp::post_accept()
 {
 	if (current_state.load() != state::running) return;
 
@@ -90,36 +90,33 @@ void net::core::tcp_server::post_accept()
 		// Socket 에러?
 		if (error)
 		{
-			SPDLOG_WARN("socket error : {}.", error.message());
-			if (current_state.load() == state::running) post_accept();
+			if (current_state.load() == state::running)
+			{
+				SPDLOG_WARN("socket error : {}.", error.message());
+				post_accept();
+			}
 			return;
 		}
 
-		// TCP 멈춤?
+		// TCP 멈춤? 지금 들어온 클라 버림
 		if (current_state.load() != state::running)
 		{
 			SPDLOG_INFO("tcp accept stopped. drop connection : {}", get_remote_address(client_socket));
-			boost::system::error_code close_error;
-			client_socket.close(close_error);
 			return;
 		}
 
-		// Rate Limit 걸림?
+		// Rate Limit 걸림? 지금 들어온 클라 버림
 		if (!accept_token_bucket.consume())
 		{
 			SPDLOG_INFO("server is busy. drop connection : {}", get_remote_address(client_socket));
-			boost::system::error_code close_error;
-			client_socket.close(close_error);
 			post_accept();
 			return;
 		}
 
-		// 연결을 받을 수 있을 만큼 메모리 충분?
+		// 연결을 받을 수 있을 만큼 메모리 충분? 지금 들어온 클라 버림
 		if (net::common::system_config::current_ram_percentage() > net::common::system_config::limit_ram_percentage)
 		{
 			SPDLOG_WARN("memory out. drop connection : {}", get_remote_address(client_socket));
-			boost::system::error_code close_error;
-			client_socket.close(close_error);
 			post_accept();
 			return;
 		}
@@ -138,10 +135,11 @@ void net::core::tcp_server::post_accept()
 	});
 }
 
-void net::core::tcp_server::close()
+void net::core::tcp::close()
 {
-	// 이미 stopped
-	if (current_state.exchange(state::stopped) == state::stopped) return;
+	// connected 상태가 아님.
+	state expected = state::running;
+	if (!current_state.compare_exchange_strong(expected, state::stopped)) return;
 
 	// 대기 중인 accept를 취소한 뒤 acceptor를 닫아 신규 접속을 막는다.
 	if (acceptor.has_value() && acceptor->is_open())
@@ -164,7 +162,7 @@ void net::core::tcp_server::close()
 	connections.clear();
 }
 
-std::string net::core::tcp_server::get_remote_address(boost::asio::ip::tcp::socket& client_socket)
+std::string net::core::tcp::get_remote_address(boost::asio::ip::tcp::socket& client_socket)
 {
 	boost::system::error_code error;
 	const auto remote_endpoint = client_socket.remote_endpoint(error);

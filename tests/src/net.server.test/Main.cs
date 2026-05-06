@@ -1,30 +1,47 @@
 using Net.Common;
 using Net.Core;
 
-const string tcpHost = "127.0.0.1";
-const int tcpPort = 60000;
-
-Log logger = Log.GetInstance();
+static partial class Program
 {
-    logger.Init();
-}
+    const string host = "127.0.0.1";
+    const int port = 60000;
 
-Time timer = Time.GetInstance();
-{
-    timer.Update();
-}
+    static async Task Main()
+    {
+        Log logger = Log.GetInstance();
+        {
+            logger.Init();
+        }
 
-Tcp tcpClient = Tcp.GetInstance();
-{
-    tcpClient.Init(args.Length > 0 ? args[0] : tcpHost, args.Length > 1 ? int.Parse(args[1]) : tcpPort);
-    tcpClient.AsyncConnect();
-}
+        Time timer = Time.GetInstance();
+        {
+            timer.Update();
+        }
 
-while (tcpClient.GetState() == Tcp.State.Connecting)
-{
-    timer.Update();
-    await Task.Delay(10);
-}
+        Tcp tcpClient = new Tcp();
+        {
+            tcpClient.Init(host, port);
 
-Console.WriteLine($"tcp_client state : {tcpClient.GetState()}");
-tcpClient.Close();
+            NetResult connectResult = await tcpClient.AsyncConnect();
+
+            // 연결 실패
+            if (connectResult.IsFailed)
+            {
+                Log.Error(connectResult.Error.ToString());
+                return;
+            }
+            // 연결 성공
+            else 
+            {
+                Log.Temp("Connected.");
+            }
+        }
+
+        while (tcpClient.CurrentState == Tcp.StateType.Connected)
+        {
+            timer.Update();
+        }
+
+        tcpClient.Close();
+    }
+}

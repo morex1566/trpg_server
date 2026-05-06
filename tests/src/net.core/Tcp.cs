@@ -1,34 +1,30 @@
-using System.Net;
 using Net.Common;
+using System;
+using System.Net;
 using System.Net.Sockets;
 
 namespace Net.Core;
 
-public sealed class Tcp : GlobalSingleton<Tcp>, IDisposable
+public sealed class Tcp : IDisposable
 {
-    public enum State
+    public enum StateType
     {
         Disconnected,
         Connecting,
         Connected
     }
 
-    private int currentState = (int)State.Disconnected;
+    private volatile int currentState = (int)StateType.Disconnected;
 
     private string host = string.Empty;
 
-    private int port;
+    private int port = 0;
 
-    private CancellationTokenSource? connectCancellationSource;
-
-    private Connection? connection;
+    private Connection? connection = null;
 
 
 
-    public Tcp()
-    {
-        Log.GetInstance().Info($"create {Log.Demangle(typeof(Tcp))} instance.");
-    }
+    public StateType CurrentState => (StateType)currentState;
 
 
 
@@ -38,29 +34,45 @@ public sealed class Tcp : GlobalSingleton<Tcp>, IDisposable
         this.port = port;
     }
 
-    public void AsyncConnect()
+    public async Task<NetResult> AsyncConnect()
     {
-        if (Interlocked.CompareExchange(ref currentState, (int)State.Connecting, (int)State.Disconnected) != (int)State.Disconnected) return;
+        // 이미 connected 임 or connecting 임
+        if (Interlocked.CompareExchange(ref currentState, (int)StateType.Connecting, (int)StateType.Disconnected) != (int)StateType.Disconnected)
+        {
+            return NetResult.Fail(new NetError(NetErrorType.AlreadyConnected, 0, NetErrorType.AlreadyConnected.ToString()));
+        }
 
-        connectCancellationSource = new CancellationTokenSource();
-        _ = PostResolve(connectCancellationSource.Token);
+        CancellationToken cancellationToken = new CancellationTokenSource().Token;
+
+        // DNS 변환 실패함?
+        NetResult<IPAddress> resolveResult = await AsyncPostResolve(cancellationToken);
+        if (resolveResult.IsFailed)
+        {
+            Interlocked.Exchange(ref currentState, (int)StateType.Disconnected);
+            return NetResult.Fail(resolveResult.Error);
+        }
+
+        // 소캣 연결 실패함?
+        NetResult<Socket> connectResult = await AsyncPostConnect(resolveResult.Value, cancellationToken);
+        if (connectResult.IsFailed)
+        {
+            Interlocked.Exchange(ref currentState, (int)StateType.Disconnected);
+            return NetResult.Fail(connectResult.Error);
+        }
+
+        // 연결 성공
+        connection = new Connection(connectResult.Value);
+        Interlocked.Exchange(ref currentState, (int)StateType.Connected);
+
+        return NetResult.Success();
     }
 
     public void Close()
     {
-        if (Interlocked.Exchange(ref currentState, (int)State.Disconnected) == (int)State.Disconnected) return;
+        // 연결 완료 상태가 아니면 close 안 함
+        if (Interlocked.CompareExchange(ref currentState, (int)StateType.Disconnected, (int)StateType.Connected) != (int)StateType.Connected) return;
 
-        connectCancellationSource?.Cancel();
-        connectCancellationSource?.Dispose();
-        connectCancellationSource = null;
-
-        connection?.Close();
-        connection = null;
-    }
-
-    public State GetState()
-    {
-        return (State)currentState;
+        connection?.Dispose();
     }
 
     public void Dispose()
@@ -68,48 +80,64 @@ public sealed class Tcp : GlobalSingleton<Tcp>, IDisposable
         Close();
     }
 
-    private async Task PostResolve(CancellationToken cancellationToken)
+    /// <summary>
+    /// DNS 변환
+    /// </summary>
+    private async Task<NetResult<IPAddress>> AsyncPostResolve(CancellationToken cancellationToken)
     {
-        if (currentState != (int)State.Connecting) return;
+        // 이미 connected 임
+        if (currentState != (int)StateType.Connecting)
+        {
+            return NetResult<IPAddress>.Fail(new NetError(NetErrorType.ResolveFailed, 0, NetErrorType.ResolveFailed.ToString()));
+        }
 
         try
         {
             IPAddress[] addresses = await Dns.GetHostAddressesAsync(host, cancellationToken);
-            await PostConnect(addresses, cancellationToken);
+            if (addresses.Length == 0)
+            {
+                return NetResult<IPAddress>.Fail(new NetError(NetErrorType.ResolveFailed, 0, NetErrorType.ResolveFailed.ToString()));
+            }
+
+            // DNS 변환 성공
+            return NetResult<IPAddress>.Success(addresses[0]);
+
         }
-        catch (Exception exception) when (exception is not OperationCanceledException)
+        catch (Exception exception)
         {
-            Log.GetInstance().Warn($"resolve error : {exception.Message}.");
-            Volatile.Write(ref currentState, (int)State.Disconnected);
+            // DNS 변환 실패
+            return NetResult<IPAddress>.Fail(new NetError(NetErrorType.ResolveFailed, 0, exception.Message));
         }
     }
 
-    private async Task PostConnect(IPAddress[] addresses, CancellationToken cancellationToken)
+    /// <summary>
+    /// host, port로 소캣 연결
+    /// </summary>
+    private async Task<NetResult<Socket>> AsyncPostConnect(IPAddress address, CancellationToken cancellationToken)
     {
-        if (GetState() != State.Connecting) return;
-
-        Exception? lastException = null;
-
-        foreach (IPAddress address in addresses)
+        // connect 들어가기 전에 이미 close() 됨?
+        if (currentState != (int)StateType.Connecting)
         {
-            Socket socket = new(address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-
-            try
-            {
-                await socket.ConnectAsync(address, port, cancellationToken);
-
-                connection = new Connection(socket, 0);
-                Volatile.Write(ref currentState, (int)State.Connected);
-                return;
-            }
-            catch (Exception exception) when (exception is not OperationCanceledException)
-            {
-                lastException = exception;
-                socket.Dispose();
-            }
+            return NetResult<Socket>.Fail(new NetError(NetErrorType.AlreadyConnecting, 0, NetErrorType.AlreadyConnecting.ToString()));
         }
 
-        Log.GetInstance().Warn($"socket error : {lastException?.Message ?? "connect failed"}.");
-        Volatile.Write(ref currentState, (int)State.Disconnected);
+        // 빈 소캣
+        Socket socket = new Socket(address.AddressFamily, SocketType.Stream, ProtocolType.Tcp)
+        {
+            NoDelay = true
+        };
+
+        try
+        {
+            await socket.ConnectAsync(new IPEndPoint(address, port), cancellationToken);
+
+            // connect 성공
+            return NetResult<Socket>.Success(socket);
+        }
+        catch (Exception exception)
+        {
+            // connect 실패
+            return NetResult<Socket>.Fail(new NetError(NetErrorType.ConnectFailed, 0, exception.Message));
+        }
     }
 }

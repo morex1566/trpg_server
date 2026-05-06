@@ -16,7 +16,7 @@ public sealed class Time : GlobalSingleton<Time>
 
     public Time()
     {
-        Log.GetInstance().Info($"create {Log.Demangle(typeof(Time))} instance.");
+        Log.Temp($"create {Log.Demangle(typeof(Time))} instance.");
     }
 
     public float Deltatime(TimeUnitType unit = TimeUnitType.Second)

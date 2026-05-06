@@ -5,35 +5,26 @@ namespace Net.Core;
 
 public sealed class Connection : IDisposable
 {
-    private readonly Socket socket;
-    private readonly ulong connectionId;
-    private int isClosed;
+    public enum StateType
+    {
+        None,
+        Disconnected,
+        Connected
+    }
 
-    public Connection(Socket socket, ulong connectionId)
+    private volatile int currentState = (int)StateType.None;
+    private Socket socket;
+    private ulong connectionId;
+
+    public Connection(Socket socket)
     {
         this.socket = socket;
-        this.connectionId = connectionId;
-        Log.GetInstance().Info($"create {Log.Demangle(typeof(Connection))} instance.");
+        currentState = (int)StateType.Connected;
     }
 
     public void Close()
     {
-        if (Interlocked.Exchange(ref isClosed, 1) == 1) return;
-
-        try
-        {
-            if (socket.Connected)
-            {
-                socket.Shutdown(SocketShutdown.Both);
-            }
-        }
-        catch (SocketException exception)
-        {
-            Log.GetInstance().Warn($"connection shutdown failed: {exception.Message}");
-        }
-        catch (ObjectDisposedException)
-        {
-        }
+        if (Interlocked.CompareExchange(ref currentState, (int)StateType.Disconnected, (int)StateType.Connected) != (int)StateType.Connected) return;
 
         socket.Dispose();
     }
@@ -41,6 +32,5 @@ public sealed class Connection : IDisposable
     public void Dispose()
     {
         Close();
-        Log.GetInstance().Info($"destroy {Log.Demangle(typeof(Connection))} instance.");
     }
 }

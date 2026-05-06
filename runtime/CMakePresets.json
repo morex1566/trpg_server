@@ -10,7 +10,8 @@
       "environment": {
         "CC": "/usr/bin/gcc-12",
         "CXX": "/usr/bin/g++-12",
-        "TERM": "dumb"
+        "TERM": "dumb",
+        "VCPKG_ROOT": "/opt/vcpkg"
       },
       "cacheVariables": {
         "CMAKE_CXX_STANDARD": "20",

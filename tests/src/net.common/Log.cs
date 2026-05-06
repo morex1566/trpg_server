@@ -6,7 +6,7 @@ public sealed class Log : GlobalSingleton<Log>
 
     public Log()
     {
-        Info($"create {Demangle(typeof(Log))} instance.");
+        Temp($"create {Demangle(typeof(Log))} instance.");
     }
 
     public void Init() { }
@@ -20,18 +20,18 @@ public sealed class Log : GlobalSingleton<Log>
     {
         return name;
     }
-
-    public void Temp(string message)
+     
+    public static void Temp(string message)
     {
         Write("Temp", message, ConsoleColor.White);
     }
 
-    public void Warn(string message)
+    public static void Warn(string message)
     {
         Write("Warn", message, ConsoleColor.Yellow);
     }
 
-    public void Error(string message)
+    public static void Error(string message)
     {
         Write("Error", message, ConsoleColor.Red);
     }

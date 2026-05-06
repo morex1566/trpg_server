@@ -17,6 +17,15 @@ namespace net::core
 	{
 	public:
 
+		enum class state
+		{
+			none,
+			connected,
+			disconnected
+		};
+
+	public:
+
 		connection(boost::asio::io_context& context, boost::asio::ip::tcp::socket&& client_socket, uint64_t connection_id);
 		connection(const connection&) = delete;
 		connection& operator=(const connection&) = delete;
@@ -30,12 +39,12 @@ namespace net::core
 
 		boost::asio::io_context& context;
 
-		boost::asio::strand<boost::asio::io_context::executor_type> strand;
-
 		// 클라이언트 소켓
 		boost::asio::ip::tcp::socket socket;
 
 		// 일회성 고유 id
 		uint64_t connection_id;
+
+		std::atomic<state> current_state { state::connected };
 	};
 }

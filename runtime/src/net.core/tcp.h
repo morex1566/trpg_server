@@ -16,7 +16,7 @@
 
 namespace net::core
 {
-	class tcp_server : public net::common::global_singleton<tcp_server>
+	class tcp : public net::common::global_singleton<tcp>
 	{
 	public:
 
@@ -28,8 +28,8 @@ namespace net::core
 
 	public:
 
-		tcp_server();
-		~tcp_server() noexcept override;
+		tcp();
+		~tcp() noexcept override;
 
 		// 서버 주소 초기화
 		void init(boost::asio::ip::port_type port);
@@ -54,7 +54,6 @@ namespace net::core
 		std::string get_remote_address(boost::asio::ip::tcp::socket& client_socket);
 
 	private:
-
 		// 서버 실행 상태
 		std::atomic<state> current_state { state::stopped };
 
