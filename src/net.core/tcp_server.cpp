@@ -83,7 +83,6 @@ void net::core::tcp_server::delete_workers()
 void net::core::tcp_server::post_accept()
 {
 	if (current_state.load() != state::running) return;
-	if (!acceptor.has_value() || !acceptor->is_open()) return;
 
 	acceptor->async_accept(
 	[this](boost::system::error_code error, boost::asio::ip::tcp::socket client_socket)

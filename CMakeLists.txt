@@ -64,6 +64,14 @@ function(trpg_add_imported_interface_library target_name)
   add_library(${target_name} INTERFACE IMPORTED GLOBAL)
 endfunction()
 
+function(trpg_add_runtime_library_symlink link_path link_target)
+  list(APPEND TRPG_RUNTIME_LIBRARY_SYMLINK_COMMANDS
+      COMMAND "${CMAKE_COMMAND}" -E rm -f "${link_path}"
+      COMMAND "${CMAKE_COMMAND}" -E create_symlink "${link_target}" "${link_path}"
+  )
+  set(TRPG_RUNTIME_LIBRARY_SYMLINK_COMMANDS "${TRPG_RUNTIME_LIBRARY_SYMLINK_COMMANDS}" PARENT_SCOPE)
+endfunction()
+
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
   trpg_add_imported_shared_library(
       spdlog
@@ -94,6 +102,53 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
       "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/debug/libtbbmalloc_proxy_debug.so"
       "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/release/libtbbmalloc_proxy.so"
   )
+
+  trpg_add_runtime_library_symlink(
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/spdlog/debug/libspdlog.so.1"
+      "libspdlog_debug.so"
+  )
+  trpg_add_runtime_library_symlink(
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/spdlog/release/libspdlog.so.1"
+      "libspdlog.so"
+  )
+  trpg_add_runtime_library_symlink(
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/flatbuffers/debug/libflatbuffers.so.25.12.19"
+      "libflatbuffers_debug.so"
+  )
+  trpg_add_runtime_library_symlink(
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/flatbuffers/release/libflatbuffers.so.25.12.19"
+      "libflatbuffers.so"
+  )
+  trpg_add_runtime_library_symlink(
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/debug/libtbb.so.12"
+      "libtbb_debug.so"
+  )
+  trpg_add_runtime_library_symlink(
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/debug/libtbbmalloc.so.2"
+      "libtbbmalloc_debug.so"
+  )
+  trpg_add_runtime_library_symlink(
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/debug/libtbbmalloc_proxy.so.2"
+      "libtbbmalloc_proxy_debug.so"
+  )
+  trpg_add_runtime_library_symlink(
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/release/libtbb.so.12"
+      "libtbb.so"
+  )
+  trpg_add_runtime_library_symlink(
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/release/libtbbmalloc.so.2"
+      "libtbbmalloc.so"
+  )
+  trpg_add_runtime_library_symlink(
+      "${TRPG_THIRD_PARTY_EXTERNAL_DIR}/tbb/release/libtbbmalloc_proxy.so.2"
+      "libtbbmalloc_proxy.so"
+  )
+
+  add_custom_target(trpg_prepare_runtime_libraries ALL
+      ${TRPG_RUNTIME_LIBRARY_SYMLINK_COMMANDS}
+      COMMENT "Preparing third-party runtime library SONAME symlinks"
+      VERBATIM
+  )
 else()
   if (MSVC)
     message(FATAL_ERROR "This project is configured for the Linux/WSL toolchain. Select the Linux Debug or Linux Release CMake preset in Visual Studio instead of x64 Debug.")
@@ -110,3 +165,10 @@ endif()
 add_subdirectory ("src/net.common")
 add_subdirectory ("src/net.core")
 add_subdirectory ("src/net.server")
+add_subdirectory ("src/net.server.test")
+
+if (TARGET trpg_prepare_runtime_libraries)
+  add_dependencies(net.common trpg_prepare_runtime_libraries)
+  add_dependencies(net.server trpg_prepare_runtime_libraries)
+  add_dependencies(net.server.test trpg_prepare_runtime_libraries)
+endif()
