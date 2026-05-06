@@ -2,12 +2,14 @@ namespace Net.Common;
 
 public sealed class Log : GlobalSingleton<Log>
 {
+    private static readonly object consoleLock = new();
+
     public Log()
     {
         Info($"create {Demangle(typeof(Log))} instance.");
     }
 
-    public void Init() {}
+    public void Init() { }
 
     public static string Demangle(Type type)
     {
@@ -19,18 +21,30 @@ public sealed class Log : GlobalSingleton<Log>
         return name;
     }
 
-    public void Info(string message)
+    public void Temp(string message)
     {
-        Write("info", message);
+        Write("Temp", message, ConsoleColor.White);
     }
 
     public void Warn(string message)
     {
-        Write("warn", message);
+        Write("Warn", message, ConsoleColor.Yellow);
     }
 
-    private static void Write(string level, string message)
+    public void Error(string message)
     {
-        Console.WriteLine($"[{DateTimeOffset.Now:yyyy-MM-dd HH:mm:ss.fff}] [{level}] {message}");
+        Write("Error", message, ConsoleColor.Red);
+    }
+
+    private static void Write(string level, string message, ConsoleColor color)
+    {
+        lock (consoleLock)
+        {
+            ConsoleColor prevColor = Console.ForegroundColor;
+
+            Console.ForegroundColor = color;
+            Console.WriteLine($"[{DateTimeOffset.Now:yyyy-MM-dd HH:mm:ss.fff}] [{level}] {message}");
+            Console.ForegroundColor = prevColor;
+        }
     }
 }
