@@ -33,8 +33,7 @@ set_target_properties(net.common PROPERTIES
 
 
 
-# External Libraries
-target_link_libraries(net.common PUBLIC spdlog flatbuffers tbb tbbmalloc tbbmalloc_proxy)
+target_link_libraries(net.common PUBLIC trpg.third_party)
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
   target_link_libraries(net.common PUBLIC atomic)

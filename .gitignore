@@ -53,6 +53,11 @@ out/
 runtime/lib/
 runtime/out/
 
+# vcpkg manifest outputs
+**/vcpkg_installed/
+**/vcpkg-manifest-install.log
+**/.vcpkg-cache/
+
 # Additional debug database files
 *.idb
 
