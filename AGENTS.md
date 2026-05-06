@@ -71,4 +71,6 @@ implementation은 지침 세트이며 보존되고 개선되어야 합니다.
 
 - 모든 구현 및 조언은 실제 상용으로 운영한다는 가정하에 모든 가정 상황을 분석해야함.
 
+- 파일 수정할때는 CRLF를 사용함.
+
 - SDP(Implementation Plan)를 작성하면, "C:\Users\morex\OneDrive\Documents\Obsidian Vault\md" 에 SDP안에 날짜, 시간, 제목, 고유 아이디를 포함시켜서, 클래스의 다이어그램 및 객체의 의미별 레이어와 로직 흐름도를 .md 파일로 저장해야함. 추가적으로 업데이트 해야할 것 같으면 업데이트 해야함.
