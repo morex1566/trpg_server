@@ -18,36 +18,8 @@ static_assert(FLATBUFFERS_VERSION_MAJOR == 25 &&
 namespace net {
 namespace protocol {
 
-struct packet_header;
-
 struct packet;
 struct packetBuilder;
-
-enum packet_type : uint16_t {
-  packet_type_none = 0,
-  packet_type_chat_send_request = 10000,
-  packet_type_chat_send_response = 10001,
-  packet_type_MIN = packet_type_none,
-  packet_type_MAX = packet_type_chat_send_response
-};
-
-inline const packet_type (&EnumValuespacket_type())[3] {
-  static const packet_type values[] = {
-    packet_type_none,
-    packet_type_chat_send_request,
-    packet_type_chat_send_response
-  };
-  return values;
-}
-
-inline const char *EnumNamepacket_type(packet_type e) {
-  switch (e) {
-    case packet_type_none: return "none";
-    case packet_type_chat_send_request: return "chat_send_request";
-    case packet_type_chat_send_response: return "chat_send_response";
-    default: return "";
-  }
-}
 
 enum packet_payload : uint8_t {
   packet_payload_NONE = 0,
@@ -99,39 +71,12 @@ bool Verifypacket_payload(::flatbuffers::VerifierTemplate<B> &verifier, const vo
 template <bool B = false>
 bool Verifypacket_payloadVector(::flatbuffers::VerifierTemplate<B> &verifier, const ::flatbuffers::Vector<::flatbuffers::Offset<void>> *values, const ::flatbuffers::Vector<uint8_t> *types);
 
-FLATBUFFERS_MANUALLY_ALIGNED_STRUCT(2) packet_header FLATBUFFERS_FINAL_CLASS {
- private:
-  uint16_t type_;
-  uint16_t payload_size_;
-
- public:
-  packet_header()
-      : type_(0),
-        payload_size_(0) {
-  }
-  packet_header(net::protocol::packet_type _type, uint16_t _payload_size)
-      : type_(::flatbuffers::EndianScalar(static_cast<uint16_t>(_type))),
-        payload_size_(::flatbuffers::EndianScalar(_payload_size)) {
-  }
-  net::protocol::packet_type type() const {
-    return static_cast<net::protocol::packet_type>(::flatbuffers::EndianScalar(type_));
-  }
-  uint16_t payload_size() const {
-    return ::flatbuffers::EndianScalar(payload_size_);
-  }
-};
-FLATBUFFERS_STRUCT_END(packet_header, 4);
-
 struct packet FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
   typedef packetBuilder Builder;
   enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
-    VT_HEADER = 4,
-    VT_PAYLOAD_TYPE = 6,
-    VT_PAYLOAD = 8
+    VT_PAYLOAD_TYPE = 4,
+    VT_PAYLOAD = 6
   };
-  const net::protocol::packet_header *header() const {
-    return GetStruct<const net::protocol::packet_header *>(VT_HEADER);
-  }
   net::protocol::packet_payload payload_type() const {
     return static_cast<net::protocol::packet_payload>(GetField<uint8_t>(VT_PAYLOAD_TYPE, 0));
   }
@@ -148,7 +93,6 @@ struct packet FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
   template <bool B = false>
   bool Verify(::flatbuffers::VerifierTemplate<B> &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<net::protocol::packet_header>(verifier, VT_HEADER, 2) &&
            VerifyField<uint8_t>(verifier, VT_PAYLOAD_TYPE, 1) &&
            VerifyOffset(verifier, VT_PAYLOAD) &&
            Verifypacket_payload(verifier, payload(), payload_type()) &&
@@ -168,9 +112,6 @@ struct packetBuilder {
   typedef packet Table;
   ::flatbuffers::FlatBufferBuilder &fbb_;
   ::flatbuffers::uoffset_t start_;
-  void add_header(const net::protocol::packet_header *header) {
-    fbb_.AddStruct(packet::VT_HEADER, header);
-  }
   void add_payload_type(net::protocol::packet_payload payload_type) {
     fbb_.AddElement<uint8_t>(packet::VT_PAYLOAD_TYPE, static_cast<uint8_t>(payload_type), 0);
   }
@@ -190,12 +131,10 @@ struct packetBuilder {
 
 inline ::flatbuffers::Offset<packet> Createpacket(
     ::flatbuffers::FlatBufferBuilder &_fbb,
-    const net::protocol::packet_header *header = nullptr,
     net::protocol::packet_payload payload_type = net::protocol::packet_payload_NONE,
     ::flatbuffers::Offset<void> payload = 0) {
   packetBuilder builder_(_fbb);
   builder_.add_payload(payload);
-  builder_.add_header(header);
   builder_.add_payload_type(payload_type);
   return builder_.Finish();
 }

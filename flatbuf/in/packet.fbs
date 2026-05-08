@@ -2,21 +2,6 @@ include "gameplay.fbs";
 
 namespace net.protocol;
 
-enum packet_type : ushort
-{
-    none = 0,
-
-    // gameplay.fbs (10000~19999)
-    chat_send_request = 10000,
-    chat_send_response = 10001,
-}
-
-struct packet_header
-{
-    type:packet_type;
-    payload_size:ushort;
-}
-
 union packet_payload
 {
     chat_send_request,
@@ -25,7 +10,6 @@ union packet_payload
 
 table packet
 {
-    header:packet_header;
     payload:packet_payload;
 }
 
