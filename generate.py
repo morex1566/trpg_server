@@ -15,8 +15,8 @@ NAMESPACE = "net.protocol"
 FLATBUF_DIR = "flatbuf"
 SCHEMA_INPUT_DIR = "in"
 GENERATED_OUTPUT_DIR = "out"
-LEGACY_GENERATED_DIRS = ("typescript", "javascript")
-LEGACY_SCHEMA_WORK_DIRS = ("typescript", "typescript_modules")
+SCHEMA_WORK_DIR = "schema_work"
+RUNTIME_CPP_GENERATED_DIR = Path("runtime") / "src" / "net.core" / "gen"
 
 TABLE_RE = re.compile(r"^\s*table\s+([A-Za-z_][A-Za-z0-9_]*)\b", re.MULTILINE)
 TYPE_RE = re.compile(r"^\s*(table|struct|enum|union)\s+([A-Za-z_][A-Za-z0-9_]*)\b", re.MULTILINE)
@@ -34,7 +34,6 @@ ROOT_TYPE_RE = re.compile(r"(\broot_type\s+)([A-Za-z_][A-Za-z0-9_]*)(\s*;)")
 class SchemaInfo:
     path: Path
     tables: tuple[str, ...]
-    types: tuple[str, ...]
 
 
 @dataclass(frozen=True)
@@ -91,40 +90,67 @@ class FlatbufferGenerator:
         self.root = root_dir
         self.flatbuf_dir = root_dir / FLATBUF_DIR
         self.input_dir = self.flatbuf_dir / SCHEMA_INPUT_DIR
+        self.packet_schema_path = self.input_dir / PACKET_SCHEMA
         self.output_dir = self.flatbuf_dir / GENERATED_OUTPUT_DIR
-        self.schema_work_dir = self.output_dir / "schema_work"
+        self.schema_work_dir = self.output_dir / SCHEMA_WORK_DIR
+        self.runtime_cpp_generated_dir = root_dir / RUNTIME_CPP_GENERATED_DIR
         self.flatc = root_dir / "flatc.exe"
 
     def run(self) -> int:
         self.validate()
-        self.remove_legacy_outputs()
+        self.remove_unneeded_outputs()
 
         schemas = self.read_schemas()
-        self.write_packet_schema(schemas)
 
-        total = 0
+        generated_files: dict[str, list[Path]] = {}
         for profile in PROFILES:
-            total += len(self.generate(profile, schemas))
+            generated_files[profile.name] = self.generate(profile, schemas)
 
+        self.sync_runtime_cpp_headers(generated_files["cpp"])
+        self.validate_generated_outputs(generated_files)
+
+        total = sum(len(files) for files in generated_files.values())
         print(f"총 생성 파일 수: {total}")
+        print("검증 통과")
         return 0
 
     def validate(self) -> None:
         missing = [
             str(path)
-            for path in (self.flatc, self.input_dir)
+            for path in (self.flatc, self.input_dir, self.packet_schema_path)
             if not path.exists()
         ]
 
         if missing:
             raise FileNotFoundError("다음 경로를 찾을 수 없습니다.\n" + "\n".join(missing))
 
-    def remove_legacy_outputs(self) -> None:
-        for name in LEGACY_GENERATED_DIRS:
-            self.reset_dir(self.output_dir / name, self.output_dir, recreate=False)
+    def remove_unneeded_outputs(self) -> None:
+        allowed_output_dirs = {profile.output_dir for profile in PROFILES}
+        allowed_output_dirs.add(SCHEMA_WORK_DIR)
+        self.remove_unexpected_children(self.output_dir, allowed_output_dirs)
 
-        for name in LEGACY_SCHEMA_WORK_DIRS:
-            self.reset_dir(self.schema_work_dir / name, self.schema_work_dir, recreate=False)
+        allowed_schema_dirs = {profile.name for profile in PROFILES}
+        self.remove_unexpected_children(self.schema_work_dir, allowed_schema_dirs)
+
+    def remove_unexpected_children(self, parent: Path, allowed_names: set[str]) -> None:
+        if not parent.exists():
+            return
+
+        for path in parent.iterdir():
+            if path.name in allowed_names:
+                continue
+
+            self.remove_generated_path(path, parent)
+
+    def remove_generated_path(self, path: Path, expected_parent: Path) -> None:
+        if path.parent != expected_parent:
+            raise RuntimeError(f"삭제 경로가 올바르지 않습니다: {path}")
+
+        if path.is_dir():
+            shutil.rmtree(path)
+            return
+
+        path.unlink()
 
     def find_schemas(self) -> list[Path]:
         return sorted(
@@ -138,7 +164,6 @@ class FlatbufferGenerator:
             SchemaInfo(
                 path=schema_path,
                 tables=tuple(parse_tables(schema_path)),
-                types=tuple(parse_type_names(schema_path)),
             )
             for schema_path in self.find_schemas()
         ]
@@ -148,10 +173,6 @@ class FlatbufferGenerator:
             raise RuntimeError("table 선언이 없는 스키마가 있습니다: " + ", ".join(empty_schemas))
 
         return schemas
-
-    def write_packet_schema(self, schemas: list[SchemaInfo]) -> None:
-        packet_path = self.input_dir / PACKET_SCHEMA
-        packet_path.write_text(build_packet_schema(schemas), encoding="utf-8")
 
     def generate(self, profile: LanguageProfile, schemas: list[SchemaInfo]) -> list[Path]:
         schema_dir = self.schema_work_dir / profile.name
@@ -202,10 +223,7 @@ class FlatbufferGenerator:
                 enum_value=profile.enum_value,
                 namespace=profile.namespace,
             )
-            (schema_dir / profile.filename(source_path.name)).write_text(
-                converted,
-                encoding="utf-8",
-            )
+            write_text_crlf(schema_dir / profile.filename(source_path.name), converted)
 
     def reset_dir(self, path: Path, expected_parent: Path, recreate: bool = True) -> None:
         if path.exists():
@@ -247,14 +265,79 @@ class FlatbufferGenerator:
         for path in files:
             print(f"  - {path.relative_to(self.root)}")
 
+    def sync_runtime_cpp_headers(self, generated_headers: list[Path]) -> None:
+        self.runtime_cpp_generated_dir.mkdir(parents=True, exist_ok=True)
+
+        expected_names = {path.name for path in generated_headers}
+        for path in self.runtime_cpp_generated_dir.glob("*.generated.h"):
+            if path.name not in expected_names:
+                self.remove_generated_path(path, self.runtime_cpp_generated_dir)
+
+        for source_path in generated_headers:
+            destination_path = self.runtime_cpp_generated_dir / source_path.name
+            write_text_crlf(destination_path, source_path.read_text(encoding="utf-8"))
+
+        print(f"[cpp] 런타임 헤더 동기화 완료: {len(generated_headers)}개 파일")
+        for path in generated_headers:
+            print(f"  - {(self.runtime_cpp_generated_dir / path.name).relative_to(self.root)}")
+
+    def validate_generated_outputs(self, generated_files: dict[str, list[Path]]) -> None:
+        self.validate_expected_children(
+            self.output_dir,
+            {profile.output_dir for profile in PROFILES} | {SCHEMA_WORK_DIR},
+        )
+        self.validate_expected_children(
+            self.schema_work_dir,
+            {profile.name for profile in PROFILES},
+        )
+
+        cpp_headers = generated_files["cpp"]
+        self.validate_expected_children(
+            self.runtime_cpp_generated_dir,
+            {path.name for path in cpp_headers},
+            pattern="*.generated.h",
+        )
+
+        scanned_paths = [
+            self.packet_schema_path,
+            self.output_dir / "schema_work" / "cpp" / PACKET_SCHEMA,
+            self.output_dir / "schema_work" / "csharp" / pascal_file_name(PACKET_SCHEMA),
+            self.output_dir / "cpp" / "packet.generated.h",
+            self.output_dir / "csharp" / "Packet.generated.cs",
+            self.runtime_cpp_generated_dir / "packet.generated.h",
+        ]
+        unexpected_tokens = ("connection_id", "connectionId", "ConnectionId")
+        for path in scanned_paths:
+            if not path.exists():
+                raise RuntimeError(f"검증 대상 파일을 찾을 수 없습니다: {path}")
+
+            text = path.read_text(encoding="utf-8")
+            for token in unexpected_tokens:
+                if token in text:
+                    raise RuntimeError(f"불필요한 필드가 생성되었습니다: {path} ({token})")
+
+    def validate_expected_children(
+        self,
+        parent: Path,
+        allowed_names: set[str],
+        pattern: str = "*",
+    ) -> None:
+        if not parent.exists():
+            raise RuntimeError(f"검증 대상 디렉터리를 찾을 수 없습니다: {parent}")
+
+        unexpected = [
+            path.name
+            for path in parent.glob(pattern)
+            if path.name not in allowed_names
+        ]
+        if unexpected:
+            raise RuntimeError(
+                f"불필요한 생성물이 남아 있습니다: {parent} ({', '.join(sorted(unexpected))})"
+            )
+
 
 def parse_tables(schema_path: Path) -> list[str]:
     return TABLE_RE.findall(schema_path.read_text(encoding="utf-8"))
-
-
-def parse_type_names(schema_path: Path) -> list[str]:
-    text = schema_path.read_text(encoding="utf-8")
-    return [match.group(2) for match in TYPE_RE.finditer(text)]
 
 
 def collect_type_names(paths: list[Path]) -> set[str]:
@@ -265,66 +348,10 @@ def collect_type_names(paths: list[Path]) -> set[str]:
     return type_names
 
 
-def build_packet_schema(schemas: list[SchemaInfo]) -> str:
-    lines: list[str] = []
-
-    for schema in schemas:
-        lines.append(f'include "{schema.path.name}";')
-
-    lines.extend(
-        [
-            "",
-            f"namespace {NAMESPACE};",
-            "",
-            "enum packet_type : ushort",
-            "{",
-            "    none = 0,",
-        ]
-    )
-
-    for schema_index, schema in enumerate(schemas, start=1):
-        base_id = schema_index * 10000
-        lines.extend(["", f"    // {schema.path.name} ({base_id}~{base_id + 9999})"])
-
-        for table_index, table_name in enumerate(schema.tables):
-            lines.append(f"    {table_name} = {base_id + table_index},")
-
-    lines.extend(
-        [
-            "}",
-            "",
-            "struct packet_header",
-            "{",
-            "    connection_id:ulong;",
-            "    type:packet_type;",
-            "    payload_size:ushort;",
-            "}",
-            "",
-            "union packet_payload",
-            "{",
-        ]
-    )
-
-    payload_tables = [table for schema in schemas for table in schema.tables]
-    for index, table_name in enumerate(payload_tables):
-        suffix = "," if index < len(payload_tables) - 1 else ""
-        lines.append(f"    {table_name}{suffix}")
-
-    lines.extend(
-        [
-            "}",
-            "",
-            "table packet",
-            "{",
-            "    header:packet_header;",
-            "    payload:packet_payload;",
-            "}",
-            "",
-            "root_type packet;",
-            "",
-        ]
-    )
-    return "\n".join(lines)
+def write_text_crlf(path: Path, text: str) -> None:
+    normalized = re.sub(r"\r+\n", "\n", text).replace("\r", "\n")
+    with path.open("w", encoding="utf-8", newline="\r\n") as file:
+        file.write(normalized)
 
 
 def convert_schema(

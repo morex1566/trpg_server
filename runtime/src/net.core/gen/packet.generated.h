@@ -13,7 +13,6 @@ static_assert(FLATBUFFERS_VERSION_MAJOR == 25 &&
               FLATBUFFERS_VERSION_REVISION == 19,
              "Non-compatible flatbuffers version included");
 
-#include "admin.generated.h"
 #include "gameplay.generated.h"
 
 namespace net {
@@ -26,27 +25,15 @@ struct packetBuilder;
 
 enum packet_type : uint16_t {
   packet_type_none = 0,
-  packet_type_server_stats_request = 10000,
-  packet_type_server_stats_response = 10001,
-  packet_type_server_start_request = 10002,
-  packet_type_server_start_response = 10003,
-  packet_type_server_stop_request = 10004,
-  packet_type_server_stop_response = 10005,
-  packet_type_chat_send_request = 20000,
-  packet_type_chat_send_response = 20001,
+  packet_type_chat_send_request = 10000,
+  packet_type_chat_send_response = 10001,
   packet_type_MIN = packet_type_none,
   packet_type_MAX = packet_type_chat_send_response
 };
 
-inline const packet_type (&EnumValuespacket_type())[9] {
+inline const packet_type (&EnumValuespacket_type())[3] {
   static const packet_type values[] = {
     packet_type_none,
-    packet_type_server_stats_request,
-    packet_type_server_stats_response,
-    packet_type_server_start_request,
-    packet_type_server_start_response,
-    packet_type_server_stop_request,
-    packet_type_server_stop_response,
     packet_type_chat_send_request,
     packet_type_chat_send_response
   };
@@ -56,12 +43,6 @@ inline const packet_type (&EnumValuespacket_type())[9] {
 inline const char *EnumNamepacket_type(packet_type e) {
   switch (e) {
     case packet_type_none: return "none";
-    case packet_type_server_stats_request: return "server_stats_request";
-    case packet_type_server_stats_response: return "server_stats_response";
-    case packet_type_server_start_request: return "server_start_request";
-    case packet_type_server_start_response: return "server_start_response";
-    case packet_type_server_stop_request: return "server_stop_request";
-    case packet_type_server_stop_response: return "server_stop_response";
     case packet_type_chat_send_request: return "chat_send_request";
     case packet_type_chat_send_response: return "chat_send_response";
     default: return "";
@@ -70,27 +51,15 @@ inline const char *EnumNamepacket_type(packet_type e) {
 
 enum packet_payload : uint8_t {
   packet_payload_NONE = 0,
-  packet_payload_server_stats_request = 1,
-  packet_payload_server_stats_response = 2,
-  packet_payload_server_start_request = 3,
-  packet_payload_server_start_response = 4,
-  packet_payload_server_stop_request = 5,
-  packet_payload_server_stop_response = 6,
-  packet_payload_chat_send_request = 7,
-  packet_payload_chat_send_response = 8,
+  packet_payload_chat_send_request = 1,
+  packet_payload_chat_send_response = 2,
   packet_payload_MIN = packet_payload_NONE,
   packet_payload_MAX = packet_payload_chat_send_response
 };
 
-inline const packet_payload (&EnumValuespacket_payload())[9] {
+inline const packet_payload (&EnumValuespacket_payload())[3] {
   static const packet_payload values[] = {
     packet_payload_NONE,
-    packet_payload_server_stats_request,
-    packet_payload_server_stats_response,
-    packet_payload_server_start_request,
-    packet_payload_server_start_response,
-    packet_payload_server_stop_request,
-    packet_payload_server_stop_response,
     packet_payload_chat_send_request,
     packet_payload_chat_send_response
   };
@@ -98,14 +67,8 @@ inline const packet_payload (&EnumValuespacket_payload())[9] {
 }
 
 inline const char * const *EnumNamespacket_payload() {
-  static const char * const names[10] = {
+  static const char * const names[4] = {
     "NONE",
-    "server_stats_request",
-    "server_stats_response",
-    "server_start_request",
-    "server_start_response",
-    "server_stop_request",
-    "server_stop_response",
     "chat_send_request",
     "chat_send_response",
     nullptr
@@ -123,30 +86,6 @@ template<typename T> struct packet_payloadTraits {
   static const packet_payload enum_value = packet_payload_NONE;
 };
 
-template<> struct packet_payloadTraits<net::protocol::server_stats_request> {
-  static const packet_payload enum_value = packet_payload_server_stats_request;
-};
-
-template<> struct packet_payloadTraits<net::protocol::server_stats_response> {
-  static const packet_payload enum_value = packet_payload_server_stats_response;
-};
-
-template<> struct packet_payloadTraits<net::protocol::server_start_request> {
-  static const packet_payload enum_value = packet_payload_server_start_request;
-};
-
-template<> struct packet_payloadTraits<net::protocol::server_start_response> {
-  static const packet_payload enum_value = packet_payload_server_start_response;
-};
-
-template<> struct packet_payloadTraits<net::protocol::server_stop_request> {
-  static const packet_payload enum_value = packet_payload_server_stop_request;
-};
-
-template<> struct packet_payloadTraits<net::protocol::server_stop_response> {
-  static const packet_payload enum_value = packet_payload_server_stop_response;
-};
-
 template<> struct packet_payloadTraits<net::protocol::chat_send_request> {
   static const packet_payload enum_value = packet_payload_chat_send_request;
 };
@@ -160,30 +99,19 @@ bool Verifypacket_payload(::flatbuffers::VerifierTemplate<B> &verifier, const vo
 template <bool B = false>
 bool Verifypacket_payloadVector(::flatbuffers::VerifierTemplate<B> &verifier, const ::flatbuffers::Vector<::flatbuffers::Offset<void>> *values, const ::flatbuffers::Vector<uint8_t> *types);
 
-FLATBUFFERS_MANUALLY_ALIGNED_STRUCT(8) packet_header FLATBUFFERS_FINAL_CLASS {
+FLATBUFFERS_MANUALLY_ALIGNED_STRUCT(2) packet_header FLATBUFFERS_FINAL_CLASS {
  private:
-  uint64_t connection_id_;
   uint16_t type_;
   uint16_t payload_size_;
-  int32_t padding0__;
 
  public:
   packet_header()
-      : connection_id_(0),
-        type_(0),
-        payload_size_(0),
-        padding0__(0) {
-    (void)padding0__;
+      : type_(0),
+        payload_size_(0) {
   }
-  packet_header(uint64_t _connection_id, net::protocol::packet_type _type, uint16_t _payload_size)
-      : connection_id_(::flatbuffers::EndianScalar(_connection_id)),
-        type_(::flatbuffers::EndianScalar(static_cast<uint16_t>(_type))),
-        payload_size_(::flatbuffers::EndianScalar(_payload_size)),
-        padding0__(0) {
-    (void)padding0__;
-  }
-  uint64_t connection_id() const {
-    return ::flatbuffers::EndianScalar(connection_id_);
+  packet_header(net::protocol::packet_type _type, uint16_t _payload_size)
+      : type_(::flatbuffers::EndianScalar(static_cast<uint16_t>(_type))),
+        payload_size_(::flatbuffers::EndianScalar(_payload_size)) {
   }
   net::protocol::packet_type type() const {
     return static_cast<net::protocol::packet_type>(::flatbuffers::EndianScalar(type_));
@@ -192,7 +120,7 @@ FLATBUFFERS_MANUALLY_ALIGNED_STRUCT(8) packet_header FLATBUFFERS_FINAL_CLASS {
     return ::flatbuffers::EndianScalar(payload_size_);
   }
 };
-FLATBUFFERS_STRUCT_END(packet_header, 16);
+FLATBUFFERS_STRUCT_END(packet_header, 4);
 
 struct packet FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
   typedef packetBuilder Builder;
@@ -211,24 +139,6 @@ struct packet FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
     return GetPointer<const void *>(VT_PAYLOAD);
   }
   template<typename T> const T *payload_as() const;
-  const net::protocol::server_stats_request *payload_as_server_stats_request() const {
-    return payload_type() == net::protocol::packet_payload_server_stats_request ? static_cast<const net::protocol::server_stats_request *>(payload()) : nullptr;
-  }
-  const net::protocol::server_stats_response *payload_as_server_stats_response() const {
-    return payload_type() == net::protocol::packet_payload_server_stats_response ? static_cast<const net::protocol::server_stats_response *>(payload()) : nullptr;
-  }
-  const net::protocol::server_start_request *payload_as_server_start_request() const {
-    return payload_type() == net::protocol::packet_payload_server_start_request ? static_cast<const net::protocol::server_start_request *>(payload()) : nullptr;
-  }
-  const net::protocol::server_start_response *payload_as_server_start_response() const {
-    return payload_type() == net::protocol::packet_payload_server_start_response ? static_cast<const net::protocol::server_start_response *>(payload()) : nullptr;
-  }
-  const net::protocol::server_stop_request *payload_as_server_stop_request() const {
-    return payload_type() == net::protocol::packet_payload_server_stop_request ? static_cast<const net::protocol::server_stop_request *>(payload()) : nullptr;
-  }
-  const net::protocol::server_stop_response *payload_as_server_stop_response() const {
-    return payload_type() == net::protocol::packet_payload_server_stop_response ? static_cast<const net::protocol::server_stop_response *>(payload()) : nullptr;
-  }
   const net::protocol::chat_send_request *payload_as_chat_send_request() const {
     return payload_type() == net::protocol::packet_payload_chat_send_request ? static_cast<const net::protocol::chat_send_request *>(payload()) : nullptr;
   }
@@ -238,37 +148,13 @@ struct packet FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
   template <bool B = false>
   bool Verify(::flatbuffers::VerifierTemplate<B> &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<net::protocol::packet_header>(verifier, VT_HEADER, 8) &&
+           VerifyField<net::protocol::packet_header>(verifier, VT_HEADER, 2) &&
            VerifyField<uint8_t>(verifier, VT_PAYLOAD_TYPE, 1) &&
            VerifyOffset(verifier, VT_PAYLOAD) &&
            Verifypacket_payload(verifier, payload(), payload_type()) &&
            verifier.EndTable();
   }
 };
-
-template<> inline const net::protocol::server_stats_request *packet::payload_as<net::protocol::server_stats_request>() const {
-  return payload_as_server_stats_request();
-}
-
-template<> inline const net::protocol::server_stats_response *packet::payload_as<net::protocol::server_stats_response>() const {
-  return payload_as_server_stats_response();
-}
-
-template<> inline const net::protocol::server_start_request *packet::payload_as<net::protocol::server_start_request>() const {
-  return payload_as_server_start_request();
-}
-
-template<> inline const net::protocol::server_start_response *packet::payload_as<net::protocol::server_start_response>() const {
-  return payload_as_server_start_response();
-}
-
-template<> inline const net::protocol::server_stop_request *packet::payload_as<net::protocol::server_stop_request>() const {
-  return payload_as_server_stop_request();
-}
-
-template<> inline const net::protocol::server_stop_response *packet::payload_as<net::protocol::server_stop_response>() const {
-  return payload_as_server_stop_response();
-}
 
 template<> inline const net::protocol::chat_send_request *packet::payload_as<net::protocol::chat_send_request>() const {
   return payload_as_chat_send_request();
@@ -319,30 +205,6 @@ inline bool Verifypacket_payload(::flatbuffers::VerifierTemplate<B> &verifier, c
   switch (type) {
     case packet_payload_NONE: {
       return true;
-    }
-    case packet_payload_server_stats_request: {
-      auto ptr = reinterpret_cast<const net::protocol::server_stats_request *>(obj);
-      return verifier.VerifyTable(ptr);
-    }
-    case packet_payload_server_stats_response: {
-      auto ptr = reinterpret_cast<const net::protocol::server_stats_response *>(obj);
-      return verifier.VerifyTable(ptr);
-    }
-    case packet_payload_server_start_request: {
-      auto ptr = reinterpret_cast<const net::protocol::server_start_request *>(obj);
-      return verifier.VerifyTable(ptr);
-    }
-    case packet_payload_server_start_response: {
-      auto ptr = reinterpret_cast<const net::protocol::server_start_response *>(obj);
-      return verifier.VerifyTable(ptr);
-    }
-    case packet_payload_server_stop_request: {
-      auto ptr = reinterpret_cast<const net::protocol::server_stop_request *>(obj);
-      return verifier.VerifyTable(ptr);
-    }
-    case packet_payload_server_stop_response: {
-      auto ptr = reinterpret_cast<const net::protocol::server_stop_response *>(obj);
-      return verifier.VerifyTable(ptr);
     }
     case packet_payload_chat_send_request: {
       auto ptr = reinterpret_cast<const net::protocol::chat_send_request *>(obj);
