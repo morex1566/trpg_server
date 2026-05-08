@@ -1,0 +1,33 @@
+include "gameplay.fbs";
+
+namespace net.protocol;
+
+enum packet_type : ushort
+{
+    none = 0,
+
+    // gameplay.fbs (10000~19999)
+    guid_send_request = 10000,
+    guid_send_response = 10001,
+}
+
+struct packet_header
+{
+    connection_id:ulong;
+    type:packet_type;
+    payload_size:ushort;
+}
+
+union packet_payload
+{
+    guid_send_request,
+    guid_send_response
+}
+
+table packet
+{
+    header:packet_header;
+    payload:packet_payload;
+}
+
+root_type packet;

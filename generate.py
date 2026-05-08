@@ -15,6 +15,8 @@ NAMESPACE = "net.protocol"
 FLATBUF_DIR = "flatbuf"
 SCHEMA_INPUT_DIR = "in"
 GENERATED_OUTPUT_DIR = "out"
+LEGACY_GENERATED_DIRS = ("typescript", "javascript")
+LEGACY_SCHEMA_WORK_DIRS = ("typescript", "typescript_modules")
 
 TABLE_RE = re.compile(r"^\s*table\s+([A-Za-z_][A-Za-z0-9_]*)\b", re.MULTILINE)
 TYPE_RE = re.compile(r"^\s*(table|struct|enum|union)\s+([A-Za-z_][A-Za-z0-9_]*)\b", re.MULTILINE)
@@ -26,9 +28,6 @@ ENUM_RE = re.compile(r"(enum\s+[A-Za-z_][A-Za-z0-9_]*[^{]*\{)(.*?)(\n\})", re.DO
 UNION_RE = re.compile(r"(union\s+[A-Za-z_][A-Za-z0-9_]*\s*\{)(.*?)(\n\})", re.DOTALL)
 TYPE_REF_RE = re.compile(r"(:\s*)([A-Za-z_][A-Za-z0-9_]*)(\s*(?:[;=]|$))", re.MULTILINE)
 ROOT_TYPE_RE = re.compile(r"(\broot_type\s+)([A-Za-z_][A-Za-z0-9_]*)(\s*;)")
-TS_EXPORT_RE = re.compile(r"export\s+\{\s*([^}]+?)\s*\}\s+from\s+'\.\/protocol\/([^']+)\.js';")
-TS_IMPORT_RE = re.compile(r"^\s*import\s+\{\s*([^}]+?)\s*\}\s+from\s+'([^']+)';\s*$")
-TS_FLATBUFFERS_IMPORT_RE = re.compile(r"^\s*import\s+\*\s+as\s+flatbuffers\s+from\s+'flatbuffers';\s*$")
 
 
 @dataclass(frozen=True)
@@ -84,20 +83,12 @@ PROFILES = (
         enum_value=snake_to_pascal,
         namespace="Net.Protocol",
     ),
-    LanguageProfile(
-        name="typescript",
-        flag="--ts",
-        output_dir="typescript_modules",
-        extension=".ts",
-        extra_flags=("--gen-all",),
-    ),
 )
 
 
 class FlatbufferGenerator:
     def __init__(self, root_dir: Path) -> None:
         self.root = root_dir
-        self.workspace = root_dir.parent
         self.flatbuf_dir = root_dir / FLATBUF_DIR
         self.input_dir = self.flatbuf_dir / SCHEMA_INPUT_DIR
         self.output_dir = self.flatbuf_dir / GENERATED_OUTPUT_DIR
@@ -106,18 +97,15 @@ class FlatbufferGenerator:
 
     def run(self) -> int:
         self.validate()
+        self.remove_legacy_outputs()
 
         schemas = self.read_schemas()
         self.write_packet_schema(schemas)
 
         total = 0
         for profile in PROFILES:
-            if profile.name == "typescript":
-                continue
             total += len(self.generate(profile, schemas))
 
-        total += len(self.generate_typescript(schemas))
-        total += len(self.compile_javascript())
         print(f"총 생성 파일 수: {total}")
         return 0
 
@@ -130,6 +118,13 @@ class FlatbufferGenerator:
 
         if missing:
             raise FileNotFoundError("다음 경로를 찾을 수 없습니다.\n" + "\n".join(missing))
+
+    def remove_legacy_outputs(self) -> None:
+        for name in LEGACY_GENERATED_DIRS:
+            self.reset_dir(self.output_dir / name, self.output_dir, recreate=False)
+
+        for name in LEGACY_SCHEMA_WORK_DIRS:
+            self.reset_dir(self.schema_work_dir / name, self.schema_work_dir, recreate=False)
 
     def find_schemas(self) -> list[Path]:
         return sorted(
@@ -178,43 +173,10 @@ class FlatbufferGenerator:
             str(out_dir),
         ]
 
-        if profile.name == "typescript":
-            command.append(str(schema_dir / profile.filename(PACKET_SCHEMA)))
-        else:
-            command.extend(str(path) for path in sorted(schema_dir.glob("*.fbs")))
+        command.extend(str(path) for path in sorted(schema_dir.glob("*.fbs")))
 
         self.run_command(profile.name, command, self.root)
         files = sorted(out_dir.rglob(f"*{profile.extension}"))
-        self.print_files(profile.name, files)
-        return files
-
-    def generate_typescript(self, schemas: list[SchemaInfo]) -> list[Path]:
-        profile = next(profile for profile in PROFILES if profile.name == "typescript")
-        schema_dir = self.schema_work_dir / profile.name
-        module_dir = self.schema_work_dir / "typescript_modules"
-        out_dir = self.output_dir / "typescript"
-        self.reset_dir(schema_dir, self.schema_work_dir)
-        self.reset_dir(module_dir, self.schema_work_dir)
-        self.reset_dir(out_dir, self.output_dir)
-
-        self.write_language_schemas(profile, schemas, schema_dir)
-        self.run_command(
-            profile.name,
-            [
-                str(self.flatc),
-                profile.flag,
-                *profile.extra_flags,
-                "-I",
-                str(schema_dir),
-                "-o",
-                str(module_dir),
-                str(schema_dir / PACKET_SCHEMA),
-            ],
-            self.root,
-        )
-
-        files = self.bundle_typescript_modules(schemas, module_dir, out_dir)
-        self.reset_dir(module_dir, self.schema_work_dir, recreate=False)
         self.print_files(profile.name, files)
         return files
 
@@ -244,114 +206,6 @@ class FlatbufferGenerator:
                 converted,
                 encoding="utf-8",
             )
-
-    def compile_javascript(self) -> list[Path]:
-        ts_dir = self.output_dir / "typescript"
-        js_dir = self.output_dir / "javascript"
-        self.reset_dir(js_dir, self.output_dir)
-
-        compile_dir = self.prepare_typescript_compile_dir(ts_dir)
-        try:
-            self.run_command(
-                "javascript",
-                self.build_tsc_command(compile_dir, js_dir),
-                self.node_project_dir(),
-                "TypeScript -> JavaScript 변환",
-            )
-        finally:
-            if compile_dir != ts_dir:
-                self.reset_dir(compile_dir, self.node_project_dir(), recreate=False)
-
-        files = sorted(js_dir.rglob("*.js"))
-        self.print_files("javascript", files)
-        return files
-
-    def bundle_typescript_modules(
-        self,
-        schemas: list[SchemaInfo],
-        module_dir: Path,
-        out_dir: Path,
-    ) -> list[Path]:
-        export_map = read_typescript_export_map(module_dir / "net" / "protocol.ts")
-        bundle_map = self.build_typescript_bundle_map(schemas)
-        generated_files = []
-
-        for bundle_name, symbols in bundle_map.items():
-            output_path = out_dir / f"{bundle_name}.generated.ts"
-            output_path.write_text(
-                build_typescript_bundle(
-                    bundle_name=bundle_name,
-                    symbols=symbols,
-                    export_map=export_map,
-                    module_dir=module_dir,
-                    bundle_map=bundle_map,
-                ),
-                encoding="utf-8",
-            )
-            generated_files.append(output_path)
-
-        return generated_files
-
-    def build_typescript_bundle_map(self, schemas: list[SchemaInfo]) -> dict[str, list[str]]:
-        bundle_map = {
-            schema.path.stem: list(schema.types)
-            for schema in schemas
-        }
-        bundle_map[Path(PACKET_SCHEMA).stem] = parse_type_names(self.input_dir / PACKET_SCHEMA)
-        return bundle_map
-
-    def prepare_typescript_compile_dir(self, ts_dir: Path) -> Path:
-        node_project = self.node_project_dir()
-        if node_project == self.root:
-            return ts_dir
-
-        compile_dir = node_project / ".flatbuffer_generated_ts"
-        self.reset_dir(compile_dir, node_project, recreate=False)
-        shutil.copytree(ts_dir, compile_dir)
-        return compile_dir
-
-    def node_project_dir(self) -> Path:
-        root_node_modules = self.root / "node_modules" / "flatbuffers"
-        if root_node_modules.exists():
-            return self.root
-
-        for package_json in sorted(self.workspace.glob("**/node_modules/flatbuffers/package.json")):
-            return package_json.parents[2]
-
-        return self.root
-
-    def build_tsc_command(self, ts_dir: Path, js_dir: Path) -> list[str]:
-        local_tsc = self.node_project_dir() / "node_modules" / ".bin" / "tsc.cmd"
-        tsc = str(local_tsc) if local_tsc.exists() else shutil.which("tsc")
-        command = [tsc] if tsc else self.npx_tsc_command()
-        command.extend(
-            [
-                "--target",
-                "ES2020",
-                "--module",
-                "node16",
-                "--moduleResolution",
-                "node16",
-                "--esModuleInterop",
-                "--skipLibCheck",
-                "--rootDir",
-                str(ts_dir),
-                "--outDir",
-                str(js_dir),
-                "--declaration",
-                "false",
-                "--sourceMap",
-                "false",
-                *(str(path) for path in sorted(ts_dir.rglob("*.ts"))),
-            ]
-        )
-        return command
-
-    def npx_tsc_command(self) -> list[str]:
-        npx = shutil.which("npx")
-        if npx is None:
-            raise FileNotFoundError("TypeScript 컴파일러를 찾을 수 없습니다. tsc 또는 npx가 필요합니다.")
-        return [npx, "tsc"]
 
     def reset_dir(self, path: Path, expected_parent: Path, recreate: bool = True) -> None:
         if path.exists():
@@ -529,132 +383,6 @@ def convert_union_members(text: str, type_map: dict[str, str]) -> str:
         return f"{match.group(1)}\n" + "\n".join(converted_lines) + match.group(3)
 
     return UNION_RE.sub(replace_union, text)
-
-
-def read_typescript_export_map(index_path: Path) -> dict[str, Path]:
-    export_map = {}
-    base_dir = index_path.parent / "protocol"
-
-    for match in TS_EXPORT_RE.finditer(index_path.read_text(encoding="utf-8")):
-        symbol = match.group(1).strip()
-        module_name = match.group(2)
-        export_map[symbol] = base_dir / f"{module_name}.ts"
-
-    return export_map
-
-
-def build_typescript_bundle(
-    bundle_name: str,
-    symbols: list[str],
-    export_map: dict[str, Path],
-    module_dir: Path,
-    bundle_map: dict[str, list[str]],
-) -> str:
-    symbol_to_bundle = {
-        symbol: current_bundle
-        for current_bundle, current_symbols in bundle_map.items()
-        for symbol in current_symbols
-    }
-    module_to_bundle = {
-        export_map[symbol].stem: symbol_to_bundle[symbol]
-        for symbol in export_map
-        if symbol in symbol_to_bundle
-    }
-    imports: dict[str, set[str]] = {}
-    chunks = []
-    needs_flatbuffers = False
-
-    for symbol in symbols:
-        source_path = export_map.get(symbol)
-        if source_path is None:
-            raise RuntimeError(f"TypeScript 생성 파일을 찾을 수 없습니다: {symbol}")
-
-        chunk, chunk_imports, uses_flatbuffers = transform_typescript_module(
-            source_path=source_path,
-            current_bundle=bundle_name,
-            module_to_bundle=module_to_bundle,
-            symbol_to_bundle=symbol_to_bundle,
-        )
-        chunks.append(chunk)
-        needs_flatbuffers = needs_flatbuffers or uses_flatbuffers
-
-        for import_bundle, import_symbols in chunk_imports.items():
-            imports.setdefault(import_bundle, set()).update(import_symbols)
-
-    lines = [
-        "// automatically generated by generate.py, do not modify",
-        "",
-        "/* eslint-disable @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any, @typescript-eslint/no-non-null-assertion */",
-        "",
-    ]
-
-    if needs_flatbuffers:
-        lines.extend(["import * as flatbuffers from 'flatbuffers';", ""])
-
-    for import_bundle in sorted(imports):
-        import_symbols = ", ".join(sorted(imports[import_bundle]))
-        lines.append(f"import {{ {import_symbols} }} from './{import_bundle}.generated.js';")
-
-    if imports:
-        lines.append("")
-
-    lines.extend(chunks)
-    return "\n\n".join(section for section in lines if section != "") + "\n"
-
-
-def transform_typescript_module(
-    source_path: Path,
-    current_bundle: str,
-    module_to_bundle: dict[str, str],
-    symbol_to_bundle: dict[str, str],
-) -> tuple[str, dict[str, set[str]], bool]:
-    external_imports: dict[str, set[str]] = {}
-    kept_lines = []
-    uses_flatbuffers = False
-
-    for line in source_path.read_text(encoding="utf-8").splitlines():
-        stripped = line.strip()
-
-        if not stripped:
-            kept_lines.append(line)
-            continue
-
-        if stripped.startswith("// automatically generated by"):
-            continue
-
-        if stripped.startswith("/* eslint-disable"):
-            continue
-
-        if TS_FLATBUFFERS_IMPORT_RE.match(line):
-            uses_flatbuffers = True
-            continue
-
-        import_match = TS_IMPORT_RE.match(line)
-        if import_match:
-            import_path = import_match.group(2)
-            import_module = Path(import_path).stem
-            import_bundle = module_to_bundle.get(import_module)
-
-            if import_bundle is None or import_bundle == current_bundle:
-                continue
-
-            imported_symbols = [
-                symbol.strip()
-                for symbol in import_match.group(1).split(",")
-                if symbol.strip() in symbol_to_bundle
-            ]
-            external_imports.setdefault(import_bundle, set()).update(imported_symbols)
-            continue
-
-        kept_lines.append(line)
-
-    while kept_lines and not kept_lines[0].strip():
-        kept_lines.pop(0)
-
-    while kept_lines and not kept_lines[-1].strip():
-        kept_lines.pop()
-
-    return "\n".join(kept_lines), external_imports, uses_flatbuffers
 
 
 def parse_args() -> argparse.Namespace:
