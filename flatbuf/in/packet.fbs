@@ -4,9 +4,8 @@ namespace net.protocol;
 
 union payload_type
 {
-    chat_send_request,
-    chat_send_response,
-    guid_send_response
+    chat_recv,
+    guid_recv
 }
 
 table packet

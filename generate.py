@@ -11,6 +11,9 @@ from typing import Callable
 
 
 PACKET_SCHEMA = "packet.fbs"
+PACKET_TABLE = "packet"
+PAYLOAD_UNION = "payload_type"
+PAYLOAD_FIELD = "payload"
 NAMESPACE = "net.protocol"
 FLATBUF_DIR = "flatbuf"
 SCHEMA_INPUT_DIR = "in"
@@ -101,6 +104,7 @@ class FlatbufferGenerator:
         self.remove_unneeded_outputs()
 
         schemas = self.read_schemas()
+        self.write_packet_input_schema(schemas)
 
         generated_files: dict[str, list[Path]] = {}
         for profile in PROFILES:
@@ -117,7 +121,7 @@ class FlatbufferGenerator:
     def validate(self) -> None:
         missing = [
             str(path)
-            for path in (self.flatc, self.input_dir, self.packet_schema_path)
+            for path in (self.flatc, self.input_dir)
             if not path.exists()
         ]
 
@@ -168,11 +172,17 @@ class FlatbufferGenerator:
             for schema_path in self.find_schemas()
         ]
 
+        if not schemas:
+            raise RuntimeError(f"{self.input_dir}에 {PACKET_SCHEMA} 외의 .fbs 스키마가 없습니다.")
+
         empty_schemas = [schema.path.name for schema in schemas if not schema.tables]
         if empty_schemas:
             raise RuntimeError("table 선언이 없는 스키마가 있습니다: " + ", ".join(empty_schemas))
 
         return schemas
+
+    def write_packet_input_schema(self, schemas: list[SchemaInfo]) -> None:
+        write_text_crlf(self.packet_schema_path, build_packet_schema(schemas))
 
     def generate(self, profile: LanguageProfile, schemas: list[SchemaInfo]) -> list[Path]:
         schema_dir = self.schema_work_dir / profile.name
@@ -208,9 +218,8 @@ class FlatbufferGenerator:
         schema_dir: Path,
     ) -> None:
         input_files = [schema.path for schema in schemas]
-        input_files.append(self.input_dir / PACKET_SCHEMA)
 
-        type_names = collect_type_names(input_files)
+        type_names = collect_type_names(input_files) | {PACKET_TABLE, PAYLOAD_UNION}
         include_map = {path.name: profile.filename(path.name) for path in input_files}
         type_map = {name: profile.type_name(name) for name in type_names}
 
@@ -224,6 +233,17 @@ class FlatbufferGenerator:
                 namespace=profile.namespace,
             )
             write_text_crlf(schema_dir / profile.filename(source_path.name), converted)
+
+        packet_schema = build_packet_schema(schemas)
+        converted_packet = convert_schema(
+            packet_schema,
+            include_map=include_map,
+            type_map=type_map,
+            field_name=profile.field_name,
+            enum_value=profile.enum_value,
+            namespace=profile.namespace,
+        )
+        write_text_crlf(schema_dir / profile.filename(PACKET_SCHEMA), converted_packet)
 
     def reset_dir(self, path: Path, expected_parent: Path, recreate: bool = True) -> None:
         if path.exists():
@@ -346,6 +366,43 @@ def collect_type_names(paths: list[Path]) -> set[str]:
         text = path.read_text(encoding="utf-8")
         type_names.update(match.group(2) for match in TYPE_RE.finditer(text))
     return type_names
+
+
+def build_packet_schema(schemas: list[SchemaInfo]) -> str:
+    tables = [table for schema in schemas for table in schema.tables]
+    if not tables:
+        raise RuntimeError("packet union에 포함할 table 선언이 없습니다.")
+
+    lines: list[str] = []
+    lines.extend(f'include "{schema.path.name}";' for schema in schemas)
+    lines.extend(
+        [
+            "",
+            f"namespace {NAMESPACE};",
+            "",
+            f"union {PAYLOAD_UNION}",
+            "{",
+        ]
+    )
+
+    for index, table in enumerate(tables):
+        suffix = "," if index < len(tables) - 1 else ""
+        lines.append(f"    {table}{suffix}")
+
+    lines.extend(
+        [
+            "}",
+            "",
+            f"table {PACKET_TABLE}",
+            "{",
+            f"    {PAYLOAD_FIELD}:{PAYLOAD_UNION};",
+            "}",
+            "",
+            f"root_type {PACKET_TABLE};",
+            "",
+        ]
+    )
+    return "\n".join(lines)
 
 
 def write_text_crlf(path: Path, text: str) -> None:
