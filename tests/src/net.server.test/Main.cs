@@ -1,46 +1,111 @@
-using Net.Common;
 using Net.Core;
 
 static partial class Program
 {
-    const string host = "127.0.0.1";
-    const int port = 60000;
+    private const string defaultHost = "127.0.0.1";
+    private const int defaultPort = 60000;
 
-    static async Task Main()
+    private static readonly string[] commands =
     {
-        Log logger = Log.GetInstance();
-        {
-            logger.Init();
-        }
+        "/connect",
+        "/disconnect",
+        "/status",
+        "/help",
+        "/clear",
+        "/quit"
+    };
 
-        Time timer = Time.GetInstance();
-        {
-            timer.Update();
-        }
-
+    static void Main()
+    {
         Tcp tcpClient = new Tcp();
+        Shell shell = new Shell();
+
+        shell.SetCommands(commands);
+
+        shell.Submitted = async text =>
         {
-            tcpClient.Init(host, port);
-        }
+            await ExecuteAsync(shell, tcpClient, text);
+        };
 
-        ShellView shell = new ShellView();
-        {
-            shell.Submitted += text =>
-            {
-                shell.Append($"input: {text}");
-
-                // 이후 Tcp.SendAsync 같은 API가 생기면 여기서 호출
-                // 지금 Tcp 클래스에는 Send/Receive가 아직 없음
-            };
-
-            shell.Run();
-        }
-
-        while (tcpClient.CurrentState == Tcp.StateType.Connected)
-        {
-            timer.Update();
-        }
-
+        shell.Run();
         tcpClient.Close();
+    }
+
+    private static async Task ExecuteAsync(Shell shell, Tcp tcpClient, string text)
+    {
+        string[] tokens = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        if (tokens.Length == 0) return;
+
+        switch (tokens[0])
+        {
+            case "/connect":
+                await ExecuteConnectAsync(shell, tcpClient, tokens);
+                break;
+
+            case "/disconnect":
+                tcpClient.Close();
+                shell.Append($"state: {tcpClient.CurrentState}");
+                break;
+
+            case "/status":
+                shell.Append($"state: {tcpClient.CurrentState}");
+                break;
+
+            case "/help":
+                ExecuteHelp(shell);
+                break;
+
+            case "/clear":
+                shell.Clear();
+                break;
+
+            case "/quit":
+                tcpClient.Close();
+                shell.Stop();
+                break;
+
+            default:
+                shell.Append($"unknown command: {tokens[0]}");
+                break;
+        }
+    }
+
+    private static async Task ExecuteConnectAsync(Shell shell, Tcp tcpClient, string[] tokens)
+    {
+        string host = tokens.Length >= 2 ? tokens[1] : defaultHost;
+        int port = defaultPort;
+
+        if (tokens.Length >= 3 && !int.TryParse(tokens[2], out port))
+        {
+            shell.Append("invalid port.");
+            return;
+        }
+
+        if (tcpClient.CurrentState == Tcp.StateType.Connected)
+        {
+            shell.Append("already connected.");
+            return;
+        }
+
+        tcpClient.Init(host, port);
+        shell.Append($"connecting to {host}:{port}...");
+
+        NetResult result = await tcpClient.AsyncConnect();
+        if (result.IsFailed)
+        {
+            shell.Append(result.Error.ToString());
+            return;
+        }
+
+        shell.Append($"state: {tcpClient.CurrentState}");
+    }
+
+    private static void ExecuteHelp(Shell shell)
+    {
+        shell.Append("/connect [host] [port] - connect to server");
+        shell.Append("/disconnect - disconnect from server");
+        shell.Append("/status - show connection state");
+        shell.Append("/clear - clear terminal messages");
+        shell.Append("/quit - quit terminal");
     }
 }

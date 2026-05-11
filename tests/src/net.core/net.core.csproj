@@ -6,12 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Terminal.Gui" Version="1.19.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\net.common\net.common.csproj" />
-  </ItemGroup>
-
 </Project>
