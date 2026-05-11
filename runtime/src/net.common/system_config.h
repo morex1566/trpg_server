@@ -24,8 +24,8 @@ namespace net::common
         class connection
         {
         public:
-            static constexpr size_t buffer_size_per_user = 64 * 1024;
-            static constexpr size_t queue_size_per_user = 1024;
+            static constexpr size_t buffer_size = 64 * 1024;
+            static constexpr size_t queue_size = 1024;
             static constexpr size_t buffer_alignment = 16;
         };
 

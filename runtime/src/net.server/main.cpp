@@ -1,8 +1,6 @@
 #include "net.core/tcp.h"
 #include "net.common/log.h"
 #include "net.common/time.h"
-#include <chrono>
-#include <thread>
 #define TCP_PORT 60000
 
 int main()
@@ -26,6 +24,7 @@ int main()
 	while (tcp.get_state() == net::core::tcp::state::running)
 	{
 		timer.update();
+		tcp.update();
 	}
 
 	return 0;

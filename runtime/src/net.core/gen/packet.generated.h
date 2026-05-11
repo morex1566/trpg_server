@@ -21,55 +21,62 @@ namespace protocol {
 struct packet;
 struct packetBuilder;
 
-enum packet_payload : uint8_t {
-  packet_payload_NONE = 0,
-  packet_payload_chat_send_request = 1,
-  packet_payload_chat_send_response = 2,
-  packet_payload_MIN = packet_payload_NONE,
-  packet_payload_MAX = packet_payload_chat_send_response
+enum payload_type : uint8_t {
+  payload_type_NONE = 0,
+  payload_type_chat_send_request = 1,
+  payload_type_chat_send_response = 2,
+  payload_type_guid_send_response = 3,
+  payload_type_MIN = payload_type_NONE,
+  payload_type_MAX = payload_type_guid_send_response
 };
 
-inline const packet_payload (&EnumValuespacket_payload())[3] {
-  static const packet_payload values[] = {
-    packet_payload_NONE,
-    packet_payload_chat_send_request,
-    packet_payload_chat_send_response
+inline const payload_type (&EnumValuespayload_type())[4] {
+  static const payload_type values[] = {
+    payload_type_NONE,
+    payload_type_chat_send_request,
+    payload_type_chat_send_response,
+    payload_type_guid_send_response
   };
   return values;
 }
 
-inline const char * const *EnumNamespacket_payload() {
-  static const char * const names[4] = {
+inline const char * const *EnumNamespayload_type() {
+  static const char * const names[5] = {
     "NONE",
     "chat_send_request",
     "chat_send_response",
+    "guid_send_response",
     nullptr
   };
   return names;
 }
 
-inline const char *EnumNamepacket_payload(packet_payload e) {
-  if (::flatbuffers::IsOutRange(e, packet_payload_NONE, packet_payload_chat_send_response)) return "";
+inline const char *EnumNamepayload_type(payload_type e) {
+  if (::flatbuffers::IsOutRange(e, payload_type_NONE, payload_type_guid_send_response)) return "";
   const size_t index = static_cast<size_t>(e);
-  return EnumNamespacket_payload()[index];
+  return EnumNamespayload_type()[index];
 }
 
-template<typename T> struct packet_payloadTraits {
-  static const packet_payload enum_value = packet_payload_NONE;
+template<typename T> struct payload_typeTraits {
+  static const payload_type enum_value = payload_type_NONE;
 };
 
-template<> struct packet_payloadTraits<net::protocol::chat_send_request> {
-  static const packet_payload enum_value = packet_payload_chat_send_request;
+template<> struct payload_typeTraits<net::protocol::chat_send_request> {
+  static const payload_type enum_value = payload_type_chat_send_request;
 };
 
-template<> struct packet_payloadTraits<net::protocol::chat_send_response> {
-  static const packet_payload enum_value = packet_payload_chat_send_response;
+template<> struct payload_typeTraits<net::protocol::chat_send_response> {
+  static const payload_type enum_value = payload_type_chat_send_response;
+};
+
+template<> struct payload_typeTraits<net::protocol::guid_send_response> {
+  static const payload_type enum_value = payload_type_guid_send_response;
 };
 
 template <bool B = false>
-bool Verifypacket_payload(::flatbuffers::VerifierTemplate<B> &verifier, const void *obj, packet_payload type);
+bool Verifypayload_type(::flatbuffers::VerifierTemplate<B> &verifier, const void *obj, payload_type type);
 template <bool B = false>
-bool Verifypacket_payloadVector(::flatbuffers::VerifierTemplate<B> &verifier, const ::flatbuffers::Vector<::flatbuffers::Offset<void>> *values, const ::flatbuffers::Vector<uint8_t> *types);
+bool Verifypayload_typeVector(::flatbuffers::VerifierTemplate<B> &verifier, const ::flatbuffers::Vector<::flatbuffers::Offset<void>> *values, const ::flatbuffers::Vector<uint8_t> *types);
 
 struct packet FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
   typedef packetBuilder Builder;
@@ -77,25 +84,28 @@ struct packet FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
     VT_PAYLOAD_TYPE = 4,
     VT_PAYLOAD = 6
   };
-  net::protocol::packet_payload payload_type() const {
-    return static_cast<net::protocol::packet_payload>(GetField<uint8_t>(VT_PAYLOAD_TYPE, 0));
+  net::protocol::payload_type payload_type() const {
+    return static_cast<net::protocol::payload_type>(GetField<uint8_t>(VT_PAYLOAD_TYPE, 0));
   }
   const void *payload() const {
     return GetPointer<const void *>(VT_PAYLOAD);
   }
   template<typename T> const T *payload_as() const;
   const net::protocol::chat_send_request *payload_as_chat_send_request() const {
-    return payload_type() == net::protocol::packet_payload_chat_send_request ? static_cast<const net::protocol::chat_send_request *>(payload()) : nullptr;
+    return payload_type() == net::protocol::payload_type_chat_send_request ? static_cast<const net::protocol::chat_send_request *>(payload()) : nullptr;
   }
   const net::protocol::chat_send_response *payload_as_chat_send_response() const {
-    return payload_type() == net::protocol::packet_payload_chat_send_response ? static_cast<const net::protocol::chat_send_response *>(payload()) : nullptr;
+    return payload_type() == net::protocol::payload_type_chat_send_response ? static_cast<const net::protocol::chat_send_response *>(payload()) : nullptr;
+  }
+  const net::protocol::guid_send_response *payload_as_guid_send_response() const {
+    return payload_type() == net::protocol::payload_type_guid_send_response ? static_cast<const net::protocol::guid_send_response *>(payload()) : nullptr;
   }
   template <bool B = false>
   bool Verify(::flatbuffers::VerifierTemplate<B> &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<uint8_t>(verifier, VT_PAYLOAD_TYPE, 1) &&
            VerifyOffset(verifier, VT_PAYLOAD) &&
-           Verifypacket_payload(verifier, payload(), payload_type()) &&
+           Verifypayload_type(verifier, payload(), payload_type()) &&
            verifier.EndTable();
   }
 };
@@ -108,11 +118,15 @@ template<> inline const net::protocol::chat_send_response *packet::payload_as<ne
   return payload_as_chat_send_response();
 }
 
+template<> inline const net::protocol::guid_send_response *packet::payload_as<net::protocol::guid_send_response>() const {
+  return payload_as_guid_send_response();
+}
+
 struct packetBuilder {
   typedef packet Table;
   ::flatbuffers::FlatBufferBuilder &fbb_;
   ::flatbuffers::uoffset_t start_;
-  void add_payload_type(net::protocol::packet_payload payload_type) {
+  void add_payload_type(net::protocol::payload_type payload_type) {
     fbb_.AddElement<uint8_t>(packet::VT_PAYLOAD_TYPE, static_cast<uint8_t>(payload_type), 0);
   }
   void add_payload(::flatbuffers::Offset<void> payload) {
@@ -131,7 +145,7 @@ struct packetBuilder {
 
 inline ::flatbuffers::Offset<packet> Createpacket(
     ::flatbuffers::FlatBufferBuilder &_fbb,
-    net::protocol::packet_payload payload_type = net::protocol::packet_payload_NONE,
+    net::protocol::payload_type payload_type = net::protocol::payload_type_NONE,
     ::flatbuffers::Offset<void> payload = 0) {
   packetBuilder builder_(_fbb);
   builder_.add_payload(payload);
@@ -140,17 +154,21 @@ inline ::flatbuffers::Offset<packet> Createpacket(
 }
 
 template <bool B>
-inline bool Verifypacket_payload(::flatbuffers::VerifierTemplate<B> &verifier, const void *obj, packet_payload type) {
+inline bool Verifypayload_type(::flatbuffers::VerifierTemplate<B> &verifier, const void *obj, payload_type type) {
   switch (type) {
-    case packet_payload_NONE: {
+    case payload_type_NONE: {
       return true;
     }
-    case packet_payload_chat_send_request: {
+    case payload_type_chat_send_request: {
       auto ptr = reinterpret_cast<const net::protocol::chat_send_request *>(obj);
       return verifier.VerifyTable(ptr);
     }
-    case packet_payload_chat_send_response: {
+    case payload_type_chat_send_response: {
       auto ptr = reinterpret_cast<const net::protocol::chat_send_response *>(obj);
+      return verifier.VerifyTable(ptr);
+    }
+    case payload_type_guid_send_response: {
+      auto ptr = reinterpret_cast<const net::protocol::guid_send_response *>(obj);
       return verifier.VerifyTable(ptr);
     }
     default: return true;
@@ -158,12 +176,12 @@ inline bool Verifypacket_payload(::flatbuffers::VerifierTemplate<B> &verifier, c
 }
 
 template <bool B>
-inline bool Verifypacket_payloadVector(::flatbuffers::VerifierTemplate<B> &verifier, const ::flatbuffers::Vector<::flatbuffers::Offset<void>> *values, const ::flatbuffers::Vector<uint8_t> *types) {
+inline bool Verifypayload_typeVector(::flatbuffers::VerifierTemplate<B> &verifier, const ::flatbuffers::Vector<::flatbuffers::Offset<void>> *values, const ::flatbuffers::Vector<uint8_t> *types) {
   if (!values || !types) return !values && !types;
   if (values->size() != types->size()) return false;
   for (::flatbuffers::uoffset_t i = 0; i < values->size(); ++i) {
-    if (!Verifypacket_payload(
-        verifier,  values->Get(i), types->GetEnum<packet_payload>(i))) {
+    if (!Verifypayload_type(
+        verifier,  values->Get(i), types->GetEnum<payload_type>(i))) {
       return false;
     }
   }

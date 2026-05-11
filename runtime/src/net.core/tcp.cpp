@@ -1,4 +1,8 @@
 #include "tcp.h"
+#include "net.common/connection_id_generator.h"
+#include "net.common/guid_generator.h"
+#include "net.common/time.h"
+#include "net.core/service.h"
 
 net::core::tcp::tcp() :
 global_singleton(),
@@ -41,6 +45,35 @@ void net::core::tcp::async_accept()
 	acceptor.emplace(context, endpoint);
 
 	post_accept();
+}
+
+void net::core::tcp::update()
+{
+	if (current_state.load() != state::running) return;
+
+	tick_elapsed_ms += net::common::time::get_instance().deltatime(net::common::time::time_unit_type::millisecond);
+	if (tick_elapsed_ms < net::common::system_config::tcp::tick_interval_ms) return;
+
+	tick_elapsed_ms = 0.f;
+
+	std::vector<uint64_t> disconnected_ids;
+	for (auto iterator = connections.begin(); iterator != connections.end(); ++iterator)
+	{
+		if (!iterator->second || iterator->second->is_disconnected())
+		{
+			disconnected_ids.push_back(iterator->first);
+			continue;
+		}
+
+		// tick마다 write 시작만 요청한다. 실제 send_queue 접근과 socket write는 connection strand에서 처리
+		iterator->second->async_write();
+	}
+
+	for (const auto connection_id : disconnected_ids)
+	{
+		// 끊긴 connection은 map에서 제거해 장시간 운영 시 누적되지 않도록 함
+		connections.erase(connection_id);
+	}
 }
 
 void net::core::tcp::create_workers()
@@ -90,9 +123,10 @@ void net::core::tcp::post_accept()
 		// Socket 에러?
 		if (error)
 		{
+			SPDLOG_WARN("socket error : {}.", error.message());
 			if (current_state.load() == state::running)
 			{
-				SPDLOG_WARN("socket error : {}.", error.message());
+				// 일시적인 accept 실패로 서버가 멈추지 않도록 다음 accept를 이어감
 				post_accept();
 			}
 			return;
@@ -123,11 +157,13 @@ void net::core::tcp::post_accept()
 
 		// 커넥션 등록
 		auto new_connection_id = net::common::connection_id_generator::generate();
-		auto new_connection = std::make_shared<connection>(context, std::move(client_socket), new_connection_id);
-		tbb::concurrent_hash_map<net::common::connection_id, std::shared_ptr<connection>>::accessor accessor;
+		auto new_connection_guid = net::common::guid_generator::generate();
+		auto new_connection = std::make_shared<connection>(context, std::move(client_socket), new_connection_guid);
+		tbb::concurrent_hash_map<uint64_t, std::shared_ptr<connection>>::accessor accessor;
 		if (connections.insert(accessor, new_connection_id))
 		{
 			accessor->second = std::move(new_connection);
+			accessor->second->async_read();
 		}
 
 		// 다음 연결 수락

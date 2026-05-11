@@ -1,15 +1,14 @@
 #pragma once
 #include "net.common/system_config.h"
-#include "net.common/time.h"
-#include "net.common/connection_id_generator.h"
 #include "net.common/log.h"
-#include <boost/asio.hpp>
-#include <functional>
-#include <memory>
-#include <cstdlib>
-#include <optional>
+#include "net.core/packet.h"
 #include <atomic>
-#include <tbb/concurrent_queue.h>
+#include <array>
+#include <memory>
+#include <queue>
+
+#include <boost/asio.hpp>
+#include <flatbuffers/flatbuffers.h>
 
 namespace net::core
 {
@@ -26,25 +25,49 @@ namespace net::core
 
 	public:
 
-		connection(boost::asio::io_context& context, boost::asio::ip::tcp::socket&& client_socket, uint64_t connection_id);
+		connection(boost::asio::io_context& context, boost::asio::ip::tcp::socket&& client_socket, uint64_t connection_guid);
 		connection(const connection&) = delete;
 		connection& operator=(const connection&) = delete;
 		~connection();
 
+		void async_read();
 
 		void close();
 
+		bool is_disconnected() const { return curr_state.load() == state::disconnected; }
 
 	private:
 
-		boost::asio::io_context& context;
+		/// <summary>
+		/// flatbuffers size-prefixed 읽기
+		/// </summary>
+		void async_read_header();
 
-		// 클라이언트 소켓
+		/// <summary>
+		/// size-prefixed로 union의 payload 읽기
+		/// </summary>
+		void async_read_payload(std::shared_ptr<packet_recv_context> context);
+
+		bool enqueue_recv(packet_recv_context&& context);
+
+	private:
+
+		boost::asio::io_context::strand strand;
+
 		boost::asio::ip::tcp::socket socket;
 
-		// 일회성 고유 id
-		uint64_t connection_id;
+		/// <summary>
+		/// async_read_header에서 size-prefixed packet 읽을 때, 패킷 사이즈 담는 변수
+		/// </summary>
+		flatbuffers::uoffset_t recv_prefix;
 
-		std::atomic<state> current_state { state::connected };
+		// 검증 완료된 수신 패킷 처리 큐
+		// strand 위에서만 push/pop
+		std::queue<packet_recv_context> recv_queue;
+
+		// 클라에게 내려주는 서버 측 고유 GUID
+		uint64_t connection_guid;
+
+		std::atomic<state> curr_state;
 	};
 }

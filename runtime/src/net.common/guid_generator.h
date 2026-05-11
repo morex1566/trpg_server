@@ -1,15 +1,9 @@
 #pragma once
-#include "time.h"
+
 #include <atomic>
 #include <cstdint>
-#include <cstdlib>
-#include <string>
-#include <functional>
-
-namespace net::common
-{
-    using guid = uint64_t;
-}
+#include <random>
+#include <stdexcept>
 
 namespace net::common
 {
@@ -17,25 +11,28 @@ namespace net::common
     {
     public:
 
-        guid_generator() = delete;
+        static std::uint64_t generate()
+        {
+            static const std::uint64_t server_salt = create_server_salt();
+            static std::atomic<std::uint64_t> sequence{ 0 };
 
-        static guid generate();
+			const std::uint64_t current_sequence = sequence.fetch_add(1, std::memory_order_relaxed);
+
+            return (server_salt << sequence_bits) | current_sequence;
+        }
 
     private:
 
-        static uint64_t current_millis();
-        static uint64_t resolve_node_id();
+        static std::uint64_t create_server_salt()
+        {
+            std::random_device random_device;
+
+            return static_cast<std::uint64_t>(random_device()) & 0xffffull;
+        }
 
     private:
 
-        static constexpr uint64_t SEQ_BITS = 12;
-        static constexpr uint64_t NODE_BITS = 10;
-        static constexpr uint64_t NODE_SHIFT = SEQ_BITS;
-        static constexpr uint64_t TS_SHIFT = NODE_BITS + SEQ_BITS;
-        static constexpr uint64_t SEQ_MASK = (1ULL << SEQ_BITS) - 1;
-        static constexpr uint64_t NODE_MASK = (1ULL << NODE_BITS) - 1;
-
-        static const uint64_t node_id;
-        static std::atomic<uint64_t> state;
+        static constexpr std::uint64_t sequence_bits = 48;
+        static constexpr std::uint64_t sequence_mask = (1ull << sequence_bits) - 1ull;
     };
 }

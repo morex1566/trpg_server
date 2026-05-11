@@ -10,12 +10,19 @@ enum chat_type : byte
 table chat_send_request
 {
     type:chat_type;
+    guid:ulong;                 // 받는 사람 고유 ID
     message:string;             // 메시지 본문
 }
 table chat_send_response
 {
     type:chat_type;
-    user_id:ulong;              // 보낸 사람 고유 ID
+    guid:ulong;                 // 보낸 사람 고유 ID
     message:string;             // 메시지 본문
     timestamp_ms:long;          // 전송 시간 (Server Unix timestamp in milliseconds)
+}
+
+// GUID
+table guid_send_response
+{
+    guid:ulong;
 }

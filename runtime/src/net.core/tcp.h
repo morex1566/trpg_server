@@ -2,11 +2,11 @@
 #include "net.common/global_singleton.h"
 #include "net.common/system_config.h"
 #include "net.common/token_bucket.h"
-#include "net.common/connection_id_generator.h"
 #include "net.common/log.h"
 #include "net.core/connection.h"
 #include <boost/asio.hpp>
 #include <atomic>
+#include <cstdint>
 #include <memory>
 #include <optional>
 #include <string>
@@ -36,6 +36,8 @@ namespace net::core
 
 		// 클라이언트 접속 받기 시작
 		void async_accept();
+
+		void update();
 
 		void close();
 
@@ -69,6 +71,9 @@ namespace net::core
 		// Rate Limit용
 		net::common::token_bucket accept_token_bucket;
 
+		// 송신 tick 누적 시간
+		float tick_elapsed_ms = 0.f;
+
 		// 이 서버 주소
 		boost::asio::ip::tcp::endpoint endpoint;
 
@@ -76,6 +81,7 @@ namespace net::core
 		std::optional<boost::asio::ip::tcp::acceptor> acceptor;
 
 		// 연결된 클라이언트 목록
-		tbb::concurrent_hash_map<net::common::connection_id, std::shared_ptr<connection>> connections;
+		// connection_id_generator가 uint64_t를 반환하므로 key도 같은 크기로 유지
+		tbb::concurrent_hash_map<uint64_t, std::shared_ptr<connection>> connections;
 	};
 }

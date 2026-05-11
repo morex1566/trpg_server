@@ -2,15 +2,16 @@ include "gameplay.fbs";
 
 namespace net.protocol;
 
-union packet_payload
+union payload_type
 {
     chat_send_request,
-    chat_send_response
+    chat_send_response,
+    guid_send_response
 }
 
 table packet
 {
-    payload:packet_payload;
+    payload:payload_type;
 }
 
 root_type packet;
