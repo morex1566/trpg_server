@@ -21,20 +21,19 @@ static partial class Program
         Tcp tcpClient = new Tcp();
         {
             tcpClient.Init(host, port);
+        }
 
-            NetResult connectResult = await tcpClient.AsyncConnect();
+        ShellView shell = new ShellView();
+        {
+            shell.Submitted += text =>
+            {
+                shell.Append($"input: {text}");
 
-            // 연결 실패
-            if (connectResult.IsFailed)
-            {
-                Log.Error(connectResult.Error.ToString());
-                return;
-            }
-            // 연결 성공
-            else 
-            {
-                Log.Temp("Connected.");
-            }
+                // 이후 Tcp.SendAsync 같은 API가 생기면 여기서 호출
+                // 지금 Tcp 클래스에는 Send/Receive가 아직 없음
+            };
+
+            shell.Run();
         }
 
         while (tcpClient.CurrentState == Tcp.StateType.Connected)
