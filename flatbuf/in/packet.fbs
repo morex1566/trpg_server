@@ -1,16 +1,20 @@
-include "gameplay.fbs";
+include "Common.fbs";
+include "Gameplay.fbs";
 
-namespace net.protocol;
+namespace TRPG.Protocol;
 
-union payload_type
+union PayloadType
 {
-    chat_recv,
-    guid_recv
+    ChatMessageRequest,
+    ChatMessageResponse,
+    ChatMessageNotify,
+    ConnectRequest,
+    ConnectResponse
 }
 
-table packet
+table Packet
 {
-    payload:payload_type;
+    payload:PayloadType;
 }
 
-root_type packet;
+root_type Packet;

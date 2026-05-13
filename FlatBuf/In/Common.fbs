@@ -1,0 +1,7 @@
+namespace TRPG.Protocol;
+
+enum ChatType : byte
+{
+    ToClient = 0,         // 다른 사용자에게
+    ToServer = 1          // 서버에게
+}

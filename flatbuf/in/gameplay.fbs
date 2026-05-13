@@ -1,24 +1,35 @@
-namespace net.protocol;
+include "Common.fbs";
 
-enum chat_type : byte
+namespace TRPG.Protocol;
+
+// 채팅쳤을 때
+table ChatMessageRequest
 {
-    to_client = 0,         // 다른 사용자에게
-    to_server = 1          // 서버에게
+    type:ChatType;
+    to:ulong;                   // DB에 저장된 받는 사람 고유 ID
+    message:string;             // 메시지 본문
+}
+table ChatMessageResponse
+{
+    success:bool;
 }
 
-// 채팅
-table chat_recv
+// 서버에서 보내는 메시지
+table ChatMessageNotify
 {
-    type:chat_type;
-    from_guid:ulong;                // 자기 고유 ID
-    to_guid:ulong;                  // 받는 사람 고유 ID
-    message:string;                 // 메시지 본문
-    timestamp_ms:long;          // 전송 시간 (Server Unix timestamp in milliseconds)
-
+    type:ChatType;
+    from:ulong;
+    to:ulong;
+    message:string;
+    timestamp:long;
 }
 
-// GUID
-table guid_recv
+// 서버에 연결했을 때
+table ConnectRequest
+{
+    
+}
+table ConnectResponse
 {
     guid:ulong;
 }
