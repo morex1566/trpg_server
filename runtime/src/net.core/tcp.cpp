@@ -1,11 +1,21 @@
 #include "tcp.h"
+
+#include "net.core/service.h"
 #include "net.common/connection_id_generator.h"
 #include "net.common/guid_generator.h"
-#include "net.common/time.h"
-#include "net.core/service.h"
+#include "net.common/log.h"
+#include "net.common/system_config.h"
+
+#include <memory>
+#include <spdlog/spdlog.h>
+#include <thread>
+#include <typeinfo>
+#include <utility>
 
 net::core::tcp::tcp() :
 global_singleton(),
+strand(context),
+write_timer(context),
 accept_token_bucket
 (
 	net::common::system_config::tcp_accept_token_bucket::capacity,
@@ -35,56 +45,40 @@ void net::core::tcp::init(boost::asio::ip::port_type port)
 	create_workers();
 }
 
-void net::core::tcp::async_accept()
-{
-	// 이미 tcp 켜져 있었음
-	state expected = state::stopped;
-	if (!current_state.compare_exchange_strong(expected, state::running)) return;
-
-	// accept 열기
-	acceptor.emplace(context, endpoint);
-
-	post_accept();
-}
-
 void net::core::tcp::update()
 {
-	if (current_state.load() != state::running) return;
 
-	tick_elapsed_ms += net::common::time::get_instance().deltatime(net::common::time::time_unit_type::millisecond);
-	if (tick_elapsed_ms < net::common::system_config::tcp::tick_interval_ms) return;
+}
 
-	tick_elapsed_ms = 0.f;
-
-	std::vector<uint64_t> disconnected_ids;
-	for (auto iterator = connections.begin(); iterator != connections.end(); ++iterator)
+void net::core::tcp::async_accept()
+{
+	boost::asio::post(strand, [this]()
 	{
-		if (!iterator->second || iterator->second->is_disconnected())
-		{
-			disconnected_ids.push_back(iterator->first);
-			continue;
-		}
+		// 이미 tcp 켜져 있었음?
+		state expected = state::stopped;
+		if (!current_state.compare_exchange_strong(expected, state::running)) return;
 
-		// tick마다 write 시작만 요청한다. 실제 send_queue 접근과 socket write는 connection strand에서 처리
-		iterator->second->async_write();
-	}
+		// accept 열기
+		acceptor.emplace(context, endpoint);
 
-	for (const auto connection_id : disconnected_ids)
-	{
-		// 끊긴 connection은 map에서 제거해 장시간 운영 시 누적되지 않도록 함
-		connections.erase(connection_id);
-	}
+		// 클라 연속해서 받기
+		async_accept_next();
+	});
 }
 
 void net::core::tcp::create_workers()
 {
-	context_workers.clear();
+	delete_workers();
 
+	// 메인 스레드를 제외한 나머지 스레드
 	const unsigned int hardware_thread_count = std::thread::hardware_concurrency();
 	const unsigned int thread_count = hardware_thread_count > 1 ? hardware_thread_count - 1 : 1;
+
+	context_workers.reserve(thread_count);
+
+	// asio 디스패치 처리용으로 등록
 	for (unsigned int i = 0; i < thread_count; i++)
 	{
-		// 메인 스레드를 제외한 나머지 스레드를 asio 디스패치 처리에 등록
 		context_workers.emplace_back([this]()
 		{
 			context.run();
@@ -94,108 +88,131 @@ void net::core::tcp::create_workers()
 
 void net::core::tcp::delete_workers()
 {
-	const auto current_thread_id = std::this_thread::get_id();
-
 	for (auto& worker : context_workers)
 	{
-		if (!worker.joinable()) continue;
-
-		// 함수 콜이 자기 자신이면 join하지 않고 detach
-		if (worker.get_id() == current_thread_id)
+		if (worker.joinable())
 		{
-			worker.detach();
-			continue;
+			worker.join();
 		}
-
-		worker.join();
 	}
 
 	context_workers.clear();
 }
 
-void net::core::tcp::post_accept()
+void net::core::tcp::async_accept_next()
+{
+	acceptor->async_accept(
+		boost::asio::bind_executor(strand, [this](boost::system::error_code error, boost::asio::ip::tcp::socket client_socket)
+		{
+			// Socket 에러?
+			if (error)
+			{
+				SPDLOG_WARN("socket error : {}.", error.message());
+
+				// 일시적인 accept 실패로 서버가 멈추지 않도록 다음 accept를 이어감
+				if (current_state.load() == state::running) async_accept_next();
+				return;
+			}
+
+			// TCP 멈춤? 지금 들어온 클라 버림
+			if (current_state.load() != state::running)
+			{
+				SPDLOG_INFO("tcp accept stopped. drop connection : {}", get_remote_address(client_socket));
+				return;
+			}
+
+			// Rate Limit 걸림? 지금 들어온 클라 버림
+			if (!accept_token_bucket.consume())
+			{
+				SPDLOG_INFO("server is busy. drop connection : {}", get_remote_address(client_socket));
+				async_accept_next();
+				return;
+			}
+
+			// 연결을 받을 수 있을 만큼 메모리 충분? 지금 들어온 클라 버림
+			if (net::common::system_config::current_ram_percentage() > net::common::system_config::limit_ram_percentage)
+			{
+				SPDLOG_WARN("memory out. drop connection : {}", get_remote_address(client_socket));
+				async_accept_next();
+				return;
+			}
+
+			// 커넥션 등록
+			auto new_connection_id = net::common::connection_id_generator::generate();
+			auto new_connection_guid = net::common::guid_generator::generate();
+			auto new_connection = std::make_shared<connection>(context, std::move(client_socket), new_connection_guid, recv_queue);
+			{
+				new_connection->async_read();
+				connections.emplace(new_connection_id, std::move(new_connection));
+			}
+
+			// 다음 연결 수락
+			async_accept_next();
+		})
+	);
+}
+
+void net::core::tcp::async_write()
 {
 	if (current_state.load() != state::running) return;
 
-	acceptor->async_accept(
-	[this](boost::system::error_code error, boost::asio::ip::tcp::socket client_socket)
-	{
-		// Socket 에러?
-		if (error)
+	// net::common::system_config::tcp::tick_interval_ms 계산
+	write_timer.expires_after
+	(
+		std::chrono::duration_cast<std::chrono::steady_clock::duration>
+		(
+			std::chrono::duration<double, std::milli>(net::common::system_config::tcp::tick_interval_ms)
+		)
+	);
+
+	write_timer.async_wait
+	(
+		boost::asio::bind_executor(strand, [this](boost::system::error_code error)
 		{
-			SPDLOG_WARN("socket error : {}.", error.message());
-			if (current_state.load() == state::running)
+			if (error) return;
+
+			if (current_state.load() != state::running) return;
+
+			for (auto iterator = connections.begin(); iterator != connections.end(); ++iterator)
 			{
-				// 일시적인 accept 실패로 서버가 멈추지 않도록 다음 accept를 이어감
-				post_accept();
+				if (!iterator->second) continue;
+
+				iterator->second->async_write();
 			}
-			return;
-		}
-
-		// TCP 멈춤? 지금 들어온 클라 버림
-		if (current_state.load() != state::running)
-		{
-			SPDLOG_INFO("tcp accept stopped. drop connection : {}", get_remote_address(client_socket));
-			return;
-		}
-
-		// Rate Limit 걸림? 지금 들어온 클라 버림
-		if (!accept_token_bucket.consume())
-		{
-			SPDLOG_INFO("server is busy. drop connection : {}", get_remote_address(client_socket));
-			post_accept();
-			return;
-		}
-
-		// 연결을 받을 수 있을 만큼 메모리 충분? 지금 들어온 클라 버림
-		if (net::common::system_config::current_ram_percentage() > net::common::system_config::limit_ram_percentage)
-		{
-			SPDLOG_WARN("memory out. drop connection : {}", get_remote_address(client_socket));
-			post_accept();
-			return;
-		}
-
-		// 커넥션 등록
-		auto new_connection_id = net::common::connection_id_generator::generate();
-		auto new_connection_guid = net::common::guid_generator::generate();
-		auto new_connection = std::make_shared<connection>(context, std::move(client_socket), new_connection_guid);
-		tbb::concurrent_hash_map<uint64_t, std::shared_ptr<connection>>::accessor accessor;
-		if (connections.insert(accessor, new_connection_id))
-		{
-			accessor->second = std::move(new_connection);
-			accessor->second->async_read();
-		}
-
-		// 다음 연결 수락
-		post_accept();
-	});
+			
+			async_write();
+		})
+	);
 }
 
 void net::core::tcp::close()
 {
-	// connected 상태가 아님.
-	state expected = state::running;
-	if (!current_state.compare_exchange_strong(expected, state::stopped)) return;
-
-	// 대기 중인 accept를 취소한 뒤 acceptor를 닫아 신규 접속을 막는다.
-	if (acceptor.has_value() && acceptor->is_open())
+	boost::asio::post(strand, [this]()
 	{
-		boost::system::error_code error;
-		acceptor->cancel(error);
-		error.clear();
-		acceptor->close(error);
-	}
-	acceptor.reset();
+		// connected 상태가 아님.
+		state expected = state::running;
+		if (!current_state.compare_exchange_strong(expected, state::stopped)) return;
 
-	// 클라들 연결 종료
-	for (auto iterator = connections.begin(); iterator != connections.end(); ++iterator)
-	{
-		if (iterator->second)
+		// 대기 중인 accept를 취소한 뒤 acceptor를 닫아 신규 접속을 막는다.
+		if (acceptor.has_value() && acceptor->is_open())
 		{
-			iterator->second->close();
+			boost::system::error_code error;
+			acceptor->cancel(error);
+			error.clear();
+			acceptor->close(error);
 		}
-	}
-	connections.clear();
+		acceptor.reset();
+
+		// 클라들 연결 종료
+		for (auto iterator = connections.begin(); iterator != connections.end(); ++iterator)
+		{
+			if (iterator->second)
+			{
+				iterator->second->close();
+			}
+		}
+		connections.clear();
+	});
 }
 
 std::string net::core::tcp::get_remote_address(boost::asio::ip::tcp::socket& client_socket)

@@ -16,134 +16,59 @@ static_assert(FLATBUFFERS_VERSION_MAJOR == 25 &&
 namespace net {
 namespace protocol {
 
-struct chat_send_request;
-struct chat_send_requestBuilder;
+struct chat_recv;
+struct chat_recvBuilder;
 
-struct chat_send_response;
-struct chat_send_responseBuilder;
-
-struct guid_send_response;
-struct guid_send_responseBuilder;
+struct guid_recv;
+struct guid_recvBuilder;
 
 enum chat_type : int8_t {
-  chat_type_gameplay = 0,
-  chat_type_system = 1,
-  chat_type_MIN = chat_type_gameplay,
-  chat_type_MAX = chat_type_system
+  chat_type_to_client = 0,
+  chat_type_to_server = 1,
+  chat_type_MIN = chat_type_to_client,
+  chat_type_MAX = chat_type_to_server
 };
 
 inline const chat_type (&EnumValueschat_type())[2] {
   static const chat_type values[] = {
-    chat_type_gameplay,
-    chat_type_system
+    chat_type_to_client,
+    chat_type_to_server
   };
   return values;
 }
 
 inline const char * const *EnumNameschat_type() {
   static const char * const names[3] = {
-    "gameplay",
-    "system",
+    "to_client",
+    "to_server",
     nullptr
   };
   return names;
 }
 
 inline const char *EnumNamechat_type(chat_type e) {
-  if (::flatbuffers::IsOutRange(e, chat_type_gameplay, chat_type_system)) return "";
+  if (::flatbuffers::IsOutRange(e, chat_type_to_client, chat_type_to_server)) return "";
   const size_t index = static_cast<size_t>(e);
   return EnumNameschat_type()[index];
 }
 
-struct chat_send_request FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
-  typedef chat_send_requestBuilder Builder;
+struct chat_recv FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
+  typedef chat_recvBuilder Builder;
   enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
     VT_TYPE = 4,
-    VT_GUID = 6,
-    VT_MESSAGE = 8
+    VT_FROM_GUID = 6,
+    VT_TO_GUID = 8,
+    VT_MESSAGE = 10,
+    VT_TIMESTAMP_MS = 12
   };
   net::protocol::chat_type type() const {
     return static_cast<net::protocol::chat_type>(GetField<int8_t>(VT_TYPE, 0));
   }
-  uint64_t guid() const {
-    return GetField<uint64_t>(VT_GUID, 0);
+  uint64_t from_guid() const {
+    return GetField<uint64_t>(VT_FROM_GUID, 0);
   }
-  const ::flatbuffers::String *message() const {
-    return GetPointer<const ::flatbuffers::String *>(VT_MESSAGE);
-  }
-  template <bool B = false>
-  bool Verify(::flatbuffers::VerifierTemplate<B> &verifier) const {
-    return VerifyTableStart(verifier) &&
-           VerifyField<int8_t>(verifier, VT_TYPE, 1) &&
-           VerifyField<uint64_t>(verifier, VT_GUID, 8) &&
-           VerifyOffset(verifier, VT_MESSAGE) &&
-           verifier.VerifyString(message()) &&
-           verifier.EndTable();
-  }
-};
-
-struct chat_send_requestBuilder {
-  typedef chat_send_request Table;
-  ::flatbuffers::FlatBufferBuilder &fbb_;
-  ::flatbuffers::uoffset_t start_;
-  void add_type(net::protocol::chat_type type) {
-    fbb_.AddElement<int8_t>(chat_send_request::VT_TYPE, static_cast<int8_t>(type), 0);
-  }
-  void add_guid(uint64_t guid) {
-    fbb_.AddElement<uint64_t>(chat_send_request::VT_GUID, guid, 0);
-  }
-  void add_message(::flatbuffers::Offset<::flatbuffers::String> message) {
-    fbb_.AddOffset(chat_send_request::VT_MESSAGE, message);
-  }
-  explicit chat_send_requestBuilder(::flatbuffers::FlatBufferBuilder &_fbb)
-        : fbb_(_fbb) {
-    start_ = fbb_.StartTable();
-  }
-  ::flatbuffers::Offset<chat_send_request> Finish() {
-    const auto end = fbb_.EndTable(start_);
-    auto o = ::flatbuffers::Offset<chat_send_request>(end);
-    return o;
-  }
-};
-
-inline ::flatbuffers::Offset<chat_send_request> Createchat_send_request(
-    ::flatbuffers::FlatBufferBuilder &_fbb,
-    net::protocol::chat_type type = net::protocol::chat_type_gameplay,
-    uint64_t guid = 0,
-    ::flatbuffers::Offset<::flatbuffers::String> message = 0) {
-  chat_send_requestBuilder builder_(_fbb);
-  builder_.add_guid(guid);
-  builder_.add_message(message);
-  builder_.add_type(type);
-  return builder_.Finish();
-}
-
-inline ::flatbuffers::Offset<chat_send_request> Createchat_send_requestDirect(
-    ::flatbuffers::FlatBufferBuilder &_fbb,
-    net::protocol::chat_type type = net::protocol::chat_type_gameplay,
-    uint64_t guid = 0,
-    const char *message = nullptr) {
-  auto message__ = message ? _fbb.CreateString(message) : 0;
-  return net::protocol::Createchat_send_request(
-      _fbb,
-      type,
-      guid,
-      message__);
-}
-
-struct chat_send_response FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
-  typedef chat_send_responseBuilder Builder;
-  enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
-    VT_TYPE = 4,
-    VT_GUID = 6,
-    VT_MESSAGE = 8,
-    VT_TIMESTAMP_MS = 10
-  };
-  net::protocol::chat_type type() const {
-    return static_cast<net::protocol::chat_type>(GetField<int8_t>(VT_TYPE, 0));
-  }
-  uint64_t guid() const {
-    return GetField<uint64_t>(VT_GUID, 0);
+  uint64_t to_guid() const {
+    return GetField<uint64_t>(VT_TO_GUID, 0);
   }
   const ::flatbuffers::String *message() const {
     return GetPointer<const ::flatbuffers::String *>(VT_MESSAGE);
@@ -155,7 +80,8 @@ struct chat_send_response FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table
   bool Verify(::flatbuffers::VerifierTemplate<B> &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int8_t>(verifier, VT_TYPE, 1) &&
-           VerifyField<uint64_t>(verifier, VT_GUID, 8) &&
+           VerifyField<uint64_t>(verifier, VT_FROM_GUID, 8) &&
+           VerifyField<uint64_t>(verifier, VT_TO_GUID, 8) &&
            VerifyOffset(verifier, VT_MESSAGE) &&
            verifier.VerifyString(message()) &&
            VerifyField<int64_t>(verifier, VT_TIMESTAMP_MS, 8) &&
@@ -163,64 +89,71 @@ struct chat_send_response FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table
   }
 };
 
-struct chat_send_responseBuilder {
-  typedef chat_send_response Table;
+struct chat_recvBuilder {
+  typedef chat_recv Table;
   ::flatbuffers::FlatBufferBuilder &fbb_;
   ::flatbuffers::uoffset_t start_;
   void add_type(net::protocol::chat_type type) {
-    fbb_.AddElement<int8_t>(chat_send_response::VT_TYPE, static_cast<int8_t>(type), 0);
+    fbb_.AddElement<int8_t>(chat_recv::VT_TYPE, static_cast<int8_t>(type), 0);
   }
-  void add_guid(uint64_t guid) {
-    fbb_.AddElement<uint64_t>(chat_send_response::VT_GUID, guid, 0);
+  void add_from_guid(uint64_t from_guid) {
+    fbb_.AddElement<uint64_t>(chat_recv::VT_FROM_GUID, from_guid, 0);
+  }
+  void add_to_guid(uint64_t to_guid) {
+    fbb_.AddElement<uint64_t>(chat_recv::VT_TO_GUID, to_guid, 0);
   }
   void add_message(::flatbuffers::Offset<::flatbuffers::String> message) {
-    fbb_.AddOffset(chat_send_response::VT_MESSAGE, message);
+    fbb_.AddOffset(chat_recv::VT_MESSAGE, message);
   }
   void add_timestamp_ms(int64_t timestamp_ms) {
-    fbb_.AddElement<int64_t>(chat_send_response::VT_TIMESTAMP_MS, timestamp_ms, 0);
+    fbb_.AddElement<int64_t>(chat_recv::VT_TIMESTAMP_MS, timestamp_ms, 0);
   }
-  explicit chat_send_responseBuilder(::flatbuffers::FlatBufferBuilder &_fbb)
+  explicit chat_recvBuilder(::flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
     start_ = fbb_.StartTable();
   }
-  ::flatbuffers::Offset<chat_send_response> Finish() {
+  ::flatbuffers::Offset<chat_recv> Finish() {
     const auto end = fbb_.EndTable(start_);
-    auto o = ::flatbuffers::Offset<chat_send_response>(end);
+    auto o = ::flatbuffers::Offset<chat_recv>(end);
     return o;
   }
 };
 
-inline ::flatbuffers::Offset<chat_send_response> Createchat_send_response(
+inline ::flatbuffers::Offset<chat_recv> Createchat_recv(
     ::flatbuffers::FlatBufferBuilder &_fbb,
-    net::protocol::chat_type type = net::protocol::chat_type_gameplay,
-    uint64_t guid = 0,
+    net::protocol::chat_type type = net::protocol::chat_type_to_client,
+    uint64_t from_guid = 0,
+    uint64_t to_guid = 0,
     ::flatbuffers::Offset<::flatbuffers::String> message = 0,
     int64_t timestamp_ms = 0) {
-  chat_send_responseBuilder builder_(_fbb);
+  chat_recvBuilder builder_(_fbb);
   builder_.add_timestamp_ms(timestamp_ms);
-  builder_.add_guid(guid);
+  builder_.add_to_guid(to_guid);
+  builder_.add_from_guid(from_guid);
   builder_.add_message(message);
   builder_.add_type(type);
   return builder_.Finish();
 }
 
-inline ::flatbuffers::Offset<chat_send_response> Createchat_send_responseDirect(
+inline ::flatbuffers::Offset<chat_recv> Createchat_recvDirect(
     ::flatbuffers::FlatBufferBuilder &_fbb,
-    net::protocol::chat_type type = net::protocol::chat_type_gameplay,
-    uint64_t guid = 0,
+    net::protocol::chat_type type = net::protocol::chat_type_to_client,
+    uint64_t from_guid = 0,
+    uint64_t to_guid = 0,
     const char *message = nullptr,
     int64_t timestamp_ms = 0) {
   auto message__ = message ? _fbb.CreateString(message) : 0;
-  return net::protocol::Createchat_send_response(
+  return net::protocol::Createchat_recv(
       _fbb,
       type,
-      guid,
+      from_guid,
+      to_guid,
       message__,
       timestamp_ms);
 }
 
-struct guid_send_response FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
-  typedef guid_send_responseBuilder Builder;
+struct guid_recv FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
+  typedef guid_recvBuilder Builder;
   enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
     VT_GUID = 4
   };
@@ -235,28 +168,28 @@ struct guid_send_response FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table
   }
 };
 
-struct guid_send_responseBuilder {
-  typedef guid_send_response Table;
+struct guid_recvBuilder {
+  typedef guid_recv Table;
   ::flatbuffers::FlatBufferBuilder &fbb_;
   ::flatbuffers::uoffset_t start_;
   void add_guid(uint64_t guid) {
-    fbb_.AddElement<uint64_t>(guid_send_response::VT_GUID, guid, 0);
+    fbb_.AddElement<uint64_t>(guid_recv::VT_GUID, guid, 0);
   }
-  explicit guid_send_responseBuilder(::flatbuffers::FlatBufferBuilder &_fbb)
+  explicit guid_recvBuilder(::flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
     start_ = fbb_.StartTable();
   }
-  ::flatbuffers::Offset<guid_send_response> Finish() {
+  ::flatbuffers::Offset<guid_recv> Finish() {
     const auto end = fbb_.EndTable(start_);
-    auto o = ::flatbuffers::Offset<guid_send_response>(end);
+    auto o = ::flatbuffers::Offset<guid_recv>(end);
     return o;
   }
 };
 
-inline ::flatbuffers::Offset<guid_send_response> Createguid_send_response(
+inline ::flatbuffers::Offset<guid_recv> Createguid_recv(
     ::flatbuffers::FlatBufferBuilder &_fbb,
     uint64_t guid = 0) {
-  guid_send_responseBuilder builder_(_fbb);
+  guid_recvBuilder builder_(_fbb);
   builder_.add_guid(guid);
   return builder_.Finish();
 }

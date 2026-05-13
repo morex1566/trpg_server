@@ -1,5 +1,10 @@
 #include "time.h"
-#include "log.h"
+
+#include "net.common/log.h"
+
+#include <spdlog/spdlog.h>
+
+#include <typeinfo>
 
 namespace net::common
 {

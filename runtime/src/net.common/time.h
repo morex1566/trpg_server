@@ -5,10 +5,16 @@
 
 namespace net::common
 {
+    /// <summary>
+    /// 서버 시간 및 delta time 계산 담당
+    /// </summary>
     class time : public global_singleton<time>
     {
     public:
 
+        /// <summary>
+        /// 시간 단위
+        /// </summary>
         enum class time_unit_type
         {
             second,
@@ -17,7 +23,14 @@ namespace net::common
 
     public:
 
+        /// <summary>
+        /// time 인스턴스 생성
+        /// </summary>
         time();
+
+        /// <summary>
+        /// time 인스턴스 소멸
+        /// </summary>
         ~time() noexcept override;
 
         /// <summary>

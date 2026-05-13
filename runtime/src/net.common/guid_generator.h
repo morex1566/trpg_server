@@ -3,14 +3,19 @@
 #include <atomic>
 #include <cstdint>
 #include <random>
-#include <stdexcept>
 
 namespace net::common
 {
+    /// <summary>
+    /// 서버 salt와 sequence를 조합해 guid를 생성
+    /// </summary>
     class guid_generator
     {
     public:
 
+        /// <summary>
+        /// 다음 guid 생성
+        /// </summary>
         static std::uint64_t generate()
         {
             static const std::uint64_t server_salt = create_server_salt();
@@ -23,6 +28,9 @@ namespace net::common
 
     private:
 
+        /// <summary>
+        /// 서버 프로세스별 salt 생성
+        /// </summary>
         static std::uint64_t create_server_salt()
         {
             std::random_device random_device;
@@ -32,7 +40,14 @@ namespace net::common
 
     private:
 
+        /// <summary>
+        /// sequence에 사용할 bit 수
+        /// </summary>
         static constexpr std::uint64_t sequence_bits = 48;
+
+        /// <summary>
+        /// sequence bit mask
+        /// </summary>
         static constexpr std::uint64_t sequence_mask = (1ull << sequence_bits) - 1ull;
     };
 }

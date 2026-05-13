@@ -1,7 +1,8 @@
 #include "token_bucket.h"
+
 #include "net.common/time.h"
+
 #include <algorithm>
-#include <stdexcept>
 
 namespace net::common
 {

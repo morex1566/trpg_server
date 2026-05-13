@@ -1,10 +1,8 @@
 #pragma once
-#include "net.common/global_singleton.h"
-#include "net.common/system_config.h"
-#include "net.common/token_bucket.h"
-#include "net.common/log.h"
 #include "net.core/connection.h"
-#include <boost/asio.hpp>
+#include "net.common/global_singleton.h"
+#include "net.common/token_bucket.h"
+
 #include <atomic>
 #include <cstdint>
 #include <memory>
@@ -12,14 +10,22 @@
 #include <string>
 #include <thread>
 #include <vector>
-#include <tbb/concurrent_hash_map.h>
+
+#include <boost/asio.hpp>
+#include <tbb/concurrent_queue.h>
 
 namespace net::core
 {
+	/// <summary>
+	/// TCP 서버 accept와 connection 목록 관리
+	/// </summary>
 	class tcp : public net::common::global_singleton<tcp>
 	{
 	public:
 
+		/// <summary>
+		/// tcp 서버 실행 상태
+		/// </summary>
 		enum class state
 		{
 			stopped,
@@ -28,60 +34,125 @@ namespace net::core
 
 	public:
 
+		/// <summary>
+		/// tcp 인스턴스 생성
+		/// </summary>
 		tcp();
+
+		/// <summary>
+		/// tcp 인스턴스 소멸
+		/// </summary>
 		~tcp() noexcept override;
 
-		// 서버 주소 초기화
+		/// <summary>
+		/// 서버 주소 초기화
+		/// </summary>
 		void init(boost::asio::ip::port_type port);
 
-		// 클라이언트 접속 받기 시작
-		void async_accept();
-
+		/// <summary>
+		/// connection애 dispatch 및 writing을 명령
+		/// </summary>
 		void update();
 
+		/// <summary>
+		/// 클라이언트 접속 받기 시작
+		/// </summary>
+		void async_accept();
+
+		/// <summary>
+		/// write tick-rate마다 모든 connection에 async_write 명령
+		/// </summary>
+		void async_write();
+
+		/// <summary>
+		/// tcp 서버 종료
+		/// </summary>
 		void close();
 
 		state get_state() const { return current_state.load(); }
 
+		tbb::concurrent_queue<packet_recv_context>& get_recv_queue() { return recv_queue; }
+
 	private:
 
-		// asio 디스패치 받을 스레드 시작
+		/// <summary>
+		/// asio 디스패치 받을 스레드 시작
+		/// CAUTION : 비동기적 호출X
+		/// </summary>
 		void create_workers();
 
-		// asio 디스패치 받을 스레드 종료
+		/// <summary>
+		/// asio 디스패치 받을 스레드 종료
+		/// CAUTION : 비동기적 호출X
+		/// </summary>
 		void delete_workers();
 
-		void post_accept();
+		/// <summary>
+		/// 다음 accept 요청 등록
+		/// </summary>
+		void async_accept_next();
 
+		/// <summary>
+		/// 클라이언트 socket의 remote address 반환
+		/// </summary>
 		std::string get_remote_address(boost::asio::ip::tcp::socket& client_socket);
 
 	private:
-		// 서버 실행 상태
+
+		/// <summary>
+		/// 서버 실행 상태
+		/// </summary>
 		std::atomic<state> current_state { state::stopped };
 
-		// OS 디스패치 처리
+		/// <summary>
+		/// OS 디스패치 처리
+		/// </summary>
 		boost::asio::io_context context;
 
-		// OS 디스패치를 여러 스레드가 처리하기 위해
+		/// <summary>
+		/// tcp accept / close / write 직렬화용
+		/// </summary>
+		boost::asio::io_context::strand strand;
+
+		/// <summary>
+		/// write tick-rate용 타이머
+		/// </summary>
+		boost::asio::steady_timer write_timer;
+
+		/// <summary>
+		/// OS 디스패치를 여러 스레드가 처리하기 위해
+		/// </summary>
 		std::vector<std::thread> context_workers;
 
-		// io_context dispatch가 계속되도록
+		/// <summary>
+		/// io_context dispatch가 계속되도록
+		/// </summary>
 		std::optional<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>> work_guard;
 
-		// Rate Limit용
+		/// <summary>
+		/// Rate Limit용
+		/// </summary>
 		net::common::token_bucket accept_token_bucket;
 
-		// 송신 tick 누적 시간
-		float tick_elapsed_ms = 0.f;
-
-		// 이 서버 주소
+		/// <summary>
+		/// 이 서버 주소
+		/// </summary>
 		boost::asio::ip::tcp::endpoint endpoint;
 
-		// accept용
+		/// <summary>
+		/// accept용
+		/// </summary>
 		std::optional<boost::asio::ip::tcp::acceptor> acceptor;
 
-		// 연결된 클라이언트 목록
-		// connection_id_generator가 uint64_t를 반환하므로 key도 같은 크기로 유지
-		tbb::concurrent_hash_map<uint64_t, std::shared_ptr<connection>> connections;
+		/// <summary>
+		/// 연결된 클라이언트 목록
+		/// connection_id_generator가 uint64_t를 반환하므로 key도 같은 크기로 유지
+		/// </summary>
+		std::unordered_map<uint64_t, std::shared_ptr<connection>> connections;
+
+		/// <summary>
+		/// 검증 완료된 수신 패킷 처리 큐
+		/// </summary>
+		tbb::concurrent_queue<packet_recv_context> recv_queue;
 	};
 }

@@ -1,5 +1,4 @@
 #include "connection_id_generator.h"
-#include <limits>
 
 namespace net::common
 {

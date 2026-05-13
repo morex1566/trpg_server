@@ -1,9 +1,12 @@
 #include "log.h"
 
+#include <spdlog/sinks/stdout_color_sinks.h>
+#include <spdlog/spdlog.h>
+
 #ifndef _WIN32
+#include <cstdlib>
 #include <cxxabi.h>
 #include <memory>
-#include <cstdlib>
 #endif
 
 namespace net::common

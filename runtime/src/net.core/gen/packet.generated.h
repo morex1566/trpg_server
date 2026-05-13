@@ -23,36 +23,33 @@ struct packetBuilder;
 
 enum payload_type : uint8_t {
   payload_type_NONE = 0,
-  payload_type_chat_send_request = 1,
-  payload_type_chat_send_response = 2,
-  payload_type_guid_send_response = 3,
+  payload_type_chat_recv = 1,
+  payload_type_guid_recv = 2,
   payload_type_MIN = payload_type_NONE,
-  payload_type_MAX = payload_type_guid_send_response
+  payload_type_MAX = payload_type_guid_recv
 };
 
-inline const payload_type (&EnumValuespayload_type())[4] {
+inline const payload_type (&EnumValuespayload_type())[3] {
   static const payload_type values[] = {
     payload_type_NONE,
-    payload_type_chat_send_request,
-    payload_type_chat_send_response,
-    payload_type_guid_send_response
+    payload_type_chat_recv,
+    payload_type_guid_recv
   };
   return values;
 }
 
 inline const char * const *EnumNamespayload_type() {
-  static const char * const names[5] = {
+  static const char * const names[4] = {
     "NONE",
-    "chat_send_request",
-    "chat_send_response",
-    "guid_send_response",
+    "chat_recv",
+    "guid_recv",
     nullptr
   };
   return names;
 }
 
 inline const char *EnumNamepayload_type(payload_type e) {
-  if (::flatbuffers::IsOutRange(e, payload_type_NONE, payload_type_guid_send_response)) return "";
+  if (::flatbuffers::IsOutRange(e, payload_type_NONE, payload_type_guid_recv)) return "";
   const size_t index = static_cast<size_t>(e);
   return EnumNamespayload_type()[index];
 }
@@ -61,16 +58,12 @@ template<typename T> struct payload_typeTraits {
   static const payload_type enum_value = payload_type_NONE;
 };
 
-template<> struct payload_typeTraits<net::protocol::chat_send_request> {
-  static const payload_type enum_value = payload_type_chat_send_request;
+template<> struct payload_typeTraits<net::protocol::chat_recv> {
+  static const payload_type enum_value = payload_type_chat_recv;
 };
 
-template<> struct payload_typeTraits<net::protocol::chat_send_response> {
-  static const payload_type enum_value = payload_type_chat_send_response;
-};
-
-template<> struct payload_typeTraits<net::protocol::guid_send_response> {
-  static const payload_type enum_value = payload_type_guid_send_response;
+template<> struct payload_typeTraits<net::protocol::guid_recv> {
+  static const payload_type enum_value = payload_type_guid_recv;
 };
 
 template <bool B = false>
@@ -91,14 +84,11 @@ struct packet FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
     return GetPointer<const void *>(VT_PAYLOAD);
   }
   template<typename T> const T *payload_as() const;
-  const net::protocol::chat_send_request *payload_as_chat_send_request() const {
-    return payload_type() == net::protocol::payload_type_chat_send_request ? static_cast<const net::protocol::chat_send_request *>(payload()) : nullptr;
+  const net::protocol::chat_recv *payload_as_chat_recv() const {
+    return payload_type() == net::protocol::payload_type_chat_recv ? static_cast<const net::protocol::chat_recv *>(payload()) : nullptr;
   }
-  const net::protocol::chat_send_response *payload_as_chat_send_response() const {
-    return payload_type() == net::protocol::payload_type_chat_send_response ? static_cast<const net::protocol::chat_send_response *>(payload()) : nullptr;
-  }
-  const net::protocol::guid_send_response *payload_as_guid_send_response() const {
-    return payload_type() == net::protocol::payload_type_guid_send_response ? static_cast<const net::protocol::guid_send_response *>(payload()) : nullptr;
+  const net::protocol::guid_recv *payload_as_guid_recv() const {
+    return payload_type() == net::protocol::payload_type_guid_recv ? static_cast<const net::protocol::guid_recv *>(payload()) : nullptr;
   }
   template <bool B = false>
   bool Verify(::flatbuffers::VerifierTemplate<B> &verifier) const {
@@ -110,16 +100,12 @@ struct packet FLATBUFFERS_FINAL_CLASS : private ::flatbuffers::Table {
   }
 };
 
-template<> inline const net::protocol::chat_send_request *packet::payload_as<net::protocol::chat_send_request>() const {
-  return payload_as_chat_send_request();
+template<> inline const net::protocol::chat_recv *packet::payload_as<net::protocol::chat_recv>() const {
+  return payload_as_chat_recv();
 }
 
-template<> inline const net::protocol::chat_send_response *packet::payload_as<net::protocol::chat_send_response>() const {
-  return payload_as_chat_send_response();
-}
-
-template<> inline const net::protocol::guid_send_response *packet::payload_as<net::protocol::guid_send_response>() const {
-  return payload_as_guid_send_response();
+template<> inline const net::protocol::guid_recv *packet::payload_as<net::protocol::guid_recv>() const {
+  return payload_as_guid_recv();
 }
 
 struct packetBuilder {
@@ -159,16 +145,12 @@ inline bool Verifypayload_type(::flatbuffers::VerifierTemplate<B> &verifier, con
     case payload_type_NONE: {
       return true;
     }
-    case payload_type_chat_send_request: {
-      auto ptr = reinterpret_cast<const net::protocol::chat_send_request *>(obj);
+    case payload_type_chat_recv: {
+      auto ptr = reinterpret_cast<const net::protocol::chat_recv *>(obj);
       return verifier.VerifyTable(ptr);
     }
-    case payload_type_chat_send_response: {
-      auto ptr = reinterpret_cast<const net::protocol::chat_send_response *>(obj);
-      return verifier.VerifyTable(ptr);
-    }
-    case payload_type_guid_send_response: {
-      auto ptr = reinterpret_cast<const net::protocol::guid_send_response *>(obj);
+    case payload_type_guid_recv: {
+      auto ptr = reinterpret_cast<const net::protocol::guid_recv *>(obj);
       return verifier.VerifyTable(ptr);
     }
     default: return true;
