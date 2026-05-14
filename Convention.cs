@@ -17,7 +17,8 @@ InitClass* dataInitConvention = new InitClass();
 int valueConvention = 0;
 
 // 4. enum의 값은 파스칼 케이스로 작성
-enum EnumConvention
+// enum 클래스의 이름은 접미사로 'Type'을 붙여 작성
+enum EnumConventionType
 {
     EnumValueConvention
 }
@@ -28,27 +29,50 @@ LambdaCallbackFuncConvention([this](LambdaConvention lc)
     std::cout << "LambdaConvention" << std::endl;
 });
 
-// 5. 주석은 오직 // <- 이것만 사용
-// CommentConvention
-
-// 6. 클래스 구조는 아래와 같이 작성
-// 6-1. 정의, 변수, 함수 순으로 작성
+// 5. 주석
 public class ClassConvention
 {
+    /// <summary>
+    /// 클래스 맴버의 경우 이런식으로 
+    /// </summary>
+    private int conventionValue1;
+
+    /// <summary>
+    /// 클래스 맴버의 경우 이런식으로 
+    /// </summary>
+    public void ClassConventionFunc()
+    {
+        // 함수 내부의 경우 이런식으로
+        std::cout << "ClassConventionFunc" << std::endl;
+    }
+}
+
+// 6. 클래스 구조는 아래와 같이 작성 + 순서 포함, 각 항목마다 한 줄 더 띄어쓰기
+public class ClassConvention
+{
+    // 1. 클래스에 포함되는 각종 struct, enum, class...
     public enum InnerEnum {}
-    public class InnerClass {}
 
-    // 맴버 변수는 카멜 케이스
-    private int conventionValue;
 
-    // 속성은 파스칼 케이스
+    // 2. 맴버 변수는 카멜 케이스
+    private int conventionValue1;
+
+    private int conventionValue2;
+
+
+    // 3. 속성은 파스칼 케이스
     public int ConventionProperty;
 
-    // 함수는 파스칼 켕스
+
+    // 4. 생성자
+    public class InnerClass {}
+
+
+    // 5. 함수는 파스칼 켕스
     public void ClassConventionFunc();
 }
 
-// 7. 한글 한글자에 2타, 영어+기호 한글자에 1타로 계산했을 때, 한줄에 100타 초과 시 내려쓰기
+// 7. 한글 한글자에 2타, 영어+기호 한글자에 1타로 계산했을 때, 한줄에 150타 초과 시 초과된 부분부터 내려쓰기
 void LongSentenseFuncConventionNnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 (
     int param1A,
