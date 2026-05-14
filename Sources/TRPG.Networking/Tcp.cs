@@ -82,7 +82,7 @@ public sealed class Tcp
     /// <summary>
     /// 클라이언트 접속 받기 시작
     /// </summary>
-    public void AsyncAccept()
+    public void StartAsyncAccept()
     {
         strand.Post(() =>
         {
@@ -105,15 +105,15 @@ public sealed class Tcp
     {
         while (!cancellation.IsCancellationRequested)
         {
-            NetResult<TcpClient> acceptResult = await TryAcceptAsync(cancellation);
+            NetResult<TcpClient> acceptResult = await TryAsyncAccept(cancellation);
 
-            // TryAcceptAsync 실패 (심각)
+            // TryAsyncAccept 실패 (심각)
             if (acceptResult.IsFailed && (acceptResult.Error.Type is NetErrorType.Canceled or NetErrorType.Disposed))
             {
                 return;
             }
 
-            // TryAcceptAsync 실패 (주의)
+            // TryAsyncAccept 실패 (주의)
             if (acceptResult.IsFailed)
             {
                 continue;
@@ -151,12 +151,12 @@ public sealed class Tcp
             {
                 connections.TryRemove(newConnectionId, out _);
             });
-            newConnection.AsyncRead();
             connections[newConnectionId] = newConnection;
+            connections[newConnectionId].StartAsyncRead();
         }
     }
 
-    private async Task<NetResult<TcpClient>> TryAcceptAsync(CancellationToken cancellation)
+    private async Task<NetResult<TcpClient>> TryAsyncAccept(CancellationToken cancellation)
     {
         try
         {
@@ -178,9 +178,9 @@ public sealed class Tcp
     }
 
     /// <summary>
-    /// write tick-rate마다 모든 Connection에 AsyncWrite 명령
+    /// write tick-rate마다 모든 Connection에 StartAsyncWrite 명령
     /// </summary>
-    public void AsyncWrite()
+    public void StartAsyncWrite()
     {
         strand.Post(() =>
         {
@@ -205,9 +205,9 @@ public sealed class Tcp
 
         while (true)
         {
-            NetResult<bool> waitResult = await TryWaitForNextWriteTickAsync(timer, cancellation);
+            NetResult<bool> waitResult = await TryAsyncWaitForNextWriteTick(timer, cancellation);
 
-            // TryWaitForNextWriteTickAsync 실패 (ex. 작업 취소)
+            // TryAsyncWaitForNextWriteTick 실패 (ex. 작업 취소)
             if (waitResult.IsFailed)
             {
                 return;
@@ -233,7 +233,7 @@ public sealed class Tcp
         }
     }
 
-    private static async Task<NetResult<bool>> TryWaitForNextWriteTickAsync(PeriodicTimer timer, CancellationToken cancellation)
+    private static async Task<NetResult<bool>> TryAsyncWaitForNextWriteTick(PeriodicTimer timer, CancellationToken cancellation)
     {
         try
         {

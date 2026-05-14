@@ -27,7 +27,7 @@ public sealed class Connection
         // TCP에 등록된 상태
         Connected = 1 << 0,
 
-        // AsyncRead() 켜짐
+        // StartAsyncRead() 켜짐
         ReadEnabled = 1 << 1,
 
         // Write중
@@ -66,12 +66,12 @@ public sealed class Connection
     private readonly ulong connectionGuid;
 
     /// <summary>
-    /// AsyncWrite() 중도 취소용
+    /// StartAsyncWrite() 중도 취소용
     /// </summary>
     private CancellationTokenSource? writeCancellation;
 
     /// <summary>
-    /// AsyncRead() 중도 취소용
+    /// StartAsyncRead() 중도 취소용
     /// </summary>
     private CancellationTokenSource? readCancellation;
 
@@ -205,7 +205,7 @@ public sealed class Connection
     /// <summary>
     /// 수신 read 시작
     /// </summary>
-    public void AsyncRead()
+    public void StartAsyncRead()
     {
         strand.Post(() =>
         {
