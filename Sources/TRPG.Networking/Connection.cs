@@ -63,7 +63,7 @@ public sealed class Connection
     /// <summary>
     /// 클라에게 내려주는 서버 측 고유 GUID
     /// </summary>
-    private readonly ulong connectionGuid;
+    private ulong connectionGuid;
 
     /// <summary>
     /// StartAsyncWrite() 중도 취소용
@@ -101,6 +101,15 @@ public sealed class Connection
 
 
     public ulong Guid => connectionGuid;
+
+
+    /// <summary>
+    /// connection GUID 갱신
+    /// </summary>
+    public void SetGuid(ulong guid)
+    {
+        connectionGuid = guid;
+    }
 
 
     /// <summary>

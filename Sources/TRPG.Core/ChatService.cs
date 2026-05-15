@@ -1,19 +1,30 @@
-﻿using TRPG.Protocol;
+using TRPG.Networking;
+using TRPG.Protocol;
 
 namespace TRPG.Core
 {
     public static partial class ChatService
     {
         [NetworkingMethod.Receive(PayloadType.ChatMessageRequest)]
-        public static void OnRequestChatMessage(in PacketContext context)
+        public static void RequestChatMessage(ref PacketContext context)
         {
-            
+            ResponseChatMessage(ref context);
         }
 
         [NetworkingMethod.Send(PayloadType.ChatMessageResponse)]
-        public static void OnResponseChatMessage(ref PacketContext context)
+        public static PacketContext OnResponseChatMessage(ref PacketContext context)
         {
+            ChatMessageRequest request = context.PayloadAs<ChatMessageRequest>()!.Value;
+            Console.WriteLine($"Received chat message: {request.Message}");
 
+            string message = request.Message + " by server";
+
+            return PacketContext.Create(PayloadType.ChatMessageResponse,
+            builder =>
+            {
+                var messageOffset = builder.CreateString(message);
+                return ChatMessageResponse.CreateChatMessageResponse(builder, messageOffset).Value;
+            });
         }
     }
 }

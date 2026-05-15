@@ -43,6 +43,11 @@ public static class SystemConfig
         /// connection 단위 최대 queue size
         /// </summary>
         public const int QueueSize = 1024;
+
+        /// <summary>
+        /// read 타임아웃(ms). half-open 연결 방어용
+        /// </summary>
+        public const int ReadTimeoutMs = 30_000;
     }
 
     /// <summary>

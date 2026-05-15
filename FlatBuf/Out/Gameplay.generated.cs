@@ -72,17 +72,23 @@ public struct ChatMessageResponse : IFlatbufferObject
   public void __init(int _i, ByteBuffer _bb) { __p = new Table(_i, _bb); }
   public ChatMessageResponse __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
-  public bool Success { get { int o = __p.__offset(4); return o != 0 ? 0!=__p.bb.Get(o + __p.bb_pos) : (bool)false; } }
+  public string Message { get { int o = __p.__offset(4); return o != 0 ? __p.__string(o + __p.bb_pos) : null; } }
+#if ENABLE_SPAN_T
+  public Span<byte> GetMessageBytes() { return __p.__vector_as_span<byte>(4, 1); }
+#else
+  public ArraySegment<byte>? GetMessageBytes() { return __p.__vector_as_arraysegment(4); }
+#endif
+  public byte[] GetMessageArray() { return __p.__vector_as_array<byte>(4); }
 
   public static Offset<TRPG.Protocol.ChatMessageResponse> CreateChatMessageResponse(FlatBufferBuilder builder,
-      bool success = false) {
+      StringOffset messageOffset = default(StringOffset)) {
     builder.StartTable(1);
-    ChatMessageResponse.AddSuccess(builder, success);
+    ChatMessageResponse.AddMessage(builder, messageOffset);
     return ChatMessageResponse.EndChatMessageResponse(builder);
   }
 
   public static void StartChatMessageResponse(FlatBufferBuilder builder) { builder.StartTable(1); }
-  public static void AddSuccess(FlatBufferBuilder builder, bool success) { builder.AddBool(0, success, false); }
+  public static void AddMessage(FlatBufferBuilder builder, StringOffset messageOffset) { builder.AddOffset(0, messageOffset.Value, 0); }
   public static Offset<TRPG.Protocol.ChatMessageResponse> EndChatMessageResponse(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<TRPG.Protocol.ChatMessageResponse>(o);
@@ -95,7 +101,7 @@ static public class ChatMessageResponseVerify
   static public bool Verify(Google.FlatBuffers.Verifier verifier, uint tablePos)
   {
     return verifier.VerifyTableStart(tablePos)
-      && verifier.VerifyField(tablePos, 4 /*Success*/, 1 /*bool*/, 1, false)
+      && verifier.VerifyString(tablePos, 4 /*Message*/, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }
@@ -172,8 +178,17 @@ public struct ConnectRequest : IFlatbufferObject
   public void __init(int _i, ByteBuffer _bb) { __p = new Table(_i, _bb); }
   public ConnectRequest __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
+  public byte Reserved { get { int o = __p.__offset(4); return o != 0 ? __p.bb.Get(o + __p.bb_pos) : (byte)0; } }
 
-  public static void StartConnectRequest(FlatBufferBuilder builder) { builder.StartTable(0); }
+  public static Offset<TRPG.Protocol.ConnectRequest> CreateConnectRequest(FlatBufferBuilder builder,
+      byte reserved = 0) {
+    builder.StartTable(1);
+    ConnectRequest.AddReserved(builder, reserved);
+    return ConnectRequest.EndConnectRequest(builder);
+  }
+
+  public static void StartConnectRequest(FlatBufferBuilder builder) { builder.StartTable(1); }
+  public static void AddReserved(FlatBufferBuilder builder, byte reserved) { builder.AddByte(0, reserved, 0); }
   public static Offset<TRPG.Protocol.ConnectRequest> EndConnectRequest(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<TRPG.Protocol.ConnectRequest>(o);
@@ -186,6 +201,7 @@ static public class ConnectRequestVerify
   static public bool Verify(Google.FlatBuffers.Verifier verifier, uint tablePos)
   {
     return verifier.VerifyTableStart(tablePos)
+      && verifier.VerifyField(tablePos, 4 /*Reserved*/, 1 /*byte*/, 1, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

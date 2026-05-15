@@ -1,13 +1,14 @@
 using System;
 using Google.FlatBuffers;
+using TRPG.Protocol;
 
-namespace TRPG.Protocol;
+namespace TRPG.Networking;
 
 
 /// <summary>
 /// 패킷을 처리하는 공통 handle 타입
 /// </summary>
-public delegate void PacketHandler(in PacketContext context);
+public delegate void PacketHandler(ref PacketContext context);
 
 /// <summary>
 /// 패킷 buffer holder. 런타임 큐와 송신 요청에서 사용
@@ -17,7 +18,7 @@ public struct PacketContext
     /// <summary>
     /// 패킷을 수신한 connection (object로 순환참조 방지)
     /// </summary>
-    public object? Owner;
+    public Connection? Owner;
 
     /// <summary>
     /// size-prefixed flatbuffers packet buffer
@@ -25,7 +26,7 @@ public struct PacketContext
     public byte[] Buffer;
 
 
-    public PacketContext(object owner, int bufferSize)
+    public PacketContext(Connection owner, int bufferSize)
     {
         Owner = owner;
         Buffer = new byte[bufferSize];

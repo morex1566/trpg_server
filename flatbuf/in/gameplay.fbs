@@ -11,7 +11,7 @@ table ChatMessageRequest
 }
 table ChatMessageResponse
 {
-    success:bool;
+    message:string;
 }
 
 // 서버에서 보내는 메시지
@@ -27,7 +27,7 @@ table ChatMessageNotify
 // 서버에 연결했을 때
 table ConnectRequest
 {
-    
+    reserved:ubyte = 0;
 }
 table ConnectResponse
 {

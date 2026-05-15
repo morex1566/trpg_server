@@ -10,6 +10,8 @@ namespace TRPG.Core.Generators;
 [Generator]
 public sealed class NetworkingMethodGenerator : IIncrementalGenerator
 {
+    private const string PacketContextTypeName = "global::TRPG.Networking.PacketContext";
+
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         IncrementalValuesProvider<MethodModel?> methods =
@@ -52,13 +54,12 @@ public sealed class NetworkingMethodGenerator : IIncrementalGenerator
                 continue;
 
             string payloadExpression = ToEnumExpression(attribute.ConstructorArguments[0]);
-
             if (attributeClass.Name == "ReceiveAttribute")
             {
                 if (methodSymbol.Parameters.Length != 1 ||
-                    methodSymbol.Parameters[0].RefKind != RefKind.In ||
+                    methodSymbol.Parameters[0].RefKind != RefKind.Ref ||
                     methodSymbol.Parameters[0].Type is not INamedTypeSymbol parameterType ||
-                    parameterType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat) != "global::TRPG.Protocol.PacketContext")
+                    parameterType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat) != PacketContextTypeName)
                 {
                     return null;
                 }
@@ -69,7 +70,28 @@ public sealed class NetworkingMethodGenerator : IIncrementalGenerator
                     methodSymbol.Name);
             }
 
+            ImmutableArray<ParameterModel> parameters = methodSymbol.Parameters
+                .Select(static p => new ParameterModel(
+                    p.Type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat),
+                    EscapeIdentifier(p.Name),
+                    p.RefKind))
+                .ToImmutableArray();
+
+            string? packetContextParameterName = parameters
+                .Where(static p =>
+                    p.TypeName == PacketContextTypeName &&
+                    p.RefKind == RefKind.Ref)
+                .Select(static p => p.Name)
+                .FirstOrDefault();
+
+            if (packetContextParameterName is null)
+                return null;
+
+            if (methodSymbol.ReturnType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat) != PacketContextTypeName)
+                return null;
+
             return MethodModel.Send(
+                payloadExpression,
                 methodSymbol.ContainingNamespace.IsGlobalNamespace
                     ? null
                     : methodSymbol.ContainingNamespace.ToDisplayString(),
@@ -81,12 +103,8 @@ public sealed class NetworkingMethodGenerator : IIncrementalGenerator
                 methodSymbol.ReturnsVoid,
                 methodSymbol.Name,
                 RemoveOnPrefix(methodSymbol.Name),
-                methodSymbol.Parameters
-                    .Select(static p => new ParameterModel(
-                        p.Type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat),
-                        EscapeIdentifier(p.Name),
-                        p.RefKind))
-                    .ToImmutableArray());
+                packetContextParameterName,
+                parameters);
         }
 
         return null;
@@ -114,6 +132,7 @@ public sealed class NetworkingMethodGenerator : IIncrementalGenerator
         source.AppendLine("#nullable enable");
         source.AppendLine();
         source.AppendLine("using System.Collections.Generic;");
+        source.AppendLine("using TRPG.Networking;");
         source.AppendLine("using TRPG.Protocol;");
         source.AppendLine();
         source.AppendLine("namespace TRPG.Core;");
@@ -194,7 +213,7 @@ public sealed class NetworkingMethodGenerator : IIncrementalGenerator
                 if (method.MethodIsStatic)
                     source.Append("static ");
 
-                source.Append(method.ReturnType);
+                source.Append(PacketContextTypeName);
                 source.Append(' ');
                 source.Append(method.GeneratedMethodName);
                 source.Append('(');
@@ -205,15 +224,40 @@ public sealed class NetworkingMethodGenerator : IIncrementalGenerator
                 source.AppendLine("    {");
 
                 source.Append(indent);
-                source.Append("        ");
+                source.Append("        var __networkingMethodPacketSender = ");
+                source.Append(method.PacketContextParameterName);
+                source.AppendLine(".Owner;");
 
-                if (!method.ReturnsVoid)
-                    source.Append("return ");
-
+                source.Append(indent);
+                source.Append("        var __networkingMethodResult = ");
                 source.Append(method.OriginalMethodName);
                 source.Append('(');
                 source.Append(string.Join(", ", method.Parameters.Select(FormatArgument)));
                 source.AppendLine(");");
+
+                source.Append(indent);
+                source.AppendLine("        if (__networkingMethodResult.Owner is null)");
+                source.Append(indent);
+                source.AppendLine("            __networkingMethodResult.Owner = __networkingMethodPacketSender;");
+
+                source.Append(indent);
+                source.Append("        ");
+                source.Append(method.PacketContextParameterName);
+                source.AppendLine(" = __networkingMethodResult;");
+
+                source.Append(indent);
+                source.Append("        if (");
+                source.Append(method.PacketContextParameterName);
+                source.AppendLine(".Owner is global::TRPG.Networking.Connection __networkingMethodConnection)");
+                source.Append(indent);
+                source.Append("            __networkingMethodConnection.Send(");
+                source.Append(method.PacketContextParameterName);
+                source.AppendLine(".Buffer);");
+
+                source.Append(indent);
+                source.Append("        return ");
+                source.Append(method.PacketContextParameterName);
+                source.AppendLine(";");
 
                 source.Append(indent);
                 source.AppendLine("    }");
@@ -329,6 +373,7 @@ public sealed class NetworkingMethodGenerator : IIncrementalGenerator
             bool returnsVoid,
             string originalMethodName,
             string generatedMethodName,
+            string? packetContextParameterName,
             ImmutableArray<ParameterModel> parameters)
         {
             Kind = kind;
@@ -343,6 +388,7 @@ public sealed class NetworkingMethodGenerator : IIncrementalGenerator
             ReturnsVoid = returnsVoid;
             OriginalMethodName = originalMethodName;
             GeneratedMethodName = generatedMethodName;
+            PacketContextParameterName = packetContextParameterName;
             Parameters = parameters;
         }
 
@@ -358,6 +404,7 @@ public sealed class NetworkingMethodGenerator : IIncrementalGenerator
         public bool ReturnsVoid { get; }
         public string OriginalMethodName { get; }
         public string GeneratedMethodName { get; }
+        public string? PacketContextParameterName { get; }
         public ImmutableArray<ParameterModel> Parameters { get; }
 
         public static MethodModel Receive(
@@ -378,10 +425,12 @@ public sealed class NetworkingMethodGenerator : IIncrementalGenerator
                 true,
                 originalMethodName,
                 originalMethodName,
+                null,
                 ImmutableArray<ParameterModel>.Empty);
         }
 
         public static MethodModel Send(
+            string payloadExpression,
             string? @namespace,
             string containingTypeName,
             bool containingTypeIsStatic,
@@ -391,11 +440,12 @@ public sealed class NetworkingMethodGenerator : IIncrementalGenerator
             bool returnsVoid,
             string originalMethodName,
             string generatedMethodName,
+            string packetContextParameterName,
             ImmutableArray<ParameterModel> parameters)
         {
             return new MethodModel(
                 MethodKind.Send,
-                "",
+                payloadExpression,
                 @namespace,
                 containingTypeName,
                 containingTypeIsStatic,
@@ -406,6 +456,7 @@ public sealed class NetworkingMethodGenerator : IIncrementalGenerator
                 returnsVoid,
                 originalMethodName,
                 generatedMethodName,
+                packetContextParameterName,
                 parameters);
         }
     }

@@ -2,14 +2,13 @@ using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Sockets;
 using TRPG.Common;
-using TRPG.Protocol;
 
 namespace TRPG.Networking;
 
 /// <summary>
 /// TCP 서버 accept와 connection 목록 관리
 /// </summary>
-public sealed class Tcp
+public sealed class TcpServer
 {
     /// <summary>
     /// tcp 서버 실행 상태
@@ -21,7 +20,6 @@ public sealed class Tcp
         AcceptEnabled = 1 << 0,
         WriteEnabled = 1 << 1,
     }
-
 
     /// <summary>
     /// 서버 실행 상태
@@ -70,7 +68,7 @@ public sealed class Tcp
     /// <summary>
     /// tcp 인스턴스 생성
     /// </summary>
-    public Tcp(int port)
+    public TcpServer(int port)
     {
         strand = new Strand();
         listener = new TcpListener(IPAddress.Any, port);
