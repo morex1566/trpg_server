@@ -3,12 +3,12 @@ namespace TRPG.Networking;
 public enum NetErrorType
 {
     None,
-
-    // 네트워크 상태 에러
+    Already,
     Canceled,
     Socket,
     Disposed,
     Timeout,
+    Unknown
 }
 
 public readonly struct NetResult

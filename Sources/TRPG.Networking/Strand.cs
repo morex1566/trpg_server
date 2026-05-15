@@ -43,11 +43,41 @@ public sealed class Strand : IAsyncDisposable
 
 
     /// <summary>
-    /// strand에 작업 post (boost::asio::post(strand, ...) 대응)
+    /// strand에 작업 post
     /// </summary>
     public void Post(Func<Task> work)
     {
         channel.Writer.TryWrite(work);
+    }
+
+    /// <summary>
+    /// strand에 작업 post
+    /// </summary>
+    public Task<T> Post<T>(Func<T> work)
+    {
+        var tcs = new TaskCompletionSource<T>(TaskCreationOptions.RunContinuationsAsynchronously);
+
+        bool written = channel.Writer.TryWrite(() =>
+        {
+            try
+            {
+                T result = work();
+                tcs.SetResult(result);
+            }
+            catch (Exception ex)
+            {
+                tcs.SetException(ex);
+            }
+
+            return Task.CompletedTask;
+        });
+
+        if (!written)
+        {
+            tcs.SetException(new InvalidOperationException("Failed to post work to strand."));
+        }
+
+        return tcs.Task;
     }
 
     /// <summary>

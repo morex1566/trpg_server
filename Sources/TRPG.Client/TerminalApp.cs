@@ -1,30 +1,32 @@
-using System.Collections.Concurrent;
-using System.Net.Sockets;
 using Terminal.Gui;
-using TRPG.Networking;
-using TRPG.Protocol;
 
 namespace TRPG;
 
 public sealed class TerminalApp
 {
-    private readonly ConcurrentQueue<PacketContext> recvQueue = new();
-
-    private TcpClient? socket;
-    private Connection? connection;
-    private bool connectionClosed;
-
     private TextField hostField = null!;
+
     private TextField portField = null!;
+
     private ComboBox commandCombo = null!;
+
     private TextField messageField = null!;
+
     private TextView logView = null!;
+
     private Label statusLabel = null!;
+
     private Label guidLabel = null!;
 
-    private bool IsConnected => connection is not null && !connectionClosed;
 
-    public void Run()
+    public event Func<string, int, Task>? ConnectRequested;
+
+    public event Action? DisconnectRequested;
+
+    public event Action<string>? ChatRequested;
+
+
+    public void Run(Func<bool> tick)
     {
         Application.Init();
 
@@ -44,14 +46,32 @@ public sealed class TerminalApp
             BuildLayout(window);
             AppendLog("client ui ready.");
 
-            // 주기적으로 수신 큐를 비우고 로그를 업데이트
-            Application.MainLoop.AddTimeout(TimeSpan.FromMilliseconds(50), DrainReceivedPackets);
+            Application.MainLoop.AddTimeout(TimeSpan.FromMilliseconds(50), _ => tick());
             Application.Run();
         }
         finally
         {
             Application.Shutdown();
         }
+    }
+
+    public void ClearMessage()
+    {
+        messageField.Text = "";
+    }
+
+    public void AppendLog(string message)
+    {
+        logView.Text += $"{DateTime.Now:HH:mm:ss} {message}{Environment.NewLine}";
+        logView.SetNeedsDisplay();
+    }
+
+    public void SetConnectionStatus(bool connected, ulong guid)
+    {
+        statusLabel.Text = connected ? "Connected" : "Disconnected";
+        guidLabel.Text = connected && guid != 0 ? $"GUID: {guid}" : "GUID: -";
+        statusLabel.SetNeedsDisplay();
+        guidLabel.SetNeedsDisplay();
     }
 
     private void BuildLayout(Window window)
@@ -147,195 +167,36 @@ public sealed class TerminalApp
     private async Task ExecuteSelectedCommandAsync()
     {
         string command = commandCombo.Text.ToString() ?? "";
-        
+
         switch (command)
         {
             case "connect":
-                await ConnectAsync();
+                if (!int.TryParse(portField.Text.ToString(), out int port))
+                {
+                    AppendLog("invalid port.");
+                    break;
+                }
+
+                Func<string, int, Task>? connectRequested = ConnectRequested;
+                if (connectRequested is not null)
+                {
+                    await connectRequested(hostField.Text.ToString() ?? "", port);
+                }
                 break;
 
             case "disconnect":
-                Disconnect();
+                Action? disconnectRequested = DisconnectRequested;
+                disconnectRequested?.Invoke();
                 break;
 
             case "chat":
-                Chat();
+                Action<string>? chatRequested = ChatRequested;
+                chatRequested?.Invoke(messageField.Text.ToString() ?? "");
                 break;
 
             default:
                 AppendLog($"unknown command: {command}");
                 break;
         }
-
-        UpdateStatus();
-    }
-
-    private async Task ConnectAsync()
-    {
-        if (IsConnected)
-        {
-            AppendLog("already connected.");
-            return;
-        }
-
-        if (!int.TryParse(portField.Text.ToString(), out int port))
-        {
-            AppendLog("invalid port.");
-            return;
-        }
-
-        var client = new TcpClient();
-        try
-        {
-            await client.ConnectAsync(hostField.Text.ToString() ?? "127.0.0.1", port);
-        }
-        catch (Exception ex)
-        {
-            client.Close();
-            AppendLog($"connect failed: {ex.Message}");
-            return;
-        }
-
-        socket = client;
-        connectionClosed = false;
-        connection = new Connection(client, 0, recvQueue, OnConnectionClosed);
-        connection.StartAsyncRead();
-        SendConnectRequest();
-
-        AppendLog("connect requested.");
-    }
-
-    private void Disconnect()
-    {
-        if (!IsConnected)
-        {
-            AppendLog("already disconnected.");
-            return;
-        }
-
-        // 사용자의 요청: 별도의 DisconnectRequest 패킷 송신 없이 로컬 소켓만 닫음.
-        // 서버의 read 실패 처리를 통해 자동으로 커넥션이 끊어짐.
-        CloseLocal();
-        AppendLog("disconnected.");
-    }
-
-    private void Chat()
-    {
-        if (!IsConnected)
-        {
-            AppendLog("not connected.");
-            return;
-        }
-
-        string message = messageField.Text.ToString() ?? "";
-        if (string.IsNullOrWhiteSpace(message))
-        {
-            AppendLog("empty message.");
-            return;
-        }
-
-        PacketContext packet = PacketContext.Create(PayloadType.ChatMessageRequest, builder =>
-        {
-            var messageOffset = builder.CreateString(message);
-            return ChatMessageRequest.CreateChatMessageRequest(
-                builder,
-                ChatType.ToServer,
-                0,
-                messageOffset).Value;
-        });
-
-        SendPacket(packet);
-        AppendLog($"me: {message}");
-        messageField.Text = "";
-    }
-
-    private void SendConnectRequest()
-    {
-        PacketContext packet = PacketContext.Create(PayloadType.ConnectRequest, builder =>
-        {
-            ConnectRequest.StartConnectRequest(builder);
-            return ConnectRequest.EndConnectRequest(builder).Value;
-        });
-
-        SendPacket(packet);
-    }
-
-    private void SendPacket(PacketContext packet)
-    {
-        if (!IsConnected)
-        {
-            AppendLog("not connected.");
-            return;
-        }
-
-        connection!.Send(packet.Buffer);
-        connection.AsyncWrite();
-    }
-
-    private bool DrainReceivedPackets(MainLoop caller)
-    {
-        if (connectionClosed && connection is not null)
-        {
-            connection = null;
-            socket = null;
-            AppendLog("connection closed.");
-        }
-
-        while (recvQueue.TryDequeue(out PacketContext context))
-        {
-            switch (context.GetPayloadType())
-            {
-                case PayloadType.ConnectResponse:
-                {
-                    ConnectResponse response = context.PayloadAs<ConnectResponse>()!.Value;
-                    connection?.SetGuid(response.Guid);
-                    AppendLog($"connected. guid={response.Guid}");
-                    break;
-                }
-
-                case PayloadType.ChatMessageResponse:
-                {
-                    ChatMessageResponse response = context.PayloadAs<ChatMessageResponse>()!.Value;
-                    AppendLog($"server: {response.Message}");
-                    break;
-                }
-            }
-        }
-
-        UpdateStatus();
-        return true;
-    }
-
-    private void CloseLocal()
-    {
-        connection?.Close();
-
-        try
-        {
-            socket?.Close();
-        }
-        catch
-        {
-        }
-
-        connection = null;
-        socket = null;
-        connectionClosed = true;
-    }
-
-    private void OnConnectionClosed()
-    {
-        connectionClosed = true;
-    }
-
-    private void UpdateStatus()
-    {
-        statusLabel.Text = IsConnected ? "Connected" : "Disconnected";
-        guidLabel.Text = IsConnected ? $"GUID: {connection?.Guid.ToString() ?? "-"}" : "GUID: -";
-    }
-
-    private void AppendLog(string message)
-    {
-        logView.Text += $"{DateTime.Now:HH:mm:ss} {message}{Environment.NewLine}";
     }
 }

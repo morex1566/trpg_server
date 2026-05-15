@@ -76,42 +76,52 @@ public sealed class TcpServer
         currentState = new AtomicFlag<State>(State.None);
     }
 
-
     /// <summary>
     /// 클라이언트 접속 받기 시작
     /// </summary>
-    public void StartAsyncAccept()
+    public Task<NetResult> StartAcceptAsync()
     {
-        strand.Post(() =>
+        return strand.Post(() =>
         {
             // 이미 AcceptEnabled 상태?
-            if (!currentState.TrySet(State.AcceptEnabled)) return Task.CompletedTask;
+            if (!currentState.TrySet(State.AcceptEnabled))
+            {
+                return NetResult.Fail(new NetError(NetErrorType.Already));
+            }
 
             // 클라 받기 루프 시작
-            listener.Start();
-            acceptCancellation = new CancellationTokenSource();
-            Task.Run(() => AsyncAcceptLoop(acceptCancellation.Token));
+            try
+            {
+                listener.Start();
+                acceptCancellation = new CancellationTokenSource();
+                Task.Run(() => AcceptLoopAsync(acceptCancellation.Token));
 
-            return Task.CompletedTask;
+                return NetResult.Success();
+            }
+            catch (Exception ex)
+            {
+                currentState.TryUnset(State.AcceptEnabled);
+                return NetResult.Fail(new NetError(NetErrorType.Unknown, ex.Message));
+            }
         });
     }
 
     /// <summary>
     /// accept 루프
     /// </summary>
-    private async Task AsyncAcceptLoop(CancellationToken cancellation)
+    private async Task AcceptLoopAsync(CancellationToken cancellation)
     {
         while (!cancellation.IsCancellationRequested)
         {
-            NetResult<TcpClient> acceptResult = await TryAsyncAccept(cancellation);
+            NetResult<System.Net.Sockets.TcpClient> acceptResult = await TryAcceptAsync(cancellation);
 
-            // TryAsyncAccept 실패 (심각)
+            // TryAcceptAsync 실패 (심각)
             if (acceptResult.IsFailed && (acceptResult.Error.Type is NetErrorType.Canceled or NetErrorType.Disposed))
             {
                 return;
             }
 
-            // TryAsyncAccept 실패 (주의)
+            // TryAcceptAsync 실패 (주의)
             if (acceptResult.IsFailed)
             {
                 continue;
@@ -145,67 +155,84 @@ public sealed class TcpServer
             // 커넥션 등록
             ulong newConnectionId = ConnectionIdGenerator.Generate();
             ulong newConnectionGuid = GuidGenerator.Generate();
+            Console.WriteLine($"accept: connectionId={newConnectionId}, guid={newConnectionGuid}");
             var newConnection = new Connection(acceptResult.Value, newConnectionGuid, recvQueue, () =>
             {
                 connections.TryRemove(newConnectionId, out _);
+                Console.WriteLine($"close: connectionId={newConnectionId}");
             });
             connections[newConnectionId] = newConnection;
-            connections[newConnectionId].StartAsyncRead();
+            connections[newConnectionId].StartReadAsync();
         }
     }
 
-    private async Task<NetResult<TcpClient>> TryAsyncAccept(CancellationToken cancellation)
+    private async Task<NetResult<System.Net.Sockets.TcpClient>> TryAcceptAsync(CancellationToken cancellation)
     {
         try
         {
-            TcpClient client = await listener.AcceptTcpClientAsync(cancellation);
-            return NetResult<TcpClient>.Success(client);
+            System.Net.Sockets.TcpClient client = await listener.AcceptTcpClientAsync(cancellation);
+            return NetResult<System.Net.Sockets.TcpClient>.Success(client);
         }
         catch (OperationCanceledException)
         {
-            return NetResult<TcpClient>.Fail(new NetError(NetErrorType.Canceled));
+            return NetResult<System.Net.Sockets.TcpClient>.Fail(new NetError(NetErrorType.Canceled));
         }
         catch (ObjectDisposedException)
         {
-            return NetResult<TcpClient>.Fail(new NetError(NetErrorType.Disposed));
+            return NetResult<System.Net.Sockets.TcpClient>.Fail(new NetError(NetErrorType.Disposed));
         }
         catch (SocketException)
         {
-            return NetResult<TcpClient>.Fail(new NetError(NetErrorType.Socket));
+            return NetResult<System.Net.Sockets.TcpClient>.Fail(new NetError(NetErrorType.Socket));
+        }
+        catch (Exception ex)
+        {
+            return NetResult<System.Net.Sockets.TcpClient>.Fail(new NetError(NetErrorType.Unknown, ex.Message));
         }
     }
 
     /// <summary>
-    /// write tick-rate마다 모든 Connection에 StartAsyncWrite 명령
+    /// write tick-rate마다 모든 Connection에 StartWriteAsync 명령
     /// </summary>
-    public void StartAsyncWrite()
+    public Task<NetResult> StartWriteAsync()
     {
-        strand.Post(() =>
+        return strand.Post(() =>
         {
             // 이미 WriteEnabled 상태?
-            if (!currentState.TrySet(State.WriteEnabled)) return Task.CompletedTask;
+            if (!currentState.TrySet(State.WriteEnabled))
+            {
+                return NetResult.Fail(new NetError(NetErrorType.Already));
+            }
 
             // 쓰기 루프 시작
-            writeCancellation = new CancellationTokenSource();
-            Task.Run(() => AsyncWriteLoop(writeCancellation.Token));
+            try
+            {
+                writeCancellation = new CancellationTokenSource();
+                Task.Run(() => WriteLoopAsync(writeCancellation.Token));
 
-            return Task.CompletedTask;
+                return NetResult.Success();
+            }
+            catch (Exception ex)
+            {
+                currentState.TryUnset(State.WriteEnabled);
+                return NetResult.Fail(new NetError(NetErrorType.Unknown, ex.Message));
+            }
         });
     }
-        
+
     /// <summary>
     /// Tick-rate마다 모든 connection에 async_write 명령
     /// </summary>
-    private async Task AsyncWriteLoop(CancellationToken cancellation)
+    private async Task WriteLoopAsync(CancellationToken cancellation)
     {
         var interval = TimeSpan.FromMilliseconds(SystemConfig.Tcp.TickIntervalMs);
         using var timer = new PeriodicTimer(interval);
 
         while (true)
         {
-            NetResult<bool> waitResult = await TryAsyncWaitForNextWriteTick(timer, cancellation);
+            NetResult<bool> waitResult = await TryWaitForNextWriteTickAsync(timer, cancellation);
 
-            // TryAsyncWaitForNextWriteTick 실패 (ex. 작업 취소)
+            // TryWaitForNextWriteTickAsync 실패 (ex. 작업 취소)
             if (waitResult.IsFailed)
             {
                 return;
@@ -226,12 +253,12 @@ public sealed class TcpServer
             // 모든 커넥션에 Write 명령
             foreach (var connection in connections)
             {
-                connection.Value.AsyncWrite();
+                connection.Value.WriteAsync();
             }
         }
     }
 
-    private static async Task<NetResult<bool>> TryAsyncWaitForNextWriteTick(PeriodicTimer timer, CancellationToken cancellation)
+    private static async Task<NetResult<bool>> TryWaitForNextWriteTickAsync(PeriodicTimer timer, CancellationToken cancellation)
     {
         try
         {
@@ -245,6 +272,10 @@ public sealed class TcpServer
         catch (ObjectDisposedException)
         {
             return NetResult<bool>.Fail(new NetError(NetErrorType.Disposed));
+        }
+        catch (Exception ex)
+        {
+            return NetResult<bool>.Fail(new NetError(NetErrorType.Unknown, ex.Message));
         }
     }
 

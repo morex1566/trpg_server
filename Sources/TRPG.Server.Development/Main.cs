@@ -1,4 +1,4 @@
-﻿using TRPG.Common;
+using TRPG.Common;
 using TRPG.Core;
 using TRPG.Networking;
 
@@ -10,29 +10,64 @@ static class Program
 
     static async Task Main()
     {
-        // TCP 서버
-        var tcp = new TcpServer(Port);
+        using CancellationTokenSource shutdownCancellation = new CancellationTokenSource();
+        Console.CancelKeyPress += (_, eventArgs) =>
         {
-            tcp.StartAsyncAccept();
-            tcp.StartAsyncWrite();
+            eventArgs.Cancel = true;
+            shutdownCancellation.Cancel();
+        };
+
+        // TCP 서버
+        TcpServer tcpServer = new TcpServer(Port);
+        {
+            NetResult startAcceptResult = await tcpServer.StartAcceptAsync();
+            if (startAcceptResult.IsFailed)
+            {
+                Console.WriteLine(startAcceptResult.Error.ToString());
+                return;
+            }
+
+            NetResult startWriteResult = await tcpServer.StartWriteAsync();
+            if (startWriteResult.IsFailed)
+            {
+                Console.WriteLine(startWriteResult.Error.ToString());
+                return;
+            }
         }
 
-        while (true)
+        Console.WriteLine($"server listening. port={Port}");
+
+        while (!shutdownCancellation.IsCancellationRequested)
         {
             Time.Instance.Update();
 
             // TCP 수신 패킷 처리
-            int requestCount = tcp.RecvQueue.Count;
+            int requestCount = tcpServer.RecvQueue.Count;
             for (int i = 0, count = requestCount; i < count; i++)
             {
-                if (!tcp.RecvQueue.TryDequeue(out var context)) break;
+                // 수신 패킷 없음?
+                if (!tcpServer.RecvQueue.TryDequeue(out var context))
+                {
+                    break;
+                }
 
-                PacketHandler? handle = PacketHandleHelper.Get(context.GetPayloadType());
-                handle?.Invoke(ref context);
+                var payloadType = context.GetPayloadType();
+                Console.WriteLine($"recv: {payloadType}");
+
+                PacketHandler? handle = PacketHandleHelper.Get(payloadType);
+                if (handle is null)
+                {
+                    Console.WriteLine($"unknown packet: {payloadType}");
+                    continue;
+                }
+
+                handle.Invoke(ref context);
             }
 
             // 임시 busy wait 방지
             await Task.Delay(1);
         }
+
+        tcpServer.Close();
     }
 }
