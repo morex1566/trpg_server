@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  
+  <PropertyGroup Label="UserMacros">
+    <ExternalDir>$(SolutionDir)external\</ExternalDir>
+    <ProtobufDir>$(ExternalDir)protobuf\</ProtobufDir>
+    <FlatbufDir>$(ExternalDir)flatbuf\</FlatbufDir>
+    <SpdlogDir>$(ExternalDir)spdlog\</SpdlogDir>
+    <CommonLibDirs>$(SolutionDir)lib\$(Platform)\$(Configuration);$(ProtobufDir);$(FlatbufDir);$(SpdlogDir)</CommonLibDirs>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">$(SolutionDir)lib\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(ConfigurationType)'=='Application'">$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)intermediate\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <CoreDeps>libprotobufd.lib;flatbuffersd.lib;spdlogd.lib</CoreDeps>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <CoreDeps>libprotobuf.lib;flatbuffers.lib;spdlog.lib</CoreDeps>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <DisableSpecificWarnings>4244;4267;26495;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ExternalIncludeDirectories>$(ProtobufDir);$(FlatbufDir);$(SpdlogDir);%(ExternalIncludeDirectories)</ExternalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <PreprocessorDefinitions>_SILENCE_CXX20_IS_POD_DEPRECATION_WARNING;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExternalWarningLevel>Level1</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(CommonLibDirs);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(CommonLibDirs);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link><AdditionalDependencies>$(CoreDeps);%(AdditionalDependencies)</AdditionalDependencies></Link>
+    <Lib><AdditionalDependencies>$(CoreDeps);%(AdditionalDependencies)</AdditionalDependencies></Lib>
+  </ItemDefinitionGroup>
+
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link><AdditionalDependencies>$(CoreDeps);%(AdditionalDependencies)</AdditionalDependencies></Link>
+    <Lib><AdditionalDependencies>$(CoreDeps);%(AdditionalDependencies)</AdditionalDependencies></Lib>
+  </ItemDefinitionGroup>
+</Project>
